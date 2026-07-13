@@ -1,0 +1,211 @@
+.dash-body { padding-bottom: 60px; }
+
+.dash-link-back {
+  color: #eaf6ff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.3);
+  padding: 8px 14px;
+  border-radius: 999px;
+}
+.dash-link-back:hover { background: rgba(255,255,255,0.1); }
+
+.dash-wrap {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 28px 24px 60px;
+}
+
+.dash-warning {
+  background: #fff7d6;
+  border: 1px solid var(--amber);
+  color: #6b4e00;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  padding: 14px 16px;
+  border-radius: var(--radius);
+  margin-bottom: 24px;
+}
+
+.dash-warning code {
+  background: rgba(0,0,0,0.06);
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+
+.dash-panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.dash-panel h2 {
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  margin: 0 0 18px;
+  color: var(--green-deep);
+}
+
+.dash-panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+.dash-panel-head h2 { margin: 0; }
+
+.dash-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.dash-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.dash-form input,
+.dash-form textarea {
+  font-family: var(--sans);
+  font-size: 0.92rem;
+  font-weight: 400;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.dash-form input:focus,
+.dash-form textarea:focus {
+  outline: 2px solid var(--green-mid);
+  outline-offset: 1px;
+}
+
+.dash-hint {
+  font-weight: 400;
+  color: var(--muted);
+  font-size: 0.76rem;
+}
+
+.dash-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  align-items: end;
+}
+
+.dash-check {
+  flex-direction: row !important;
+  align-items: center;
+  gap: 8px !important;
+}
+.dash-check input { width: auto; }
+
+.dash-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.dash-btn-primary {
+  background: var(--green-deep);
+  color: #fff;
+  border: none;
+  padding: 11px 20px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.88rem;
+  cursor: pointer;
+}
+.dash-btn-primary:hover { background: var(--green-mid); }
+
+.dash-btn-ghost {
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  padding: 11px 20px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.88rem;
+  cursor: pointer;
+}
+.dash-btn-ghost:hover { border-color: var(--green-mid); color: var(--green-mid); }
+
+.dash-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.dash-item {
+  display: grid;
+  grid-template-columns: 56px 1fr auto;
+  gap: 14px;
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+
+.dash-item img {
+  width: 56px;
+  height: 56px;
+  object-fit: cover;
+  border-radius: 6px;
+  background: #eef6fb;
+}
+
+.dash-item-info strong {
+  display: block;
+  font-size: 0.9rem;
+}
+.dash-item-info span {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.dash-item-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.dash-item-actions button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+
+.btn-editar { color: var(--green-deep); background: #eaf6ff; }
+.btn-editar:hover { background: #d7edfb; }
+
+.btn-excluir { color: #a3261c; background: #fdeceb; }
+.btn-excluir:hover { background: #fbdad8; }
+
+.dash-empty {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.88rem;
+  padding: 30px 0;
+}
+
+@media (max-width: 560px) {
+  .dash-row { grid-template-columns: 1fr; }
+  .dash-item { grid-template-columns: 44px 1fr; }
+  .dash-item-actions { grid-column: 1 / -1; justify-content: flex-end; }
+}

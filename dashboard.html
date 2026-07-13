@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard — Estamparty</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="dashboard.css">
+</head>
+<body class="dash-body">
+
+<div class="topbar">
+  <div class="brand">
+    <img src="logo.png" alt="Estamparty" class="brand-logo">
+    <div>
+      <span class="mark">Estamparty</span>
+      <span class="tag">Dashboard de produtos</span>
+    </div>
+  </div>
+  <a href="index.html" class="dash-link-back">← Ver catálogo</a>
+</div>
+
+<div class="dash-wrap">
+
+  <div class="dash-warning" id="avisoExport">
+    ⚠️ Este painel guarda as alterações <strong>só neste navegador</strong>. Depois de
+    cadastrar/editar, clique em <strong>"Baixar produtos.json"</strong> no fim da página
+    e substitua o arquivo <code>produtos.json</code> da pasta do site (suba de novo se já
+    estiver publicado). Se você configurou o painel oficial do GitHub (<code>/admin</code>),
+    prefira usá-lo — ele salva direto no repositório, sem precisar baixar nada.
+  </div>
+
+  <section class="dash-panel">
+    <h2 id="formTitulo">Novo produto</h2>
+    <form id="formProduto" class="dash-form">
+      <input type="hidden" id="f_id">
+
+      <label>Nome do produto
+        <input type="text" id="f_nome" required placeholder="Ex: Kit Painel Redondo Festa Infantil">
+      </label>
+
+      <div class="dash-row">
+        <label>Categoria
+          <input type="text" id="f_categoria" required placeholder="Ex: Decoração">
+        </label>
+        <label class="dash-check">
+          <input type="checkbox" id="f_destaque">
+          Marcar como destaque
+        </label>
+      </div>
+
+      <div class="dash-row">
+        <label>Preço (R$)
+          <input type="number" id="f_preco" step="0.01" min="0" required placeholder="49.90">
+        </label>
+        <label>Preço "de" (opcional)
+          <input type="number" id="f_precoDe" step="0.01" min="0" placeholder="69.90">
+        </label>
+      </div>
+
+      <label>Link da imagem (URL)
+        <input type="url" id="f_imagem" required placeholder="https://...">
+      </label>
+
+      <label>Vídeo do Instagram (opcional)
+        <input type="url" id="f_video" placeholder="https://www.instagram.com/reel/XXXXXXX/">
+        <small class="dash-hint">Cole o link do post ou reels do Instagram. Se deixar em branco, mostra a foto.</small>
+      </label>
+
+      <label>Descrição curta
+        <textarea id="f_descricao" rows="2" required placeholder="Conte em 1-2 frases o que é o produto"></textarea>
+      </label>
+
+      <label>Link de afiliado do Mercado Livre
+        <input type="url" id="f_linkML" required placeholder="https://mercadolivre.com/sec/...">
+      </label>
+
+      <div class="dash-actions">
+        <button type="submit" class="dash-btn-primary" id="btnSalvar">Salvar produto</button>
+        <button type="button" class="dash-btn-ghost" id="btnCancelar" style="display:none;">Cancelar edição</button>
+      </div>
+    </form>
+  </section>
+
+  <section class="dash-panel">
+    <div class="dash-panel-head">
+      <h2>Produtos cadastrados (<span id="contador">0</span>)</h2>
+      <button class="dash-btn-primary" id="btnExportar">⬇ Baixar produtos.json</button>
+    </div>
+    <div class="dash-list" id="listaProdutos"></div>
+  </section>
+
+</div>
+
+<script src="dashboard.js"></script>
+</body>
+</html>

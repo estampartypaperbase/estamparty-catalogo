@@ -1,0 +1,30 @@
+backend:
+  name: github
+  repo: SEU-USUARIO/SEU-REPOSITORIO   # troque pelo usuario/nome-do-repo no GitHub
+  branch: main
+  base_url: https://SEU-OAUTH-PROXY.vercel.app   # veja o passo do OAuth no COMO_USAR.md
+  auth_endpoint: auth
+
+media_folder: "imagens-upload"
+public_folder: "imagens-upload"
+
+collections:
+  - name: "produtos"
+    label: "Produtos"
+    files:
+      - name: "catalogo"
+        label: "Catálogo de Produtos"
+        file: "produtos.json"
+        fields:
+          - { label: "Produtos", name: "produtos", widget: "list", label_singular: "Produto", summary: "{{nome}} — R$ {{preco}}", fields: [
+              { label: "ID (número único, não repita)", name: "id", widget: "number", value_type: "int" },
+              { label: "Nome do produto", name: "nome", widget: "string" },
+              { label: "Categoria", name: "categoria", widget: "string" },
+              { label: "Preço", name: "preco", widget: "number", value_type: "float" },
+              { label: "Preço 'de' (opcional, deixe em branco se não houver)", name: "precoDe", widget: "number", value_type: "float", required: false },
+              { label: "Link da imagem (URL)", name: "imagem", widget: "string" },
+              { label: "Link do vídeo do Instagram (opcional)", name: "video", widget: "string", required: false },
+              { label: "Descrição", name: "descricao", widget: "text" },
+              { label: "Link de afiliado do Mercado Livre", name: "linkML", widget: "string" },
+              { label: "Destaque?", name: "destaque", widget: "boolean", default: false }
+            ] }
