@@ -5,7 +5,7 @@
 const STORAGE_KEY = "estamparty_produtos";
 
 // Troque pelo link da sua function depois de publicar na Vercel (veja o COMO_USAR.md)
-const API_BUSCA_ML = "https://SEU-PROJETO-ML-PROXY.vercel.app/api/buscar-produto";
+const API_BUSCA_ML = "https://estamparty-ml-proxy.vercel.app/api/buscar-produto";
 
 async function carregarProdutos() {
   const salvos = localStorage.getItem(STORAGE_KEY);
