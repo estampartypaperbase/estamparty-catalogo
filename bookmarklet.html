@@ -56,12 +56,23 @@ var nome=pegarTexto(&quot;h1.ui-pdp-title&quot;)||pegarMeta(&quot;og:title&quot;
 var precoTexto=pegarTexto(&quot;.ui-pdp-price__second-line .andes-money-amount__fraction&quot;)||pegarTexto(&quot;.andes-money-amount__fraction&quot;);
 var preco=precoTexto?precoTexto.replace(/\./g,&quot;&quot;):&quot;&quot;;
 var imgEl=document.querySelector(&quot;.ui-pdp-gallery__figure img, .ui-pdp-image&quot;);
-var imagem=(imgEl&amp;&amp;(imgEl.src||imgEl.getAttribute(&quot;data-zoom&quot;)))||pegarMeta(&quot;og:image&quot;)||&quot;&quot;;
+var imagemAlta=imgEl?(imgEl.getAttribute(&quot;data-zoom&quot;)||imgEl.getAttribute(&quot;data-src&quot;)):&quot;&quot;;
+var imagemMeta=pegarMeta(&quot;og:image&quot;);
+var imagem=imagemAlta||imagemMeta||(imgEl?imgEl.src:&quot;&quot;)||&quot;&quot;;
+imagem=imagem.replace(/-[OIVW]\.(jpg|webp|png)/i,&quot;-O.$1&quot;);
 var descricao=pegarTexto(&quot;.ui-pdp-description__content&quot;).slice(0,400);
 var link=window.location.href;
 var urlDashboard=&quot;https://estampartypaperbase.github.io/estamparty-catalogo/dashboard.html?nome=&quot;+encodeURIComponent(nome)+&quot;&amp;preco=&quot;+encodeURIComponent(preco)+&quot;&amp;imagem=&quot;+encodeURIComponent(imagem)+&quot;&amp;descricao=&quot;+encodeURIComponent(descricao)+&quot;&amp;link=&quot;+encodeURIComponent(link);
 window.open(urlDashboard,&quot;_blank&quot;);
 })();">📥 Importar pro Estamparty</a>
+  </div>
+
+  <div class="bm-passos" style="background:#eaf6ff; border-color:var(--green-mid);">
+    <strong>⚠️ Já instalou a versão anterior deste botão?</strong>
+    <p style="margin: 8px 0 0; color: var(--green-deep); font-size: 0.85rem;">
+      Corrigi um problema de imagem borrada. Arraste esse botão de novo pra cima do
+      botão salvo na barra de favoritos — ele substitui a versão antiga automaticamente.
+    </p>
   </div>
 
   <div class="bm-passos">
