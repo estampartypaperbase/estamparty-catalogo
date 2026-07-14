@@ -84,21 +84,17 @@
   width: 40%;
 }
 
-.produto-video-youtube {
+.produto-video-youtube,
+.produto-instagram {
   width: 100%;
-  max-width: 400px;
-  height: 710px;
+  max-width: 340px;
+  aspect-ratio: 9 / 16;
+  height: auto;
   border: none;
   display: block;
   border-radius: var(--radius);
   overflow: hidden;
-}
-
-.produto-instagram {
-  width: 100%;
-  height: 560px;
-  border: none;
-  display: block;
+  margin: 0 auto;
 }
 
 .produto-info h1 {
