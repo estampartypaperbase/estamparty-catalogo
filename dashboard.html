@@ -37,6 +37,14 @@
     <form id="formProduto" class="dash-form">
       <input type="hidden" id="f_id">
 
+      <label>Link do anúncio no Mercado Livre (pra buscar dados automaticamente)
+        <div class="dash-busca-row">
+          <input type="url" id="f_linkBusca" placeholder="Cole aqui o link do anúncio ou de afiliado">
+          <button type="button" class="dash-btn-primary" id="btnBuscarML">🔍 Buscar dados</button>
+        </div>
+        <small class="dash-hint" id="statusBusca"></small>
+      </label>
+
       <label>Nome do produto
         <input type="text" id="f_nome" required placeholder="Ex: Kit Painel Redondo Festa Infantil">
       </label>

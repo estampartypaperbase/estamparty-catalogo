@@ -98,6 +98,17 @@
   font-size: 0.76rem;
 }
 
+.dash-busca-row {
+  display: flex;
+  gap: 8px;
+}
+.dash-busca-row input { flex: 1; }
+.dash-busca-row button {
+  white-space: nowrap;
+  padding: 10px 16px;
+  font-size: 0.82rem;
+}
+
 .dash-row {
   display: grid;
   grid-template-columns: 1fr 1fr;

@@ -4,6 +4,9 @@
 
 const STORAGE_KEY = "estamparty_produtos";
 
+// Troque pelo link da sua function depois de publicar na Vercel (veja o COMO_USAR.md)
+const API_BUSCA_ML = "https://SEU-PROJETO-ML-PROXY.vercel.app/api/buscar-produto";
+
 async function carregarProdutos() {
   const salvos = localStorage.getItem(STORAGE_KEY);
   if (salvos) {
@@ -112,6 +115,43 @@ form.addEventListener("submit", (e) => {
 });
 
 btnCancelar.addEventListener("click", limparForm);
+
+document.getElementById("btnBuscarML").addEventListener("click", async () => {
+  const link = document.getElementById("f_linkBusca").value.trim();
+  const status = document.getElementById("statusBusca");
+
+  if (!link) {
+    status.textContent = "Cole um link do anúncio primeiro.";
+    return;
+  }
+
+  if (API_BUSCA_ML.includes("SEU-PROJETO-ML-PROXY")) {
+    status.textContent = "⚠️ A busca automática ainda não foi configurada (veja o COMO_USAR.md).";
+    return;
+  }
+
+  status.textContent = "Buscando dados no Mercado Livre...";
+
+  try {
+    const resposta = await fetch(`${API_BUSCA_ML}?link=${encodeURIComponent(link)}`);
+    const dados = await resposta.json();
+
+    if (dados.erro) {
+      status.textContent = "❌ " + dados.erro;
+      return;
+    }
+
+    document.getElementById("f_nome").value = dados.nome || "";
+    document.getElementById("f_preco").value = dados.preco || "";
+    document.getElementById("f_imagem").value = dados.imagem || "";
+    document.getElementById("f_descricao").value = dados.descricao || "";
+    document.getElementById("f_linkML").value = link;
+
+    status.textContent = "✅ Dados encontrados! Confira e ajuste o que precisar antes de salvar.";
+  } catch (erro) {
+    status.textContent = "❌ Não consegui buscar. Verifique o link e tente de novo.";
+  }
+});
 
 lista.addEventListener("click", (e) => {
   const btn = e.target.closest("button");
