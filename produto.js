@@ -2,10 +2,78 @@ function formatarPreco(valor) {
   return valor.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
 }
 
-function gerarEmbedInstagram(link) {
-  const match = link.match(/instagram\.com\/(p|reel)\/([^/?]+)/);
-  if (!match) return null;
-  return `https://www.instagram.com/${match[1]}/${match[2]}/embed`;
+function gerarEmbedVideo(link) {
+  if (!link) return null;
+
+  const instagram = link.match(/instagram\.com\/(p|reel)\/([^/?]+)/);
+  if (instagram) {
+    return { tipo: "instagram", url: `https://www.instagram.com/${instagram[1]}/${instagram[2]}/embed` };
+  }
+
+  const shortsMatch = link.match(/youtube\.com\/shorts\/([^/?]+)/);
+  const youtuBeMatch = link.match(/youtu\.be\/([^/?]+)/);
+  const watchMatch = link.match(/youtube\.com\/watch\?v=([^&]+)/);
+  const idYoutube = (shortsMatch || youtuBeMatch || watchMatch || [])[1];
+  if (idYoutube) {
+    return { tipo: "youtube", url: `https://www.youtube.com/embed/${idYoutube}` };
+  }
+
+  return null;
+}
+
+function montarGaleria(produto) {
+  const imagens = (produto.imagens && produto.imagens.length) ? produto.imagens : [produto.imagem];
+  if (imagens.length <= 1) {
+    return `<div class="produto-media"><img id="imgPrincipal" src="${imagens[0]}" alt="${produto.nome}"></div>`;
+  }
+
+  const miniaturas = imagens.map((url, i) => `
+    <button class="galeria-mini ${i === 0 ? "ativa" : ""}" data-src="${url}">
+      <img src="${url}" alt="Foto ${i + 1}">
+    </button>
+  `).join("");
+
+  return `
+    <div class="produto-media">
+      <img id="imgPrincipal" src="${imagens[0]}" alt="${produto.nome}">
+    </div>
+    <div class="galeria-miniaturas">${miniaturas}</div>
+  `;
+}
+
+function montarAvaliacao(produto) {
+  if (!produto.avaliacao || (!produto.avaliacao.media && !produto.avaliacao.qtd)) return "";
+  const media = produto.avaliacao.media ? `⭐ ${produto.avaliacao.media}` : "";
+  const qtd = produto.avaliacao.qtd ? `(${produto.avaliacao.qtd} avaliações)` : "";
+  return `<div class="produto-avaliacao">${media} ${qtd}</div>`;
+}
+
+function montarEspecificacoes(produto) {
+  if (!produto.especificacoes || !produto.especificacoes.length) return "";
+
+  const linhas = produto.especificacoes.map(linha => {
+    const [chave, ...resto] = linha.split(":");
+    const valor = resto.join(":").trim();
+    return valor
+      ? `<tr><th>${chave.trim()}</th><td>${valor}</td></tr>`
+      : `<tr><td colspan="2">${linha}</td></tr>`;
+  }).join("");
+
+  return `
+    <h2 class="specs-titulo">Características do produto</h2>
+    <table class="specs-tabela"><tbody>${linhas}</tbody></table>
+  `;
+}
+
+function montarVideo(produto) {
+  const embed = gerarEmbedVideo(produto.video);
+  if (!embed) return "";
+
+  const classe = embed.tipo === "youtube" ? "produto-video-youtube" : "produto-instagram";
+  return `
+    <h2 class="specs-titulo">Vídeo</h2>
+    <iframe class="${classe}" src="${embed.url}" loading="lazy" allowtransparency="true" frameborder="0" scrolling="no" allowfullscreen></iframe>
+  `;
 }
 
 function renderizarProduto(produto, todos) {
@@ -13,17 +81,7 @@ function renderizarProduto(produto, todos) {
   document.getElementById("metaDescricao").setAttribute("content", produto.descricao);
   document.getElementById("ogTitulo").setAttribute("content", produto.nome);
   document.getElementById("ogDescricao").setAttribute("content", produto.descricao);
-  document.getElementById("ogImagem").setAttribute("content", produto.imagem);
-
-  const temDesconto = produto.precoDe && produto.precoDe > produto.preco;
-  const embedInstagram = produto.video ? gerarEmbedInstagram(produto.video) : null;
-
-  let midia;
-  if (embedInstagram) {
-    midia = `<iframe class="produto-instagram" src="${embedInstagram}" loading="lazy" allowtransparency="true" frameborder="0" scrolling="no"></iframe>`;
-  } else {
-    midia = `<img src="${produto.imagem}" alt="${produto.nome}">`;
-  }
+  document.getElementById("ogImagem").setAttribute("content", produto.imagem || (produto.imagens && produto.imagens[0]) || "");
 
   const relacionados = todos
     .filter(p => p.categoria === produto.categoria && p.id !== produto.id)
@@ -33,13 +91,13 @@ function renderizarProduto(produto, todos) {
   wrap.innerHTML = `
     <a href="index.html" class="voltar">← Voltar ao catálogo</a>
     <div class="produto-grid">
-      <div class="produto-media">${midia}</div>
+      ${montarGaleria(produto)}
       <div class="produto-info">
         <div class="card-cat">${produto.categoria}</div>
         <h1>${produto.nome}</h1>
+        ${montarAvaliacao(produto)}
         <p class="produto-desc">${produto.descricao}</p>
         <div class="card-price-row" style="margin-bottom:20px;">
-          ${temDesconto ? `<span class="price-de">${formatarPreco(produto.precoDe)}</span>` : ""}
           <span class="price-por" style="font-size:2rem;">${formatarPreco(produto.preco)}</span>
         </div>
         <a class="card-cta produto-cta" href="${produto.linkML}" target="_blank" rel="noopener noreferrer nofollow sponsored">
@@ -49,13 +107,16 @@ function renderizarProduto(produto, todos) {
       </div>
     </div>
 
+    ${montarVideo(produto)}
+    ${montarEspecificacoes(produto)}
+
     ${relacionados.length ? `
       <h2 class="relacionados-titulo">Você também pode gostar</h2>
       <div class="grid relacionados-grid">
         ${relacionados.map(p => `
           <article class="card">
             <a href="produto.html?id=${p.id}">
-              <div class="card-media"><img src="${p.imagem}" alt="${p.nome}"></div>
+              <div class="card-media"><img src="${p.imagem || (p.imagens && p.imagens[0]) || ""}" alt="${p.nome}"></div>
             </a>
             <div class="card-body">
               <h3 class="card-title"><a href="produto.html?id=${p.id}">${p.nome}</a></h3>
@@ -66,6 +127,16 @@ function renderizarProduto(produto, todos) {
       </div>
     ` : ""}
   `;
+
+  const miniaturas = wrap.querySelectorAll(".galeria-mini");
+  const imgPrincipal = document.getElementById("imgPrincipal");
+  miniaturas.forEach(btn => {
+    btn.addEventListener("click", () => {
+      imgPrincipal.src = btn.dataset.src;
+      miniaturas.forEach(b => b.classList.remove("ativa"));
+      btn.classList.add("ativa");
+    });
+  });
 }
 
 async function iniciar() {

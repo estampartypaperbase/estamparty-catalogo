@@ -101,12 +101,14 @@ function preencherForm(produto) {
   document.getElementById("f_nome").value = produto.nome;
   document.getElementById("f_categoria").value = produto.categoria;
   document.getElementById("f_preco").value = produto.preco;
-  document.getElementById("f_precoDe").value = produto.precoDe || "";
-  document.getElementById("f_imagem").value = produto.imagem;
+  document.getElementById("f_imagens").value = (produto.imagens || [produto.imagem]).filter(Boolean).join("\n");
   document.getElementById("f_video").value = produto.video || "";
   document.getElementById("f_descricao").value = produto.descricao;
   document.getElementById("f_linkML").value = produto.linkML;
   document.getElementById("f_destaque").checked = !!produto.destaque;
+  document.getElementById("f_avMedia").value = produto.avaliacao?.media || "";
+  document.getElementById("f_avQtd").value = produto.avaliacao?.qtd || "";
+  document.getElementById("f_especificacoes").value = (produto.especificacoes || []).join("\n");
 
   editandoId = produto.id;
   formTitulo.textContent = "Editando: " + produto.nome;
@@ -141,18 +143,28 @@ function renderizarLista() {
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
+  const imagens = document.getElementById("f_imagens").value
+    .split("\n").map(s => s.trim()).filter(Boolean);
+
+  const especificacoes = document.getElementById("f_especificacoes").value
+    .split("\n").map(s => s.trim()).filter(Boolean);
+
+  const avMedia = document.getElementById("f_avMedia").value.trim();
+  const avQtd = document.getElementById("f_avQtd").value.trim();
+
   const dados = {
     id: editandoId ?? (produtos.length ? Math.max(...produtos.map(p => p.id)) + 1 : 1),
     nome: document.getElementById("f_nome").value.trim(),
     categoria: document.getElementById("f_categoria").value.trim(),
     preco: parseFloat(document.getElementById("f_preco").value),
-    precoDe: document.getElementById("f_precoDe").value
-      ? parseFloat(document.getElementById("f_precoDe").value) : "",
-    imagem: document.getElementById("f_imagem").value.trim(),
+    imagem: imagens[0] || "",
+    imagens: imagens,
     video: document.getElementById("f_video").value.trim(),
     descricao: document.getElementById("f_descricao").value.trim(),
     linkML: document.getElementById("f_linkML").value.trim(),
-    destaque: document.getElementById("f_destaque").checked
+    destaque: document.getElementById("f_destaque").checked,
+    avaliacao: (avMedia || avQtd) ? { media: avMedia, qtd: avQtd } : null,
+    especificacoes: especificacoes
   };
 
   if (editandoId) {
@@ -195,7 +207,7 @@ document.getElementById("btnBuscarML").addEventListener("click", async () => {
 
     document.getElementById("f_nome").value = dados.nome || "";
     document.getElementById("f_preco").value = dados.preco || "";
-    document.getElementById("f_imagem").value = dados.imagem || "";
+    document.getElementById("f_imagens").value = dados.imagem || "";
     document.getElementById("f_descricao").value = dados.descricao || "";
     document.getElementById("f_linkML").value = link;
 
@@ -265,10 +277,20 @@ function preencherFormDaURL() {
   const params = new URLSearchParams(window.location.search);
   if (!params.has("nome")) return;
 
+  let imagens = [];
+  try { imagens = JSON.parse(params.get("imagens") || "[]"); } catch (e) { /* ignora */ }
+  if (!imagens.length && params.get("imagem")) imagens = [params.get("imagem")];
+
+  let especificacoes = [];
+  try { especificacoes = JSON.parse(params.get("especificacoes") || "[]"); } catch (e) { /* ignora */ }
+
   document.getElementById("f_nome").value = params.get("nome") || "";
   document.getElementById("f_preco").value = params.get("preco") || "";
-  document.getElementById("f_imagem").value = params.get("imagem") || "";
+  document.getElementById("f_imagens").value = imagens.join("\n");
   document.getElementById("f_descricao").value = params.get("descricao") || "";
+  document.getElementById("f_avMedia").value = params.get("avMedia") || "";
+  document.getElementById("f_avQtd").value = params.get("avQtd") || "";
+  document.getElementById("f_especificacoes").value = especificacoes.join("\n");
   document.getElementById("f_linkBusca").value = params.get("link") || "";
   document.getElementById("f_linkML").value = params.get("link") || "";
 

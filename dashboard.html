@@ -60,21 +60,31 @@
       </div>
 
       <div class="dash-row">
-        <label>Preço (R$)
-          <input type="number" id="f_preco" step="0.01" min="0" required placeholder="49.90">
+        <label>Avaliação média (opcional)
+          <input type="text" id="f_avMedia" placeholder="Ex: 4.8">
         </label>
-        <label>Preço "de" (opcional)
-          <input type="number" id="f_precoDe" step="0.01" min="0" placeholder="69.90">
+        <label>Quantidade de avaliações (opcional)
+          <input type="text" id="f_avQtd" placeholder="Ex: 230">
         </label>
       </div>
 
-      <label>Link da imagem (URL)
-        <input type="url" id="f_imagem" required placeholder="https://...">
+      <label>Ficha técnica / características (opcional — uma por linha)
+        <textarea id="f_especificacoes" rows="4" placeholder="Material: Papel couché&#10;Tamanho: A5&#10;Cor: Personalizável"></textarea>
+        <small class="dash-hint">Vem preenchido automaticamente pelo bookmarklet. Pode editar, remover linhas ou adicionar as suas.</small>
       </label>
 
-      <label>Vídeo do Instagram (opcional)
-        <input type="url" id="f_video" placeholder="https://www.instagram.com/reel/XXXXXXX/">
-        <small class="dash-hint">Cole o link do post ou reels do Instagram. Se deixar em branco, mostra a foto.</small>
+      <label>Preço (R$)
+        <input type="number" id="f_preco" step="0.01" min="0" required placeholder="49.90">
+      </label>
+
+      <label>Galeria de fotos (uma URL por linha — a primeira é a foto principal do card)
+        <textarea id="f_imagens" rows="3" required placeholder="https://.../foto1.jpg&#10;https://.../foto2.jpg"></textarea>
+        <small class="dash-hint">Vem preenchido automaticamente pelo bookmarklet com todas as fotos do anúncio. Pra cadastro manual, cole ao menos 1 link de foto.</small>
+      </label>
+
+      <label>Vídeo do Instagram ou YouTube Shorts (opcional)
+        <input type="url" id="f_video" placeholder="https://www.instagram.com/reel/XXXXX/ ou https://youtube.com/shorts/XXXXX">
+        <small class="dash-hint">Cole aqui manualmente na hora de conferir os dados. Aceita link de reels do Instagram ou Shorts do YouTube. Se deixar em branco, mostra a galeria de fotos.</small>
       </label>
 
       <label>Descrição curta

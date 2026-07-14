@@ -9,36 +9,15 @@ function formatarPreco(valor) {
   return valor.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
 }
 
-function gerarEmbedInstagram(link) {
-  const match = link.match(/instagram\.com\/(p|reel)\/([^/?]+)/);
-  if (!match) return null;
-  return `https://www.instagram.com/${match[1]}/${match[2]}/embed`;
-}
-
 function criarCard(produto) {
-  const temDesconto = produto.precoDe && produto.precoDe > produto.preco;
-  const percentual = temDesconto
-    ? Math.round(100 - (produto.preco / produto.precoDe) * 100)
-    : null;
-
-  const embedInstagram = produto.video ? gerarEmbedInstagram(produto.video) : null;
-
-  let midia;
-  if (embedInstagram) {
-    midia = `<iframe class="card-instagram" src="${embedInstagram}" loading="lazy" allowtransparency="true" frameborder="0" scrolling="no"></iframe>`;
-  } else if (produto.video) {
-    midia = `<video src="${produto.video}" muted loop autoplay playsinline poster="${produto.imagem}"></video>`;
-  } else {
-    midia = `<img src="${produto.imagem}" alt="${produto.nome}" loading="lazy">`;
-  }
+  const imagemPrincipal = produto.imagem || (produto.imagens && produto.imagens[0]) || "";
 
   return `
     <article class="card" data-categoria="${produto.categoria}">
       <a class="card-media-link" href="produto.html?id=${produto.id}">
-        <div class="card-media ${embedInstagram ? "card-media-instagram" : ""}">
-          ${midia}
+        <div class="card-media">
+          <img src="${imagemPrincipal}" alt="${produto.nome}" loading="lazy">
           ${produto.destaque ? '<span class="badge-destaque">Destaque</span>' : ""}
-          ${temDesconto ? `<span class="badge-desconto">-${percentual}%</span>` : ""}
         </div>
       </a>
       <div class="card-body">
@@ -46,7 +25,6 @@ function criarCard(produto) {
         <h3 class="card-title"><a href="produto.html?id=${produto.id}">${produto.nome}</a></h3>
         <p class="card-desc">${produto.descricao}</p>
         <div class="card-price-row">
-          ${temDesconto ? `<span class="price-de">${formatarPreco(produto.precoDe)}</span>` : ""}
           <span class="price-por">${formatarPreco(produto.preco)}</span>
         </div>
         <a class="card-cta" href="${produto.linkML}" target="_blank" rel="noopener noreferrer nofollow sponsored">
@@ -79,13 +57,6 @@ function aplicarFiltros() {
       break;
     case "maior-preco":
       lista.sort((a, b) => b.preco - a.preco);
-      break;
-    case "maior-desconto":
-      lista.sort((a, b) => {
-        const descA = a.precoDe ? (1 - a.preco / a.precoDe) : 0;
-        const descB = b.precoDe ? (1 - b.preco / b.precoDe) : 0;
-        return descB - descA;
-      });
       break;
     default:
       lista.sort((a, b) => (b.destaque === true) - (a.destaque === true));
@@ -161,6 +132,7 @@ async function carregarProdutos() {
 
 document.addEventListener("DOMContentLoaded", async () => {
   TODOS_PRODUTOS = await carregarProdutos();
+  if (!TODOS_PRODUTOS.length) return; // erro já foi mostrado dentro de carregarProdutos()
   renderizarFiltros(TODOS_PRODUTOS);
   configurarBusca();
   aplicarFiltros();
