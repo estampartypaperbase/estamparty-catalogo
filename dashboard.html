@@ -92,11 +92,41 @@
     </form>
   </section>
 
+  <section class="dash-panel" id="painelConfig">
+    <h2>⚙️ Publicar direto no GitHub (opcional)</h2>
+    <p class="dash-config-desc">
+      Configure uma vez só e o botão "Salvar produto" já atualiza o site sozinho,
+      sem precisar baixar/colar o <code>produtos.json</code> no GitHub toda vez.
+    </p>
+    <div class="dash-form">
+      <label>Usuário/Repositório (ex: estampartypaperbase/estamparty-catalogo)
+        <input type="text" id="cfg_repo" placeholder="seu-usuario/estamparty-catalogo">
+      </label>
+      <label>Token de acesso do GitHub
+        <input type="password" id="cfg_token" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx">
+        <small class="dash-hint">
+          Crie em github.com → foto de perfil → Settings → Developer settings →
+          Personal access tokens → Fine-grained tokens → "Generate new token". Dê acesso
+          só ao repositório <code>estamparty-catalogo</code>, com permissão
+          "Contents: Read and write". Esse token fica salvo só neste navegador.
+        </small>
+      </label>
+      <div class="dash-actions">
+        <button type="button" class="dash-btn-primary" id="btnSalvarConfig">Salvar configuração</button>
+        <span id="statusConfig" class="dash-hint"></span>
+      </div>
+    </div>
+  </section>
+
   <section class="dash-panel">
     <div class="dash-panel-head">
       <h2>Produtos cadastrados (<span id="contador">0</span>)</h2>
-      <button class="dash-btn-primary" id="btnExportar">⬇ Baixar produtos.json</button>
+      <div class="dash-actions">
+        <button class="dash-btn-primary" id="btnPublicar">☁️ Publicar no GitHub</button>
+        <button class="dash-btn-ghost" id="btnExportar">⬇ Baixar produtos.json</button>
+      </div>
     </div>
+    <small class="dash-hint" id="statusPublicar"></small>
     <div class="dash-list" id="listaProdutos"></div>
   </section>
 

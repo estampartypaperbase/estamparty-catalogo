@@ -3,9 +3,61 @@
 // um novo produtos.js pra substituir o arquivo do site.
 
 const STORAGE_KEY = "estamparty_produtos";
+const CONFIG_KEY = "estamparty_github_config";
 
 // Troque pelo link da sua function depois de publicar na Vercel (veja o COMO_USAR.md)
 const API_BUSCA_ML = "https://estamparty-ml-proxy.vercel.app/api/buscar-produto";
+
+function carregarConfig() {
+  try { return JSON.parse(localStorage.getItem(CONFIG_KEY)) || {}; }
+  catch (e) { return {}; }
+}
+
+function salvarConfig(config) {
+  localStorage.setItem(CONFIG_KEY, JSON.stringify(config));
+}
+
+function base64Utf8(str) {
+  return btoa(unescape(encodeURIComponent(str)));
+}
+
+async function publicarNoGitHub(listaProdutos) {
+  const config = carregarConfig();
+  if (!config.repo || !config.token) {
+    throw new Error("Configure o repositório e o token do GitHub primeiro (seção ⚙️ acima).");
+  }
+
+  const apiUrl = `https://api.github.com/repos/${config.repo}/contents/produtos.json`;
+  const headers = {
+    "Authorization": `Bearer ${config.token}`,
+    "Accept": "application/vnd.github+json"
+  };
+
+  // 1. Pega o SHA atual do arquivo (o GitHub exige isso pra saber que estamos
+  //    atualizando o arquivo certo, e não sobrescrevendo por engano)
+  const respAtual = await fetch(apiUrl, { headers });
+  if (!respAtual.ok) {
+    throw new Error("Não consegui acessar o repositório. Confira o nome (usuario/repositorio) e o token.");
+  }
+  const dadosAtuais = await respAtual.json();
+
+  // 2. Envia o novo conteúdo
+  const conteudo = JSON.stringify({ produtos: listaProdutos }, null, 2);
+  const respSalvar = await fetch(apiUrl, {
+    method: "PUT",
+    headers: { ...headers, "Content-Type": "application/json" },
+    body: JSON.stringify({
+      message: "Atualiza produtos.json via dashboard",
+      content: base64Utf8(conteudo),
+      sha: dadosAtuais.sha
+    })
+  });
+
+  if (!respSalvar.ok) {
+    const erro = await respSalvar.json().catch(() => ({}));
+    throw new Error(erro.message || "Falha ao salvar no GitHub.");
+  }
+}
 
 async function carregarProdutos() {
   const salvos = localStorage.getItem(STORAGE_KEY);
@@ -173,6 +225,31 @@ lista.addEventListener("click", (e) => {
   }
 });
 
+document.getElementById("btnSalvarConfig").addEventListener("click", () => {
+  const repo = document.getElementById("cfg_repo").value.trim();
+  const token = document.getElementById("cfg_token").value.trim();
+  const status = document.getElementById("statusConfig");
+
+  if (!repo || !token) {
+    status.textContent = "Preencha os dois campos.";
+    return;
+  }
+
+  salvarConfig({ repo, token });
+  status.textContent = "✅ Configuração salva neste navegador.";
+});
+
+document.getElementById("btnPublicar").addEventListener("click", async () => {
+  const status = document.getElementById("statusPublicar");
+  status.textContent = "Publicando no GitHub...";
+  try {
+    await publicarNoGitHub(produtos);
+    status.textContent = "✅ Publicado! O site atualiza em 1-2 minutos.";
+  } catch (erro) {
+    status.textContent = "❌ " + erro.message;
+  }
+});
+
 document.getElementById("btnExportar").addEventListener("click", () => {
   const conteudo = JSON.stringify({ produtos }, null, 2);
   const blob = new Blob([conteudo], { type: "application/json" });
@@ -205,4 +282,8 @@ function preencherFormDaURL() {
   produtos = await carregarProdutos();
   renderizarLista();
   preencherFormDaURL();
+
+  const config = carregarConfig();
+  if (config.repo) document.getElementById("cfg_repo").value = config.repo;
+  if (config.token) document.getElementById("cfg_token").value = config.token;
 })();
