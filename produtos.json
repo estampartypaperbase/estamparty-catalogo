@@ -1,18 +1,6 @@
 {
   "produtos": [
     {
-      "id": 5,
-      "nome": "Planner Diário Pequeno Príncipe Personalizado",
-      "categoria": "Planner",
-      "preco": 78,
-      "precoDe": "",
-      "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_995203-MLB89918399515_082025-F-planner-diario-pequeno-principe-personalizado.webp",
-      "video": "https://www.instagram.com/p/DavkEw5p-0c/",
-      "descricao": "Você merece um planejamento que seja tão único quanto você! Com o Planner Diário Personalizado, a organização do seu dia a dia nunca foi tão especial.\n\nPersonalização Total: Deixe sua marca no seu planner! A capa e contra capa podem ser personalizadas sem nenhum custo adicional, tornando-o verdadeiramente seu.",
-      "linkML": "https://produto.mercadolivre.com.br/MLB-4103282799-planner-diario-pequeno-principe-personalizado-_JM",
-      "destaque": true
-    },
-    {
       "id": 6,
       "nome": "Planner Diário Pequeno Principe Personalizado",
       "categoria": "Planner Diário",
