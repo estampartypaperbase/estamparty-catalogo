@@ -1,54 +1,6 @@
 {
   "produtos": [
     {
-      "id": 1,
-      "nome": "Fone de Ouvido Bluetooth JBL Tune 510BT",
-      "categoria": "Eletrônicos",
-      "preco": 249.9,
-      "precoDe": 329.9,
-      "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_838669-MLA47569369553_092021-F.jpg",
-      "video": "",
-      "descricao": "Fone sem fio com até 40h de bateria, dobrável e com áudio JBL Pure Bass.",
-      "linkML": "https://mercadolivre.com/sec/COLOQUE_SEU_LINK_1",
-      "destaque": true
-    },
-    {
-      "id": 2,
-      "nome": "Cafeteira Elétrica Mondial 30 Xícaras",
-      "categoria": "Casa",
-      "preco": 119.9,
-      "precoDe": "",
-      "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_838669-MLA47569369554_092021-F.jpg",
-      "video": "",
-      "descricao": "Cafeteira compacta, ideal para o dia a dia, com jarra de vidro resistente.",
-      "linkML": "https://mercadolivre.com/sec/COLOQUE_SEU_LINK_2",
-      "destaque": false
-    },
-    {
-      "id": 3,
-      "nome": "Kit Panelas Antiaderentes 5 Peças",
-      "categoria": "Casa",
-      "preco": 189.9,
-      "precoDe": 259.9,
-      "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_838669-MLA47569369555_092021-F.jpg",
-      "video": "",
-      "descricao": "Kit completo com revestimento antiaderente, cabo ergonômico e fácil de limpar.",
-      "linkML": "https://mercadolivre.com/sec/COLOQUE_SEU_LINK_3",
-      "destaque": false
-    },
-    {
-      "id": 4,
-      "nome": "Smartwatch Esportivo Tela Amoled",
-      "categoria": "Eletrônicos",
-      "preco": 179.9,
-      "precoDe": "",
-      "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_838669-MLA47569369556_092021-F.jpg",
-      "video": "",
-      "descricao": "Monitor cardíaco, contador de passos, resistente à água, várias cores.",
-      "linkML": "https://mercadolivre.com/sec/COLOQUE_SEU_LINK_4",
-      "destaque": true
-    },
-    {
       "id": 5,
       "nome": "Planner Diário Pequeno Príncipe Personalizado",
       "categoria": "Planner",
@@ -59,6 +11,30 @@
       "descricao": "Você merece um planejamento que seja tão único quanto você! Com o Planner Diário Personalizado, a organização do seu dia a dia nunca foi tão especial.\n\nPersonalização Total: Deixe sua marca no seu planner! A capa e contra capa podem ser personalizadas sem nenhum custo adicional, tornando-o verdadeiramente seu.",
       "linkML": "https://produto.mercadolivre.com.br/MLB-4103282799-planner-diario-pequeno-principe-personalizado-_JM",
       "destaque": true
+    },
+    {
+      "id": 6,
+      "nome": "Planner Diário Pequeno Principe Personalizado",
+      "categoria": "Planner Diário",
+      "preco": 74,
+      "precoDe": "",
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_995203-MLB89918399515_082025-R.webp",
+      "video": "",
+      "descricao": "ATENÇÃO: Para a disponibilidade nos dias é NECESSÁRIO que a PERSONALIZAÇÃO seja acertada no momento da compra. Envie mensagem e faça contato para que possamos acertar a temática e proceder com montagem e personalização a tempo para a produção. Em caso de não resposta ou aprovação dentro do tempo previsto, o produto será enviado com a CAPA PADRÃO DO ANÚNCIO NÃO PERSONALIZADO!\n\nPLANNER DIARIO É PERM",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-4103282799-planner-diario-pequeno-principe-personalizado-_JM",
+      "destaque": false
+    },
+    {
+      "id": 7,
+      "nome": "Caderno Assinatura Primeira Eucaristia Unissex Personalizado",
+      "categoria": "Assinaturas",
+      "preco": 75,
+      "precoDe": "",
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_892666-MLB89367660459_082025-R.webp",
+      "video": "",
+      "descricao": "Celebre a Primeira Eucaristia com uma lembrança única e cheia de significado.\n\nEste Caderno de Assinaturas é 100% personalizado com o nome da criança, transformando um dos dias mais especiais da vida dela em uma recordação para guardar para sempre. Perfeito como presente de padrinhos, avós ou catequistas.\n\nO que você encontra dentro do caderno:\n\nSobre Mim — espaço para registrar sentimentos e pens",
+      "linkML": "https://www.mercadolivre.com.br/caderno-assinatura-primeira-eucaristia-unissex-personalizado/up/MLBU786058786?pdp_filters=item_id:MLB3743946211",
+      "destaque": false
     }
   ]
 }
