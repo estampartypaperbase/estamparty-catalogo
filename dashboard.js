@@ -184,7 +184,25 @@ document.getElementById("btnExportar").addEventListener("click", () => {
   URL.revokeObjectURL(url);
 });
 
+function preencherFormDaURL() {
+  const params = new URLSearchParams(window.location.search);
+  if (!params.has("nome")) return;
+
+  document.getElementById("f_nome").value = params.get("nome") || "";
+  document.getElementById("f_preco").value = params.get("preco") || "";
+  document.getElementById("f_imagem").value = params.get("imagem") || "";
+  document.getElementById("f_descricao").value = params.get("descricao") || "";
+  document.getElementById("f_linkBusca").value = params.get("link") || "";
+  document.getElementById("f_linkML").value = params.get("link") || "";
+
+  document.getElementById("statusBusca").textContent =
+    "✅ Dados trazidos do bookmarklet! Confira, ajuste a categoria e troque o link pelo de afiliado antes de salvar.";
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
 (async function iniciarDashboard() {
   produtos = await carregarProdutos();
   renderizarLista();
+  preencherFormDaURL();
 })();

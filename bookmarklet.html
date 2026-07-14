@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Instalar botão de importação — Estamparty</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .bm-wrap { max-width: 640px; margin: 0 auto; padding: 50px 24px 70px; }
+  .bm-wrap h1 { font-family: var(--serif); font-size: 1.8rem; color: var(--green-deep); margin-bottom: 10px; }
+  .bm-wrap p { color: var(--muted); line-height: 1.65; margin-bottom: 16px; }
+  .bm-botao-area {
+    background: var(--panel); border: 2px dashed var(--line); border-radius: var(--radius);
+    padding: 30px; text-align: center; margin: 26px 0;
+  }
+  .bm-link {
+    display: inline-block; background: var(--green-deep); color: #fff; font-weight: 700;
+    padding: 14px 26px; border-radius: 999px; text-decoration: none; font-size: 0.95rem;
+    cursor: grab;
+  }
+  .bm-passos { background: #fff7d6; border: 1px solid var(--amber); border-radius: var(--radius); padding: 18px 20px; margin-top: 20px; }
+  .bm-passos li { margin-bottom: 8px; color: #6b4e00; font-size: 0.9rem; }
+  code { background: rgba(0,0,0,0.06); padding: 1px 6px; border-radius: 4px; }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand">
+    <img src="logo.png" alt="Estamparty" class="brand-logo">
+    <div>
+      <span class="mark">Estamparty</span>
+      <span class="tag">Instalar botão de importação</span>
+    </div>
+  </div>
+  <nav class="topnav">
+    <a href="index.html">Catálogo</a>
+    <a href="dashboard.html">Dashboard</a>
+  </nav>
+</div>
+
+<div class="bm-wrap">
+  <h1>Botão "Importar pro Estamparty"</h1>
+  <p>
+    Esse botão puxa nome, foto, preço e descrição direto de um anúncio do Mercado Livre
+    enquanto você está navegando nele — sem bloqueio, porque roda no seu próprio navegador.
+  </p>
+
+  <div class="bm-botao-area">
+    <a class="bm-link" href="javascript:(function(){
+function pegarTexto(seletor){var el=document.querySelector(seletor);return el?el.innerText.trim():&quot;&quot;;}
+function pegarMeta(prop){var el=document.querySelector('meta[property=&quot;'+prop+'&quot;]');return el?el.getAttribute(&quot;content&quot;):&quot;&quot;;}
+var nome=pegarTexto(&quot;h1.ui-pdp-title&quot;)||pegarMeta(&quot;og:title&quot;)||document.title;
+var precoTexto=pegarTexto(&quot;.ui-pdp-price__second-line .andes-money-amount__fraction&quot;)||pegarTexto(&quot;.andes-money-amount__fraction&quot;);
+var preco=precoTexto?precoTexto.replace(/\./g,&quot;&quot;):&quot;&quot;;
+var imgEl=document.querySelector(&quot;.ui-pdp-gallery__figure img, .ui-pdp-image&quot;);
+var imagem=(imgEl&amp;&amp;(imgEl.src||imgEl.getAttribute(&quot;data-zoom&quot;)))||pegarMeta(&quot;og:image&quot;)||&quot;&quot;;
+var descricao=pegarTexto(&quot;.ui-pdp-description__content&quot;).slice(0,400);
+var link=window.location.href;
+var urlDashboard=&quot;https://estampartypaperbase.github.io/estamparty-catalogo/dashboard.html?nome=&quot;+encodeURIComponent(nome)+&quot;&amp;preco=&quot;+encodeURIComponent(preco)+&quot;&amp;imagem=&quot;+encodeURIComponent(imagem)+&quot;&amp;descricao=&quot;+encodeURIComponent(descricao)+&quot;&amp;link=&quot;+encodeURIComponent(link);
+window.open(urlDashboard,&quot;_blank&quot;);
+})();">📥 Importar pro Estamparty</a>
+  </div>
+
+  <div class="bm-passos">
+    <strong>Como instalar (uma vez só):</strong>
+    <ol>
+      <li>Se a barra de favoritos não estiver visível no seu navegador, ative com <code>Ctrl+Shift+B</code> (Chrome/Edge)</li>
+      <li>Arraste o botão azul-escuro acima ("📥 Importar pro Estamparty") pra essa barra de favoritos</li>
+      <li>Pronto — ele fica salvo lá</li>
+    </ol>
+    <strong style="display:block; margin-top:14px;">Como usar, toda vez:</strong>
+    <ol>
+      <li>Abra qualquer anúncio no Mercado Livre normalmente</li>
+      <li>Clique no botão salvo na barra de favoritos</li>
+      <li>Uma aba nova abre com o dashboard, já com nome/foto/preço/descrição preenchidos</li>
+      <li>Confira os dados, escolha a categoria, troque o link pelo de afiliado, e salve</li>
+    </ol>
+  </div>
+</div>
+
+</body>
+</html>
