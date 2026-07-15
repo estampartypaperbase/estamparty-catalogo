@@ -21,23 +21,24 @@ function gerarEmbedVideo(link) {
   return null;
 }
 
-function montarGaleria(produto) {
-  const imagens = (produto.imagens && produto.imagens.length) ? produto.imagens : [produto.imagem];
-  if (imagens.length <= 1) {
-    return `<div class="produto-media"><img id="imgPrincipal" src="${imagens[0]}" alt="${produto.nome}"></div>`;
-  }
-
-  const miniaturas = imagens.map((url, i) => `
-    <button class="galeria-mini ${i === 0 ? "ativa" : ""}" data-src="${url}">
-      <img src="${url}" alt="Foto ${i + 1}">
-    </button>
-  `).join("");
-
+function montarHero(produto) {
+  const imagemPrincipal = produto.imagem || (produto.imagens && produto.imagens[0]) || "";
   return `
-    <div class="produto-media">
-      <img id="imgPrincipal" src="${imagens[0]}" alt="${produto.nome}">
+    <div class="produto-media-principal">
+      <img src="${imagemPrincipal}" alt="${produto.nome}">
+      ${produto.novo ? '<span class="badge-novo">Novo</span>' : ""}
+      ${produto.destaque ? '<span class="badge-destaque-topo">Destaque</span>' : ""}
     </div>
-    <div class="galeria-miniaturas">${miniaturas}</div>
+    <div class="produto-info">
+      <div class="card-cat">${produto.categoria}</div>
+      <h1>${produto.nome}</h1>
+      ${montarAvaliacao(produto)}
+      <div class="produto-preco">${formatarPreco(produto.preco)}</div>
+      <a class="cta-amarelo" href="${produto.linkML}" target="_blank" rel="noopener noreferrer nofollow sponsored">
+        Comprar no Mercado Livre
+      </a>
+      <p class="produto-aviso">Você será direcionado ao Mercado Livre para finalizar a compra com segurança.</p>
+    </div>
   `;
 }
 
@@ -46,6 +47,38 @@ function montarAvaliacao(produto) {
   const media = produto.avaliacao.media ? `⭐ ${produto.avaliacao.media}` : "";
   const qtd = produto.avaliacao.qtd ? `(${produto.avaliacao.qtd} avaliações)` : "";
   return `<div class="produto-avaliacao">${media} ${qtd}</div>`;
+}
+
+function montarGaleriaEVideo(produto) {
+  const imagens = (produto.imagens && produto.imagens.length) ? produto.imagens : [produto.imagem];
+  const outrasFotos = imagens.slice(1);
+  const embed = gerarEmbedVideo(produto.video);
+
+  const colGaleria = outrasFotos.length ? `
+    <div>
+      <h2 class="specs-titulo">Demais fotos do produto</h2>
+      <div class="galeria-grade">
+        ${outrasFotos.map(url => `
+          <button class="galeria-grade-item" data-src="${url}">
+            <img src="${url}" alt="Foto do produto">
+          </button>
+        `).join("")}
+      </div>
+    </div>
+  ` : "";
+
+  const colVideo = embed ? `
+    <div>
+      <h2 class="specs-titulo">Vídeo disponível</h2>
+      <div class="video-moldura">
+        <iframe src="${embed.url}" loading="lazy" allowtransparency="true" frameborder="0" scrolling="no" allowfullscreen></iframe>
+      </div>
+    </div>
+  ` : "";
+
+  if (!colGaleria && !colVideo) return "";
+
+  return `<div class="produto-galeria-video">${colGaleria}${colVideo}</div>`;
 }
 
 function montarEspecificacoes(produto) {
@@ -65,15 +98,15 @@ function montarEspecificacoes(produto) {
   `;
 }
 
-function montarVideo(produto) {
-  const embed = gerarEmbedVideo(produto.video);
-  if (!embed) return "";
+function montarDescricao(produto) {
+  if (!produto.descricao) return "";
+  const paragrafos = produto.descricao.split(/\n+/).filter(Boolean);
+  const html = paragrafos.map(linha => {
+    const pareceTitulo = linha.length < 55 && !linha.trim().endsWith(".") && !linha.includes(",");
+    return pareceTitulo ? `<p class="desc-subtitulo">${linha}</p>` : `<p>${linha}</p>`;
+  }).join("");
 
-  const classe = embed.tipo === "youtube" ? "produto-video-youtube" : "produto-instagram";
-  return `
-    <h2 class="specs-titulo">Vídeo</h2>
-    <iframe class="${classe}" src="${embed.url}" loading="lazy" allowtransparency="true" frameborder="0" scrolling="no" allowfullscreen></iframe>
-  `;
+  return `<h2 class="specs-titulo">Descrição</h2><div class="produto-descricao-completa">${html}</div>`;
 }
 
 function renderizarProduto(produto, todos) {
@@ -90,24 +123,10 @@ function renderizarProduto(produto, todos) {
   const wrap = document.getElementById("produtoWrap");
   wrap.innerHTML = `
     <a href="index.html" class="voltar">← Voltar ao catálogo</a>
-    <div class="produto-grid">
-      ${montarGaleria(produto)}
-      <div class="produto-info">
-        <div class="card-cat">${produto.categoria}</div>
-        <h1>${produto.nome}</h1>
-        ${montarAvaliacao(produto)}
-        <p class="produto-desc">${produto.descricao}</p>
-        <div class="card-price-row" style="margin-bottom:20px;">
-          <span class="price-por" style="font-size:2rem;">${formatarPreco(produto.preco)}</span>
-        </div>
-        <a class="card-cta produto-cta" href="${produto.linkML}" target="_blank" rel="noopener noreferrer nofollow sponsored">
-          Comprar no Mercado Livre
-        </a>
-        <p class="produto-aviso">Você será direcionado ao Mercado Livre para finalizar a compra com segurança.</p>
-      </div>
-    </div>
+    <div class="produto-grid">${montarHero(produto)}</div>
 
-    ${montarVideo(produto)}
+    ${montarGaleriaEVideo(produto)}
+    ${montarDescricao(produto)}
     ${montarEspecificacoes(produto)}
 
     ${relacionados.length ? `
@@ -128,13 +147,12 @@ function renderizarProduto(produto, todos) {
     ` : ""}
   `;
 
-  const miniaturas = wrap.querySelectorAll(".galeria-mini");
-  const imgPrincipal = document.getElementById("imgPrincipal");
+  const miniaturas = wrap.querySelectorAll(".galeria-grade-item");
+  const imgPrincipal = wrap.querySelector(".produto-media-principal img");
   miniaturas.forEach(btn => {
     btn.addEventListener("click", () => {
-      imgPrincipal.src = btn.dataset.src;
-      miniaturas.forEach(b => b.classList.remove("ativa"));
-      btn.classList.add("ativa");
+      if (imgPrincipal) imgPrincipal.src = btn.dataset.src;
+      window.scrollTo({ top: 0, behavior: "smooth" });
     });
   });
 }

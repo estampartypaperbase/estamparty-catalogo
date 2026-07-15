@@ -11,16 +11,14 @@
 </head>
 <body class="dash-body">
 
-<div class="topbar">
-  <div class="brand">
-    <img src="logo.png" alt="Estamparty" class="brand-logo">
-    <div>
-      <span class="mark">Estamparty</span>
-      <span class="tag">Dashboard de produtos</span>
-    </div>
-  </div>
-  <a href="index.html" class="dash-link-back">← Ver catálogo</a>
-</div>
+<header class="site-header">
+  <nav class="site-nav">
+    <a href="index.html">Catálogo</a>
+    <a href="bookmarklet.html">Importar produto</a>
+  </nav>
+  <div class="gold-rule"></div>
+  <a href="index.html" class="logo-link"><img src="logo.png" alt="Estamparty" class="logo-wordmark"></a>
+</header>
 
 <div class="dash-wrap">
 
@@ -58,6 +56,11 @@
           Marcar como destaque
         </label>
       </div>
+
+      <label class="dash-check">
+        <input type="checkbox" id="f_novo">
+        Marcar como "Novo" (selo redondo no card)
+      </label>
 
       <div class="dash-row">
         <label>Avaliação média (opcional)

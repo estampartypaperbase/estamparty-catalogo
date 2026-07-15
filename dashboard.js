@@ -106,6 +106,7 @@ function preencherForm(produto) {
   document.getElementById("f_descricao").value = produto.descricao;
   document.getElementById("f_linkML").value = produto.linkML;
   document.getElementById("f_destaque").checked = !!produto.destaque;
+  document.getElementById("f_novo").checked = !!produto.novo;
   document.getElementById("f_avMedia").value = produto.avaliacao?.media || "";
   document.getElementById("f_avQtd").value = produto.avaliacao?.qtd || "";
   document.getElementById("f_especificacoes").value = (produto.especificacoes || []).join("\n");
@@ -163,6 +164,7 @@ form.addEventListener("submit", (e) => {
     descricao: document.getElementById("f_descricao").value.trim(),
     linkML: document.getElementById("f_linkML").value.trim(),
     destaque: document.getElementById("f_destaque").checked,
+    novo: document.getElementById("f_novo").checked,
     avaliacao: (avMedia || avQtd) ? { media: avMedia, qtd: avQtd } : null,
     especificacoes: especificacoes
   };

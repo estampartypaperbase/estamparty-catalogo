@@ -17,7 +17,8 @@ function criarCard(produto) {
       <a class="card-media-link" href="produto.html?id=${produto.id}">
         <div class="card-media">
           <img src="${imagemPrincipal}" alt="${produto.nome}" loading="lazy">
-          ${produto.destaque ? '<span class="badge-destaque">Destaque</span>' : ""}
+          ${produto.novo ? '<span class="badge-novo">Novo</span>' : ""}
+          ${produto.destaque ? '<span class="badge-destaque-topo">Destaque</span>' : ""}
         </div>
       </a>
       <div class="card-body">
