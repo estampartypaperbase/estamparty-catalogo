@@ -70,21 +70,57 @@
       "especificacoes": []
     },
     {
-      "id": 11,
+      "id": 12,
       "nome": "Agenda Para Creche Ou Berçário Personalizada",
       "categoria": "Agenda Creche",
       "preco": 70,
-      "imagem": "https://http2.mlstatic.com/D_Q_NP_862188-MLB94200891543_102025-R.webp",
+      "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_862188-MLB94200891543_102025-F.webp",
       "imagens": [
-        "https://http2.mlstatic.com/D_Q_NP_862188-MLB94200891543_102025-R.webp"
+        "https://http2.mlstatic.com/D_NQ_NP_2X_862188-MLB94200891543_102025-F.webp",
+        "https://http2.mlstatic.com/D_NQ_NP_697757-MLA74242262889_012024-F.jpg",
+        "https://http2.mlstatic.com/D_NQ_NP_2X_657865-MLB74503442585_022024-F.webp",
+        "https://http2.mlstatic.com/D_NQ_NP_2X_833184-MLB74503491959_022024-F.webp",
+        "https://http2.mlstatic.com/D_NQ_NP_2X_628786-MLB73785195050_012024-F.webp",
+        "https://http2.mlstatic.com/D_NQ_NP_2X_787272-MLB93777044122_102025-F.webp",
+        "https://http2.mlstatic.com/D_NQ_NP_2X_896059-MLB94200683507_102025-F.webp",
+        "https://http2.mlstatic.com/D_NQ_NP_2X_812380-MLB94201108021_102025-F.webp",
+        "https://http2.mlstatic.com/D_NQ_NP_2X_922775-MLB94201395373_102025-F.webp",
+        "https://http2.mlstatic.com/D_NQ_NP_712433-MLA79196111100_092024-F.jpg",
+        "https://http2.mlstatic.com/D_NQ_NP_732309-MLA76328270865_052024-F.jpg",
+        "https://http2.mlstatic.com/D_Q_NP_862188-MLB94200891543_102025-F.webp",
+        "https://http2.mlstatic.com/frontend-assets/vpp-frontend/picture-play.svg",
+        "https://http2.mlstatic.com/D_Q_NP_657865-MLB74503442585_022024-F.webp",
+        "https://http2.mlstatic.com/D_Q_NP_833184-MLB74503491959_022024-F.webp",
+        "https://http2.mlstatic.com/D_Q_NP_628786-MLB73785195050_012024-F.webp",
+        "https://http2.mlstatic.com/D_Q_NP_787272-MLB93777044122_102025-F.webp",
+        "https://http2.mlstatic.com/D_Q_NP_896059-MLB94200683507_102025-F.webp",
+        "https://http2.mlstatic.com/D_Q_NP_812380-MLB94201108021_102025-F.webp"
       ],
-      "video": "",
+      "video": "https://www.instagram.com/reel/DKk1GYKOead/",
       "descricao": "VERSÃO ATUALIZADA COM CALENDÁRIO 2025\n\nDescrição:\n\nDetalhes do caderno:\nTamanho do Caderno: Miolo 15X21cm / Capa 15,5x21,5cm\nMiolo: Papel Sulfite 75g\nCapa: Papelão com acabamento HOLOGRAFICO\nEncadernação: Wireo\nAcabamento: Elástico colorido com passante, com corrente de bolinha e tassel com missangas\n\n-------------------------------------------------------------------------------------------------",
       "linkML": "https://www.mercadolivre.com.br/agenda-para-creche-ou-bercario-personalizada/up/MLBU756054778?pdp_filters=item_id:MLB2888513144",
-      "destaque": false,
+      "destaque": true,
       "novo": false,
-      "avaliacao": null,
-      "especificacoes": []
+      "avaliacao": {
+        "media": "5.0",
+        "qtd": "8"
+      },
+      "especificacoes": [
+        "Marca: Estamparty",
+        "Fabricante: Estamparty",
+        "Linha: Escolar Creche Maternal Berçário Permanente",
+        "Modelo: Escolar Creche Maternal Berçário Permanente",
+        "Tipo de produto: Agenda",
+        "Nome do desenho: capa",
+        "Formato de venda: Unidade",
+        "Comprimento x Largura: 21 cm x 15 cm",
+        "Material da capa: Papelão",
+        "Tipo de encadernação: Wire-O",
+        "Tamanho das folhas: A5",
+        "Quantidade de folhas: 104",
+        "É personalizado: Sim",
+        "Com materiais reciclados: Não"
+      ]
     }
   ]
 }
