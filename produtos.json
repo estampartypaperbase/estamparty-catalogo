@@ -51,6 +51,53 @@
         "É personalizado: Sim",
         "Com materiais reciclados: Não"
       ]
+    },
+    {
+      "id": 14,
+      "nome": "Diário Das Emoções Rebecca Bonbon Personalizado",
+      "categoria": "Diários",
+      "preco": 76,
+      "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_618744-MLB97657526095_112025-F.webp",
+      "imagens": [
+        "https://http2.mlstatic.com/D_NQ_NP_2X_618744-MLB97657526095_112025-F.webp",
+        "https://http2.mlstatic.com/D_NQ_NP_977114-MLA109124282858_042026-F.jpg",
+        "https://http2.mlstatic.com/D_NQ_NP_2X_997467-MLB97197377766_112025-F.webp",
+        "https://http2.mlstatic.com/D_NQ_NP_2X_734745-MLB97197377638_112025-F.webp",
+        "https://http2.mlstatic.com/D_NQ_NP_2X_817942-MLB97196723500_112025-F.webp",
+        "https://http2.mlstatic.com/D_NQ_NP_2X_813262-MLB97657515663_112025-F.webp",
+        "https://http2.mlstatic.com/D_Q_NP_618744-MLB97657526095_112025-F.webp",
+        "https://http2.mlstatic.com/frontend-assets/vpp-frontend/picture-play.svg",
+        "https://http2.mlstatic.com/D_Q_NP_997467-MLB97197377766_112025-F.webp",
+        "https://http2.mlstatic.com/D_Q_NP_734745-MLB97197377638_112025-F.webp",
+        "https://http2.mlstatic.com/D_Q_NP_817942-MLB97196723500_112025-F.webp",
+        "https://http2.mlstatic.com/D_Q_NP_813262-MLB97657515663_112025-F.webp"
+      ],
+      "video": "",
+      "descricao": "ATENÇÃO: Para a disponibilidade informada é NECESSÁRIO que a PERSONALIZAÇÃO seja acertada no momento da compra. Envie mensagem e faça contato para que possamos acertar a temática e proceder com montagem e personalização a tempo para a produção. Em caso de não resposta ou aprovação dentro do tempo previsto, o produto será enviado com a CAPA PADRÃO DO ANÚNCIO NÃO PERSONALIZADO!\n\nDescrição do Produto",
+      "linkML": "https://www.mercadolivre.com.br/diario-das-emocoes-rebecca-bonbon-personalizado/up/MLBU3544910853?pdp_filters=item_id:MLB5917340718",
+      "destaque": false,
+      "novo": false,
+      "avaliacao": {
+        "media": "5.0",
+        "qtd": "8"
+      },
+      "especificacoes": [
+        "Marca: ESTAMPARTY",
+        "Fabricante: ESTAMPARTY",
+        "Linha: DIÁRIO DAS EMOÇÕES REBECCA BONBON",
+        "Modelo: DIÁRIO DAS EMOÇÕES REBECCA BONBON",
+        "Tipo de produto: Diário pessoal",
+        "Cor da capa: Capa 1",
+        "Ano: 2026",
+        "Formato de venda: Unidade",
+        "Comprimento x Largura: 21 cm x 15 cm",
+        "Material da capa: Capa dura",
+        "Tipo de encadernação: Wire-O",
+        "Tamanho das folhas: A5",
+        "Quantidade de folhas: 102",
+        "É personalizado: Sim",
+        "Com materiais reciclados: Não"
+      ]
     }
   ]
 }
