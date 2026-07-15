@@ -489,6 +489,11 @@ a { color: inherit; }
   line-height: 1.3;
   margin: 0 0 8px;
 }
+.card-title a {
+  color: var(--ink);
+  text-decoration: none;
+}
+.card-title a:hover { color: var(--green-mid); }
 
 .card-desc {
   font-size: 0.85rem;

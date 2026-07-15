@@ -24,7 +24,6 @@ function criarCard(produto) {
       <div class="card-body">
         <div class="card-cat">${produto.categoria}</div>
         <h3 class="card-title"><a href="produto.html?id=${produto.id}">${produto.nome}</a></h3>
-        <p class="card-desc">${produto.descricao}</p>
         <div class="card-price-row">
           <span class="price-por">${formatarPreco(produto.preco)}</span>
         </div>
