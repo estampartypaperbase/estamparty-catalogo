@@ -66,7 +66,12 @@
         <input type="number" id="f_preco" step="0.01" min="0" required placeholder="49.90">
       </label>
 
-      <label>Link da foto (URL)
+      <label>Enviar foto do computador (sobe direto pro GitHub, opcional)
+        <input type="file" id="f_arquivo" accept="image/*">
+        <small class="dash-hint" id="statusUploadProduto"></small>
+      </label>
+
+      <label>— ou link da foto (URL)
         <input type="url" id="f_imagem" required placeholder="https://...">
         <small class="dash-hint">Vem preenchido automaticamente pelo bookmarklet.</small>
       </label>
@@ -86,20 +91,21 @@
     <h2>🖼️ Banner do topo (até 3 imagens)</h2>
     <p class="dash-config-desc">
       Aparece no slider ao lado da Tuguinha na página inicial. Formato 3:4 (retrato).
+      Suba as imagens direto no GitHub, numa pasta chamada <code>banner-imagens</code>
+      (mesmo jeito que você já sobe os outros arquivos) — elas aparecem aqui embaixo
+      automaticamente pra você escolher.
     </p>
-    <div class="dash-form">
-      <label>Link da imagem do banner (URL)
-        <input type="url" id="b_imagem" placeholder="https://...">
-      </label>
-      <label>Link ao clicar (opcional — ex: um produto em destaque)
-        <input type="url" id="b_link" placeholder="https://...">
-      </label>
-      <div class="dash-actions">
-        <button type="button" class="dash-btn-primary" id="btnAddBanner">Adicionar banner</button>
-        <span id="statusBanner" class="dash-hint"></span>
-      </div>
+
+    <div class="dash-actions" style="margin-bottom:14px;">
+      <button type="button" class="dash-btn-ghost" id="btnAtualizarGaleria">🔄 Atualizar lista de imagens</button>
+      <span id="statusGaleria" class="dash-hint"></span>
     </div>
-    <div class="dash-list" id="listaBanners" style="margin-top:16px;"></div>
+
+    <div class="dash-galeria-picker" id="galeriaPicker"></div>
+
+    <h3 class="dash-subtitulo">Banners ativos no site (até 3)</h3>
+    <div class="dash-list" id="listaBanners"></div>
+
     <div class="dash-actions" style="margin-top:14px;">
       <button class="dash-btn-primary" id="btnPublicarBanners">☁️ Publicar banners no GitHub</button>
       <button class="dash-btn-ghost" id="btnExportarBanners">⬇ Baixar banners.json</button>
