@@ -21,33 +21,30 @@ function base64Utf8(str) {
   return btoa(unescape(encodeURIComponent(str)));
 }
 
-async function publicarNoGitHub(listaProdutos) {
+async function publicarNoGitHub(caminhoArquivo, objetoConteudo) {
   const config = carregarConfig();
   if (!config.repo || !config.token) {
-    throw new Error("Configure o repositório e o token do GitHub primeiro (seção ⚙️ acima).");
+    throw new Error("Configure o repositório e o token do GitHub primeiro (seção ⚙️ abaixo).");
   }
 
-  const apiUrl = `https://api.github.com/repos/${config.repo}/contents/produtos.json`;
+  const apiUrl = `https://api.github.com/repos/${config.repo}/contents/${caminhoArquivo}`;
   const headers = {
     "Authorization": `Bearer ${config.token}`,
     "Accept": "application/vnd.github+json"
   };
 
-  // 1. Pega o SHA atual do arquivo (o GitHub exige isso pra saber que estamos
-  //    atualizando o arquivo certo, e não sobrescrevendo por engano)
   const respAtual = await fetch(apiUrl, { headers });
   if (!respAtual.ok) {
     throw new Error("Não consegui acessar o repositório. Confira o nome (usuario/repositorio) e o token.");
   }
   const dadosAtuais = await respAtual.json();
 
-  // 2. Envia o novo conteúdo
-  const conteudo = JSON.stringify({ produtos: listaProdutos }, null, 2);
+  const conteudo = JSON.stringify(objetoConteudo, null, 2);
   const respSalvar = await fetch(apiUrl, {
     method: "PUT",
     headers: { ...headers, "Content-Type": "application/json" },
     body: JSON.stringify({
-      message: "Atualiza produtos.json via dashboard",
+      message: `Atualiza ${caminhoArquivo} via dashboard`,
       content: base64Utf8(conteudo),
       sha: dadosAtuais.sha
     })
@@ -101,15 +98,10 @@ function preencherForm(produto) {
   document.getElementById("f_nome").value = produto.nome;
   document.getElementById("f_categoria").value = produto.categoria;
   document.getElementById("f_preco").value = produto.preco;
-  document.getElementById("f_imagens").value = (produto.imagens || [produto.imagem]).filter(Boolean).join("\n");
-  document.getElementById("f_video").value = produto.video || "";
-  document.getElementById("f_descricao").value = produto.descricao;
+  document.getElementById("f_imagem").value = produto.imagem || (produto.imagens && produto.imagens[0]) || "";
   document.getElementById("f_linkML").value = produto.linkML;
   document.getElementById("f_destaque").checked = !!produto.destaque;
   document.getElementById("f_novo").checked = !!produto.novo;
-  document.getElementById("f_avMedia").value = produto.avaliacao?.media || "";
-  document.getElementById("f_avQtd").value = produto.avaliacao?.qtd || "";
-  document.getElementById("f_especificacoes").value = (produto.especificacoes || []).join("\n");
 
   editandoId = produto.id;
   formTitulo.textContent = "Editando: " + produto.nome;
@@ -144,29 +136,15 @@ function renderizarLista() {
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  const imagens = document.getElementById("f_imagens").value
-    .split("\n").map(s => s.trim()).filter(Boolean);
-
-  const especificacoes = document.getElementById("f_especificacoes").value
-    .split("\n").map(s => s.trim()).filter(Boolean);
-
-  const avMedia = document.getElementById("f_avMedia").value.trim();
-  const avQtd = document.getElementById("f_avQtd").value.trim();
-
   const dados = {
     id: editandoId ?? (produtos.length ? Math.max(...produtos.map(p => p.id)) + 1 : 1),
     nome: document.getElementById("f_nome").value.trim(),
     categoria: document.getElementById("f_categoria").value.trim(),
     preco: parseFloat(document.getElementById("f_preco").value),
-    imagem: imagens[0] || "",
-    imagens: imagens,
-    video: document.getElementById("f_video").value.trim(),
-    descricao: document.getElementById("f_descricao").value.trim(),
+    imagem: document.getElementById("f_imagem").value.trim(),
     linkML: document.getElementById("f_linkML").value.trim(),
     destaque: document.getElementById("f_destaque").checked,
-    novo: document.getElementById("f_novo").checked,
-    avaliacao: (avMedia || avQtd) ? { media: avMedia, qtd: avQtd } : null,
-    especificacoes: especificacoes
+    novo: document.getElementById("f_novo").checked
   };
 
   if (editandoId) {
@@ -209,7 +187,7 @@ document.getElementById("btnBuscarML").addEventListener("click", async () => {
 
     document.getElementById("f_nome").value = dados.nome || "";
     document.getElementById("f_preco").value = dados.preco || "";
-    document.getElementById("f_imagens").value = dados.imagem || "";
+    document.getElementById("f_imagem").value = dados.imagem || "";
     document.getElementById("f_descricao").value = dados.descricao || "";
     document.getElementById("f_linkML").value = link;
 
@@ -257,7 +235,7 @@ document.getElementById("btnPublicar").addEventListener("click", async () => {
   const status = document.getElementById("statusPublicar");
   status.textContent = "Publicando no GitHub...";
   try {
-    await publicarNoGitHub(produtos);
+    await publicarNoGitHub("produtos.json", { produtos });
     status.textContent = "✅ Publicado! O site atualiza em 1-2 minutos.";
   } catch (erro) {
     status.textContent = "❌ " + erro.message;
@@ -281,18 +259,11 @@ function preencherFormDaURL() {
 
   let imagens = [];
   try { imagens = JSON.parse(params.get("imagens") || "[]"); } catch (e) { /* ignora */ }
-  if (!imagens.length && params.get("imagem")) imagens = [params.get("imagem")];
-
-  let especificacoes = [];
-  try { especificacoes = JSON.parse(params.get("especificacoes") || "[]"); } catch (e) { /* ignora */ }
+  const imagemPrincipal = imagens[0] || params.get("imagem") || "";
 
   document.getElementById("f_nome").value = params.get("nome") || "";
   document.getElementById("f_preco").value = params.get("preco") || "";
-  document.getElementById("f_imagens").value = imagens.join("\n");
-  document.getElementById("f_descricao").value = params.get("descricao") || "";
-  document.getElementById("f_avMedia").value = params.get("avMedia") || "";
-  document.getElementById("f_avQtd").value = params.get("avQtd") || "";
-  document.getElementById("f_especificacoes").value = especificacoes.join("\n");
+  document.getElementById("f_imagem").value = imagemPrincipal;
   document.getElementById("f_linkBusca").value = params.get("link") || "";
   document.getElementById("f_linkML").value = params.get("link") || "";
 
@@ -301,6 +272,90 @@ function preencherFormDaURL() {
 
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
+
+// ---------- Banners do slider (até 3) ----------
+const BANNERS_STORAGE_KEY = "estamparty_banners";
+let banners = [];
+
+function carregarBannersSalvos() {
+  try { return JSON.parse(localStorage.getItem(BANNERS_STORAGE_KEY)) || []; }
+  catch (e) { return []; }
+}
+
+function salvarBannersLocal() {
+  localStorage.setItem(BANNERS_STORAGE_KEY, JSON.stringify(banners));
+}
+
+function renderizarBanners() {
+  const lista = document.getElementById("listaBanners");
+  if (!banners.length) {
+    lista.innerHTML = `<div class="dash-empty">Nenhum banner cadastrado ainda.</div>`;
+    return;
+  }
+  lista.innerHTML = banners.map((b, i) => `
+    <div class="dash-item">
+      <img src="${b.imagem}" alt="">
+      <div class="dash-item-info">
+        <strong>Banner ${i + 1}</strong>
+        <span>${b.link || "sem link ao clicar"}</span>
+      </div>
+      <div class="dash-item-actions">
+        <button class="btn-excluir" data-i="${i}">Excluir</button>
+      </div>
+    </div>
+  `).join("");
+}
+
+document.getElementById("btnAddBanner").addEventListener("click", () => {
+  const imagem = document.getElementById("b_imagem").value.trim();
+  const link = document.getElementById("b_link").value.trim();
+  const status = document.getElementById("statusBanner");
+
+  if (!imagem) { status.textContent = "Cole o link de uma imagem primeiro."; return; }
+  if (banners.length >= 3) { status.textContent = "Máximo de 3 banners. Exclua um pra adicionar outro."; return; }
+
+  banners.push({ imagem, link });
+  salvarBannersLocal();
+  renderizarBanners();
+  document.getElementById("b_imagem").value = "";
+  document.getElementById("b_link").value = "";
+  status.textContent = "✅ Banner adicionado.";
+});
+
+document.getElementById("listaBanners").addEventListener("click", (e) => {
+  const btn = e.target.closest(".btn-excluir");
+  if (!btn) return;
+  banners.splice(Number(btn.dataset.i), 1);
+  salvarBannersLocal();
+  renderizarBanners();
+});
+
+document.getElementById("btnExportarBanners").addEventListener("click", () => {
+  const conteudo = JSON.stringify({ banners }, null, 2);
+  const blob = new Blob([conteudo], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "banners.json";
+  a.click();
+  URL.revokeObjectURL(url);
+});
+
+document.getElementById("btnPublicarBanners").addEventListener("click", async () => {
+  const status = document.getElementById("statusPublicarBanners");
+  status.textContent = "Publicando no GitHub...";
+  try {
+    await publicarNoGitHub("banners.json", { banners });
+    status.textContent = "✅ Publicado! O site atualiza em 1-2 minutos.";
+  } catch (erro) {
+    status.textContent = "❌ " + erro.message;
+  }
+});
+
+(function iniciarBanners() {
+  banners = carregarBannersSalvos();
+  renderizarBanners();
+})();
 
 (async function iniciarDashboard() {
   produtos = await carregarProdutos();

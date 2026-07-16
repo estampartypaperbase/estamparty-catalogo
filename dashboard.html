@@ -62,36 +62,13 @@
         Marcar como "Novo" (selo redondo no card)
       </label>
 
-      <div class="dash-row">
-        <label>Avaliação média (opcional)
-          <input type="text" id="f_avMedia" placeholder="Ex: 4.8">
-        </label>
-        <label>Quantidade de avaliações (opcional)
-          <input type="text" id="f_avQtd" placeholder="Ex: 230">
-        </label>
-      </div>
-
-      <label>Ficha técnica / características (opcional — uma por linha)
-        <textarea id="f_especificacoes" rows="4" placeholder="Material: Papel couché&#10;Tamanho: A5&#10;Cor: Personalizável"></textarea>
-        <small class="dash-hint">Vem preenchido automaticamente pelo bookmarklet. Pode editar, remover linhas ou adicionar as suas.</small>
-      </label>
-
       <label>Preço (R$)
         <input type="number" id="f_preco" step="0.01" min="0" required placeholder="49.90">
       </label>
 
-      <label>Galeria de fotos (uma URL por linha — a primeira é a foto principal do card)
-        <textarea id="f_imagens" rows="3" required placeholder="https://.../foto1.jpg&#10;https://.../foto2.jpg"></textarea>
-        <small class="dash-hint">Vem preenchido automaticamente pelo bookmarklet com todas as fotos do anúncio. Pra cadastro manual, cole ao menos 1 link de foto.</small>
-      </label>
-
-      <label>Vídeo do Instagram ou YouTube Shorts (opcional)
-        <input type="url" id="f_video" placeholder="https://www.instagram.com/reel/XXXXX/ ou https://youtube.com/shorts/XXXXX">
-        <small class="dash-hint">Cole aqui manualmente na hora de conferir os dados. Aceita link de reels do Instagram ou Shorts do YouTube. Se deixar em branco, mostra a galeria de fotos.</small>
-      </label>
-
-      <label>Descrição curta
-        <textarea id="f_descricao" rows="2" required placeholder="Conte em 1-2 frases o que é o produto"></textarea>
+      <label>Link da foto (URL)
+        <input type="url" id="f_imagem" required placeholder="https://...">
+        <small class="dash-hint">Vem preenchido automaticamente pelo bookmarklet.</small>
       </label>
 
       <label>Link de afiliado do Mercado Livre
@@ -103,6 +80,31 @@
         <button type="button" class="dash-btn-ghost" id="btnCancelar" style="display:none;">Cancelar edição</button>
       </div>
     </form>
+  </section>
+
+  <section class="dash-panel" id="painelBanners">
+    <h2>🖼️ Banner do topo (até 3 imagens)</h2>
+    <p class="dash-config-desc">
+      Aparece no slider ao lado da Tuguinha na página inicial. Formato 3:4 (retrato).
+    </p>
+    <div class="dash-form">
+      <label>Link da imagem do banner (URL)
+        <input type="url" id="b_imagem" placeholder="https://...">
+      </label>
+      <label>Link ao clicar (opcional — ex: um produto em destaque)
+        <input type="url" id="b_link" placeholder="https://...">
+      </label>
+      <div class="dash-actions">
+        <button type="button" class="dash-btn-primary" id="btnAddBanner">Adicionar banner</button>
+        <span id="statusBanner" class="dash-hint"></span>
+      </div>
+    </div>
+    <div class="dash-list" id="listaBanners" style="margin-top:16px;"></div>
+    <div class="dash-actions" style="margin-top:14px;">
+      <button class="dash-btn-primary" id="btnPublicarBanners">☁️ Publicar banners no GitHub</button>
+      <button class="dash-btn-ghost" id="btnExportarBanners">⬇ Baixar banners.json</button>
+    </div>
+    <small class="dash-hint" id="statusPublicarBanners"></small>
   </section>
 
   <section class="dash-panel" id="painelConfig">

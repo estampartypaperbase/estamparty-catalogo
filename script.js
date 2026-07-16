@@ -14,7 +14,7 @@ function criarCard(produto) {
 
   return `
     <article class="card" data-categoria="${produto.categoria}">
-      <a class="card-media-link" href="produto.html?id=${produto.id}">
+      <a class="card-media-link" href="${produto.linkML}" target="_blank" rel="noopener noreferrer nofollow sponsored">
         <div class="card-media">
           <img src="${imagemPrincipal}" alt="${produto.nome}" loading="lazy">
           ${produto.novo ? '<span class="badge-novo">Novo</span>' : ""}
@@ -23,7 +23,7 @@ function criarCard(produto) {
       </a>
       <div class="card-body">
         <div class="card-cat">${produto.categoria}</div>
-        <h3 class="card-title"><a href="produto.html?id=${produto.id}">${produto.nome}</a></h3>
+        <h3 class="card-title"><a href="${produto.linkML}" target="_blank" rel="noopener noreferrer nofollow sponsored">${produto.nome}</a></h3>
         <div class="card-price-row">
           <span class="price-por">${formatarPreco(produto.preco)}</span>
         </div>
@@ -130,6 +130,47 @@ async function carregarProdutos() {
   }
 }
 
+async function carregarBanners() {
+  const slider = document.getElementById("heroSlider");
+  if (!slider) return;
+
+  try {
+    const resposta = await fetch("banners.json", { cache: "no-store" });
+    const dados = await resposta.json();
+    const banners = (dados.banners || []).slice(0, 3);
+    if (!banners.length) { slider.style.display = "none"; return; }
+
+    slider.innerHTML = banners.map((b, i) => {
+      const img = `<img src="${b.imagem}" alt="Banner ${i + 1}">`;
+      const conteudo = b.link
+        ? `<a href="${b.link}" target="_blank" rel="noopener noreferrer">${img}</a>`
+        : img;
+      return `<div class="hero-slider-slide ${i === 0 ? "ativo" : ""}">${conteudo}</div>`;
+    }).join("") + (banners.length > 1 ? `
+      <div class="hero-slider-dots">
+        ${banners.map((_, i) => `<span class="${i === 0 ? "ativo" : ""}"></span>`).join("")}
+      </div>
+    ` : "");
+
+    if (banners.length > 1) {
+      let atual = 0;
+      const slides = slider.querySelectorAll(".hero-slider-slide");
+      const dots = slider.querySelectorAll(".hero-slider-dots span");
+      setInterval(() => {
+        slides[atual].classList.remove("ativo");
+        dots[atual].classList.remove("ativo");
+        atual = (atual + 1) % slides.length;
+        slides[atual].classList.add("ativo");
+        dots[atual].classList.add("ativo");
+      }, 4000);
+    }
+  } catch (erro) {
+    slider.style.display = "none";
+  }
+}
+
+document.addEventListener("DOMContentLoaded", carregarBanners);
+
 document.addEventListener("DOMContentLoaded", async () => {
   TODOS_PRODUTOS = await carregarProdutos();
   if (!TODOS_PRODUTOS.length) return; // erro já foi mostrado dentro de carregarProdutos()
@@ -137,3 +178,4 @@ document.addEventListener("DOMContentLoaded", async () => {
   configurarBusca();
   aplicarFiltros();
 });
+
