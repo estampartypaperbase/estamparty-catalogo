@@ -137,7 +137,9 @@ async function carregarBanners() {
   try {
     const resposta = await fetch("banners.json", { cache: "no-store" });
     const dados = await resposta.json();
-    const banners = (dados.banners || []).slice(0, 3);
+    const ehMobile = window.matchMedia("(max-width: 900px)").matches;
+    const listaEscolhida = ehMobile ? dados.bannersMobile : dados.bannersDesktop;
+    const banners = (listaEscolhida || []).slice(0, 3);
     if (!banners.length) { slider.style.display = "none"; return; }
 
     slider.innerHTML = banners.map((b, i) => {

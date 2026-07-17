@@ -340,92 +340,127 @@ async function excluirImagemGitHub(pasta, nomeArquivo, sha) {
   }
 }
 
-document.getElementById("btnEnviarBanner").addEventListener("click", async () => {
-  const arquivo = document.getElementById("b_arquivo");
-  const status = document.getElementById("statusUploadBanner");
-  const file = arquivo.files[0];
-
-  if (!file) { status.textContent = "Escolha uma imagem primeiro."; return; }
-  if (banners.length >= 3) { status.textContent = "Máximo de 3 banners. Remova um da lista antes de enviar outro."; return; }
-
-  status.textContent = "Enviando imagem pro GitHub...";
-  try {
-    const resultado = await enviarImagemParaGitHub(file, "banner-imagens");
-    banners.push({ imagem: resultado.caminho, link: "", nomeArquivo: resultado.nomeArquivo, sha: resultado.sha });
-    salvarBannersLocal();
-    renderizarBanners();
-    arquivo.value = "";
-    status.textContent = "✅ Banner enviado e adicionado! Clique em \"Publicar banners no GitHub\" pra ativar no site.";
-  } catch (erro) {
-    status.textContent = "❌ " + erro.message;
+// ---------- Sistema genérico de sliders (PC 16:9 e Celular 3:4) ----------
+const SLIDERS = {
+  pc: {
+    storageKey: "estamparty_banners_pc",
+    pastaGitHub: "banner-imagens-pc",
+    itens: [],
+    idArquivo: "b_arquivo_pc",
+    idBotaoEnviar: "btnEnviarBannerPC",
+    idStatusUpload: "statusUploadBannerPC",
+    idLista: "listaBannersPC",
+    idContador: "contadorBannersPC"
+  },
+  mobile: {
+    storageKey: "estamparty_banners_mobile",
+    pastaGitHub: "banner-imagens-mobile",
+    itens: [],
+    idArquivo: "b_arquivo_mobile",
+    idBotaoEnviar: "btnEnviarBannerMobile",
+    idStatusUpload: "statusUploadBannerMobile",
+    idLista: "listaBannersMobile",
+    idContador: "contadorBannersMobile"
   }
-});
+};
 
-// ---------- Banners do slider (até 3) ----------
-const BANNERS_STORAGE_KEY = "estamparty_banners";
-let banners = [];
-
-function carregarBannersSalvos() {
-  try { return JSON.parse(localStorage.getItem(BANNERS_STORAGE_KEY)) || []; }
+function carregarSliderSalvo(tipo) {
+  try { return JSON.parse(localStorage.getItem(SLIDERS[tipo].storageKey)) || []; }
   catch (e) { return []; }
 }
 
-function salvarBannersLocal() {
-  localStorage.setItem(BANNERS_STORAGE_KEY, JSON.stringify(banners));
+function salvarSliderLocal(tipo) {
+  localStorage.setItem(SLIDERS[tipo].storageKey, JSON.stringify(SLIDERS[tipo].itens));
 }
 
-function renderizarBanners() {
-  const lista = document.getElementById("listaBanners");
-  document.getElementById("contadorBanners").textContent = banners.length;
-  if (!banners.length) {
-    lista.innerHTML = `<div class="dash-empty">Nenhum banner ativo ainda. Envie uma imagem acima.</div>`;
+function renderizarSlider(tipo) {
+  const cfg = SLIDERS[tipo];
+  const lista = document.getElementById(cfg.idLista);
+  document.getElementById(cfg.idContador).textContent = cfg.itens.length;
+
+  if (!cfg.itens.length) {
+    lista.innerHTML = `<div class="dash-empty">Nenhuma imagem ainda. Envie uma acima.</div>`;
     return;
   }
-  lista.innerHTML = banners.map((b, i) => `
+  lista.innerHTML = cfg.itens.map((b, i) => `
     <div class="dash-item">
       <img src="${b.imagem}?v=${Date.now()}" alt="">
       <div class="dash-item-info">
-        <strong>Banner ${i + 1}</strong>
+        <strong>Imagem ${i + 1}</strong>
         <span>${b.link || "sem link ao clicar"}</span>
       </div>
       <div class="dash-item-actions">
-        <button class="btn-editar" data-i="${i}">Editar link</button>
-        <button class="btn-excluir" data-i="${i}">Remover</button>
+        <button class="btn-editar" data-tipo="${tipo}" data-i="${i}">Editar link</button>
+        <button class="btn-excluir" data-tipo="${tipo}" data-i="${i}">Remover</button>
       </div>
     </div>
   `).join("");
 }
 
-document.getElementById("listaBanners").addEventListener("click", async (e) => {
-  const btnEditar = e.target.closest(".btn-editar");
-  if (btnEditar) {
-    const i = Number(btnEditar.dataset.i);
-    const novoLink = prompt("Link ao clicar nesse banner (deixe em branco pra remover o link):", banners[i].link || "");
-    if (novoLink !== null) {
-      banners[i].link = novoLink;
-      salvarBannersLocal();
-      renderizarBanners();
-    }
-  }
-  const btnExcluir = e.target.closest(".btn-excluir");
-  if (btnExcluir) {
-    const i = Number(btnExcluir.dataset.i);
-    const banner = banners[i];
-    if (!confirm("Remover esse banner? A imagem também será excluída do GitHub.")) return;
+function configurarSlider(tipo) {
+  const cfg = SLIDERS[tipo];
 
-    if (banner.nomeArquivo && banner.sha) {
-      try { await excluirImagemGitHub("banner-imagens", banner.nomeArquivo, banner.sha); }
-      catch (erro) { /* mesmo se falhar em excluir do GitHub, remove da lista local */ }
-    }
+  document.getElementById(cfg.idBotaoEnviar).addEventListener("click", async () => {
+    const arquivo = document.getElementById(cfg.idArquivo);
+    const status = document.getElementById(cfg.idStatusUpload);
+    const file = arquivo.files[0];
 
-    banners.splice(i, 1);
-    salvarBannersLocal();
-    renderizarBanners();
-  }
-});
+    if (!file) { status.textContent = "Escolha uma imagem primeiro."; return; }
+    if (cfg.itens.length >= 3) { status.textContent = "Máximo de 3 imagens. Remova uma da lista antes de enviar outra."; return; }
+
+    status.textContent = "Enviando imagem pro GitHub...";
+    try {
+      const resultado = await enviarImagemParaGitHub(file, cfg.pastaGitHub);
+      cfg.itens.push({ imagem: resultado.caminho, link: "", nomeArquivo: resultado.nomeArquivo, sha: resultado.sha });
+      salvarSliderLocal(tipo);
+      renderizarSlider(tipo);
+      arquivo.value = "";
+      status.textContent = "✅ Enviado e adicionado! Clique em \"Publicar\" pra ativar no site.";
+    } catch (erro) {
+      status.textContent = "❌ " + erro.message;
+    }
+  });
+
+  document.getElementById(cfg.idLista).addEventListener("click", async (e) => {
+    const btnEditar = e.target.closest(".btn-editar");
+    if (btnEditar) {
+      const i = Number(btnEditar.dataset.i);
+      const novoLink = prompt("Link ao clicar nessa imagem (deixe em branco pra remover o link):", cfg.itens[i].link || "");
+      if (novoLink !== null) {
+        cfg.itens[i].link = novoLink;
+        salvarSliderLocal(tipo);
+        renderizarSlider(tipo);
+      }
+    }
+    const btnExcluir = e.target.closest(".btn-excluir");
+    if (btnExcluir) {
+      const i = Number(btnExcluir.dataset.i);
+      const item = cfg.itens[i];
+      if (!confirm("Remover essa imagem? Ela também será excluída do GitHub.")) return;
+
+      if (item.nomeArquivo && item.sha) {
+        try { await excluirImagemGitHub(cfg.pastaGitHub, item.nomeArquivo, item.sha); }
+        catch (erro) { /* mesmo se falhar em excluir do GitHub, remove da lista local */ }
+      }
+
+      cfg.itens.splice(i, 1);
+      salvarSliderLocal(tipo);
+      renderizarSlider(tipo);
+    }
+  });
+
+  cfg.itens = carregarSliderSalvo(tipo);
+  renderizarSlider(tipo);
+}
+
+configurarSlider("pc");
+configurarSlider("mobile");
 
 document.getElementById("btnExportarBanners").addEventListener("click", () => {
-  const conteudo = JSON.stringify({ banners }, null, 2);
+  const conteudo = JSON.stringify({
+    bannersDesktop: SLIDERS.pc.itens,
+    bannersMobile: SLIDERS.mobile.itens
+  }, null, 2);
   const blob = new Blob([conteudo], { type: "application/json" });
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
@@ -439,17 +474,15 @@ document.getElementById("btnPublicarBanners").addEventListener("click", async ()
   const status = document.getElementById("statusPublicarBanners");
   status.textContent = "Publicando no GitHub...";
   try {
-    await publicarNoGitHub("banners.json", { banners });
+    await publicarNoGitHub("banners.json", {
+      bannersDesktop: SLIDERS.pc.itens,
+      bannersMobile: SLIDERS.mobile.itens
+    });
     status.textContent = "✅ Publicado! O site atualiza em 1-2 minutos.";
   } catch (erro) {
     status.textContent = "❌ " + erro.message;
   }
 });
-
-(function iniciarBanners() {
-  banners = carregarBannersSalvos();
-  renderizarBanners();
-})();
 
 (async function iniciarDashboard() {
   produtos = await carregarProdutos();
