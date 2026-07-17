@@ -302,6 +302,146 @@
       "linkML": "https://www.mercadolivre.com.br/caderno-pautado-assinatura-primeira-eucaristia-personalizado/up/MLBU3055473532?pdp_filters=item_id:MLB5308379994",
       "destaque": false,
       "novo": false
+    },
+    {
+      "id": 31,
+      "nome": "Agenda Escolar Five Nights At Freddy Perman. Personalizada",
+      "categoria": "Agenda Escolar",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_976114-MLB89922793476_082025-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/agenda-escolar-five-nights-at-freddy-perman-personalizada/up/MLBU3364630025?pdp_filters=item_id:MLB5593593536",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 32,
+      "nome": "Diário Das Emoções Guerreiras Do Kpop Personalizado",
+      "categoria": "Diários",
+      "preco": 75,
+      "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_702322-MLB97197095894_112025-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/diario-das-emocoes-guerreiras-do-kpop-personalizado/up/MLBU3552236190?pdp_filters=item_id:MLB5917365708",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 33,
+      "nome": "Diário De Viagem Personalizado",
+      "categoria": "Viagem",
+      "preco": 76,
+      "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_887991-MLB80944663162_122024-F-diario-de-viagem-personalizado.webp",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-3927059391-diario-de-viagem-personalizado-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 34,
+      "nome": "Planner Da Coordenadora 2026 Personalizado",
+      "categoria": "Planner",
+      "preco": 98,
+      "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_883789-MLA107751769507_022026-F-planner-da-coordenadora-2026-personalizado.webp",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-5820611096-planner-da-coordenadora-2026-personalizado-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 35,
+      "nome": "Diário Das Emoções Rebecca Bonbon Personalizado",
+      "categoria": "Diários",
+      "preco": 76,
+      "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_618744-MLB97657526095_112025-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/diario-das-emocoes-rebecca-bonbon-personalizado/up/MLBU3544910853?pdp_filters=item_id:MLB5917340718",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 36,
+      "nome": "Agenda Escolar Divertidamente Permanente Personalizada",
+      "categoria": "Agenda Escolar",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_709483-MLB96933896857_112025-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/agenda-escolar-divertidamente-permanente-personalizada/up/MLBU784366422?pdp_filters=item_id:MLB4863687282",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 37,
+      "nome": "Agenda Escolar Dos Rosa Permanente Personalizada",
+      "categoria": "Agenda Escolar",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_808277-MLB96289978549_102025-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/agenda-escolar-dos-rosa-permanente-personalizada/up/MLBU3519219288?pdp_filters=item_id:MLB5849887126",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 38,
+      "nome": "Agenda Escolar One Piece Permanente Personalizada",
+      "categoria": "Agenda Escolar",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_712630-MLB89922637754_082025-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/agenda-escolar-one-piece-permanente-personalizada/up/MLBU3364624089?pdp_filters=item_id:MLB5593812492",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 39,
+      "nome": "Agenda Para Creche Ou Berçário Personalizada",
+      "categoria": "Agenda Creche",
+      "preco": 70,
+      "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_862188-MLB94200891543_102025-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/agenda-para-creche-ou-bercario-personalizada/up/MLBU756054778?pdp_filters=item_id:MLB2888513144",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 40,
+      "nome": "Agenda Escolar Rebeca Bonbon Permanente Personalizada",
+      "categoria": "Diários",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_881660-MLB90047309799_082025-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/agenda-escolar-rebeca-bonbon-permanente-personalizada/up/MLBU3357423757?pdp_filters=item_id:MLB5578331794",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 41,
+      "nome": "Agenda Escolar Guerreiras Do Kpop Permanente Personalizada",
+      "categoria": "Agenda Escolar",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_848710-MLB90127799627_082025-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/agenda-escolar-guerreiras-do-kpop-permanente-personalizada/up/MLBU3365800780?pdp_filters=item_id:MLB4163202171",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 42,
+      "nome": "Caderno Assinatura Primeira Eucaristia Unissex Personalizado",
+      "categoria": "Assinaturas",
+      "preco": 75,
+      "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_892666-MLB89367660459_082025-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/caderno-assinatura-primeira-eucaristia-unissex-personalizado/up/MLBU786058786?pdp_filters=item_id:MLB3743946211",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 43,
+      "nome": "Agenda Escolar Stranger Things Permanente Personalizada",
+      "categoria": "Agenda Escolar",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_937720-MLB99847266361_112025-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/agenda-escolar-stranger-things-permanente-personalizada/up/MLBU3634461205?pdp_filters=item_id:MLB4334622037",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 44,
+      "nome": "Caderno De Viagem Planner Capa Dura",
+      "categoria": "Viagem",
+      "preco": 70,
+      "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_710208-MLB73784377760_012024-F-caderno-de-viagem-planner-capa-dura.webp",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-2782200966-caderno-de-viagem-planner-capa-dura-_JM",
+      "destaque": false,
+      "novo": false
     }
   ]
 }
