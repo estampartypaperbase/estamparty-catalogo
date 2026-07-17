@@ -315,39 +315,13 @@ async function enviarImagemParaGitHub(file, pasta) {
     throw new Error(erro.message || "Falha ao enviar imagem.");
   }
 
+  const dados = await resp.json();
+  return { caminho, nomeArquivo: caminho.split("/").pop(), sha: dados.content.sha };
+
   return caminho;
 }
 
-document.getElementById("f_arquivo").addEventListener("change", async (e) => {
-  const file = e.target.files[0];
-  if (!file) return;
-  const status = document.getElementById("statusUploadProduto");
-  status.textContent = "Enviando imagem pro GitHub...";
-  try {
-    const caminho = await enviarImagemParaGitHub(file, "produto-imagens");
-    document.getElementById("f_imagem").value = caminho;
-    status.textContent = "✅ Imagem enviada! Vai aparecer no site em 1-2 min depois de publicada.";
-  } catch (erro) {
-    status.textContent = "❌ " + erro.message;
-  }
-});
-
-// ---------- Galeria de imagens já enviadas pro GitHub (pasta banner-imagens) ----------
-async function listarImagensGitHub(pasta) {
-  const config = carregarConfig();
-  if (!config.repo || !config.token) {
-    throw new Error("Configure o repositório e o token do GitHub primeiro (seção ⚙️ abaixo).");
-  }
-  const apiUrl = `https://api.github.com/repos/${config.repo}/contents/${pasta}`;
-  const resp = await fetch(apiUrl, {
-    headers: { "Authorization": `Bearer ${config.token}`, "Accept": "application/vnd.github+json" }
-  });
-  if (resp.status === 404) return []; // pasta ainda não existe
-  if (!resp.ok) throw new Error("Não consegui listar as imagens. Confira o token e o repositório.");
-  const lista = await resp.json();
-  return lista.filter(item => item.type === "file");
-}
-
+// ---------- Upload direto de banner (some ao adicionar, entra na lista) ----------
 async function excluirImagemGitHub(pasta, nomeArquivo, sha) {
   const config = carregarConfig();
   const apiUrl = `https://api.github.com/repos/${config.repo}/contents/${pasta}/${nomeArquivo}`;
@@ -366,58 +340,24 @@ async function excluirImagemGitHub(pasta, nomeArquivo, sha) {
   }
 }
 
-async function renderizarGaleriaPicker() {
-  const container = document.getElementById("galeriaPicker");
-  const status = document.getElementById("statusGaleria");
-  status.textContent = "Carregando imagens...";
+document.getElementById("btnEnviarBanner").addEventListener("click", async () => {
+  const arquivo = document.getElementById("b_arquivo");
+  const status = document.getElementById("statusUploadBanner");
+  const file = arquivo.files[0];
+
+  if (!file) { status.textContent = "Escolha uma imagem primeiro."; return; }
+  if (banners.length >= 3) { status.textContent = "Máximo de 3 banners. Remova um da lista antes de enviar outro."; return; }
+
+  status.textContent = "Enviando imagem pro GitHub...";
   try {
-    const itens = await listarImagensGitHub("banner-imagens");
-    if (!itens.length) {
-      container.innerHTML = `<div class="dash-empty">Nenhuma imagem na pasta "banner-imagens" ainda. Suba fotos lá pelo GitHub e clique em "Atualizar lista".</div>`;
-      status.textContent = "";
-      return;
-    }
-    container.innerHTML = itens.map(item => `
-      <div class="dash-galeria-item">
-        <img src="${item.download_url}" alt="${item.name}">
-        <div class="dash-galeria-item-acoes">
-          <button class="btn-usar" data-caminho="${item.path}">Usar</button>
-          <button class="btn-excluir-github" data-nome="${item.name}" data-sha="${item.sha}">🗑</button>
-        </div>
-      </div>
-    `).join("");
-    status.textContent = `${itens.length} imagem(ns) encontrada(s).`;
-  } catch (erro) {
-    container.innerHTML = "";
-    status.textContent = "❌ " + erro.message;
-  }
-}
-
-document.getElementById("btnAtualizarGaleria").addEventListener("click", renderizarGaleriaPicker);
-
-document.getElementById("galeriaPicker").addEventListener("click", async (e) => {
-  const btnUsar = e.target.closest(".btn-usar");
-  const btnExcluir = e.target.closest(".btn-excluir-github");
-
-  if (btnUsar) {
-    if (banners.length >= 3) {
-      alert("Máximo de 3 banners ativos. Remova um na lista abaixo antes de adicionar outro.");
-      return;
-    }
-    const link = prompt("Link ao clicar nesse banner (opcional, deixe em branco se não quiser):", "") || "";
-    banners.push({ imagem: btnUsar.dataset.caminho, link });
+    const resultado = await enviarImagemParaGitHub(file, "banner-imagens");
+    banners.push({ imagem: resultado.caminho, link: "", nomeArquivo: resultado.nomeArquivo, sha: resultado.sha });
     salvarBannersLocal();
     renderizarBanners();
-  }
-
-  if (btnExcluir) {
-    if (!confirm(`Excluir "${btnExcluir.dataset.nome}" do GitHub? Essa ação não pode ser desfeita.`)) return;
-    try {
-      await excluirImagemGitHub("banner-imagens", btnExcluir.dataset.nome, btnExcluir.dataset.sha);
-      renderizarGaleriaPicker();
-    } catch (erro) {
-      alert("Erro ao excluir: " + erro.message);
-    }
+    arquivo.value = "";
+    status.textContent = "✅ Banner enviado e adicionado! Clique em \"Publicar banners no GitHub\" pra ativar no site.";
+  } catch (erro) {
+    status.textContent = "❌ " + erro.message;
   }
 });
 
@@ -436,13 +376,14 @@ function salvarBannersLocal() {
 
 function renderizarBanners() {
   const lista = document.getElementById("listaBanners");
+  document.getElementById("contadorBanners").textContent = banners.length;
   if (!banners.length) {
-    lista.innerHTML = `<div class="dash-empty">Nenhum banner ativo ainda. Escolha uma imagem da galeria acima com "Usar".</div>`;
+    lista.innerHTML = `<div class="dash-empty">Nenhum banner ativo ainda. Envie uma imagem acima.</div>`;
     return;
   }
   lista.innerHTML = banners.map((b, i) => `
     <div class="dash-item">
-      <img src="${b.imagem}" alt="">
+      <img src="${b.imagem}?v=${Date.now()}" alt="">
       <div class="dash-item-info">
         <strong>Banner ${i + 1}</strong>
         <span>${b.link || "sem link ao clicar"}</span>
@@ -455,7 +396,7 @@ function renderizarBanners() {
   `).join("");
 }
 
-document.getElementById("listaBanners").addEventListener("click", (e) => {
+document.getElementById("listaBanners").addEventListener("click", async (e) => {
   const btnEditar = e.target.closest(".btn-editar");
   if (btnEditar) {
     const i = Number(btnEditar.dataset.i);
@@ -468,7 +409,16 @@ document.getElementById("listaBanners").addEventListener("click", (e) => {
   }
   const btnExcluir = e.target.closest(".btn-excluir");
   if (btnExcluir) {
-    banners.splice(Number(btnExcluir.dataset.i), 1);
+    const i = Number(btnExcluir.dataset.i);
+    const banner = banners[i];
+    if (!confirm("Remover esse banner? A imagem também será excluída do GitHub.")) return;
+
+    if (banner.nomeArquivo && banner.sha) {
+      try { await excluirImagemGitHub("banner-imagens", banner.nomeArquivo, banner.sha); }
+      catch (erro) { /* mesmo se falhar em excluir do GitHub, remove da lista local */ }
+    }
+
+    banners.splice(i, 1);
     salvarBannersLocal();
     renderizarBanners();
   }
@@ -509,5 +459,4 @@ document.getElementById("btnPublicarBanners").addEventListener("click", async ()
   const config = carregarConfig();
   if (config.repo) document.getElementById("cfg_repo").value = config.repo;
   if (config.token) document.getElementById("cfg_token").value = config.token;
-  if (config.repo && config.token) renderizarGaleriaPicker();
 })();

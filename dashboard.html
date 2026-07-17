@@ -66,12 +66,7 @@
         <input type="number" id="f_preco" step="0.01" min="0" required placeholder="49.90">
       </label>
 
-      <label>Enviar foto do computador (sobe direto pro GitHub, opcional)
-        <input type="file" id="f_arquivo" accept="image/*">
-        <small class="dash-hint" id="statusUploadProduto"></small>
-      </label>
-
-      <label>— ou link da foto (URL)
+      <label>Link da foto (URL)
         <input type="url" id="f_imagem" required placeholder="https://...">
         <small class="dash-hint">Vem preenchido automaticamente pelo bookmarklet.</small>
       </label>
@@ -91,19 +86,20 @@
     <h2>🖼️ Banner do topo (até 3 imagens)</h2>
     <p class="dash-config-desc">
       Aparece no slider ao lado da Tuguinha na página inicial. Formato 3:4 (retrato).
-      Suba as imagens direto no GitHub, numa pasta chamada <code>banner-imagens</code>
-      (mesmo jeito que você já sobe os outros arquivos) — elas aparecem aqui embaixo
-      automaticamente pra você escolher.
+      Envie até 3 fotos — elas já entram como banners automaticamente.
     </p>
 
-    <div class="dash-actions" style="margin-bottom:14px;">
-      <button type="button" class="dash-btn-ghost" id="btnAtualizarGaleria">🔄 Atualizar lista de imagens</button>
-      <span id="statusGaleria" class="dash-hint"></span>
+    <div class="dash-form">
+      <label>Enviar imagem
+        <input type="file" id="b_arquivo" accept="image/*">
+      </label>
+      <div class="dash-actions">
+        <button type="button" class="dash-btn-primary" id="btnEnviarBanner">⬆ Enviar e adicionar banner</button>
+        <span id="statusUploadBanner" class="dash-hint"></span>
+      </div>
     </div>
 
-    <div class="dash-galeria-picker" id="galeriaPicker"></div>
-
-    <h3 class="dash-subtitulo">Banners ativos no site (até 3)</h3>
+    <h3 class="dash-subtitulo">Banners ativos (<span id="contadorBanners">0</span>/3)</h3>
     <div class="dash-list" id="listaBanners"></div>
 
     <div class="dash-actions" style="margin-top:14px;">
