@@ -152,6 +152,156 @@
         "É personalizado: Sim",
         "Com materiais reciclados: Não"
       ]
+    },
+    {
+      "id": 16,
+      "nome": "Diário Das Emoções Stitch Personalizado",
+      "categoria": "Diários",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_784295-MLB93725555993_092025-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/diario-das-emocoes-stitch-personalizado/up/MLBU2887211476?pdp_filters=item_id:MLB3927016747",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 17,
+      "nome": "Planner Fitness Feminino 2026 Personalizado",
+      "categoria": "Planner",
+      "preco": 110,
+      "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_975308-MLB81208881409_122024-F-planner-fitness-feminino-2026-personalizado.webp",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-5877257896-planner-fitness-feminino-2026-personalizado-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 18,
+      "nome": "Planner Diário Pequeno Principe Personalizado",
+      "categoria": "Planner Diário",
+      "preco": 74,
+      "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_995203-MLB89918399515_082025-F-planner-diario-pequeno-principe-personalizado.webp",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-4103282799-planner-diario-pequeno-principe-personalizado-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 19,
+      "nome": "Caderno De Pedidos Completo P/ 100 Registros Personalizado",
+      "categoria": "Pedidos",
+      "preco": 93,
+      "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_898382-MLB96547931094_112025-F-caderno-de-pedidos-completo-p-100-registros-personalizado.webp",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-2782200233-caderno-de-pedidos-completo-p-100-registros-personalizado-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 20,
+      "nome": "Álbum Estamparty Bebê Menino 101 Fotos Personalizado",
+      "categoria": "Álbuns",
+      "preco": 145,
+      "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_898106-MLB70170642585_062023-F-album-estamparty-beb-menino-101-fotos-personalizado.webp",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-3343900083-album-estamparty-beb-menino-101-fotos-personalizado-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 21,
+      "nome": "Caderno Assinatura Crisma Personalizado Pautado",
+      "categoria": "Assinaturas",
+      "preco": 75,
+      "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_903572-MLB95108750673_102025-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/caderno-assinatura-crisma-personalizado-pautado/up/MLBU3493792656?pdp_filters=item_id:MLB4252307783",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 22,
+      "nome": "Caderno De Pedidos Simples Modelo Color",
+      "categoria": "Pedidos",
+      "preco": 76,
+      "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_900053-MLB73906293483_012024-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/caderno-de-pedidos-simples-modelo-color/up/MLBU758418929?pdp_filters=item_id:MLB3347734178",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 23,
+      "nome": "Agenda Pequeno Principe 2026 1dpp Personalizada",
+      "categoria": "Agendas Femininas",
+      "preco": 115,
+      "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_674302-MLB94200885595_102025-F-agenda-pequeno-principe-2026-1dpp-personalizada.webp",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-4236558791-agenda-pequeno-principe-2026-1dpp-personalizada-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 24,
+      "nome": "Caderno De Oração Flores Personalizado Para 200 Orações",
+      "categoria": "Devocionais",
+      "preco": 74,
+      "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_907904-MLB91541966966_092025-F-caderno-de-oraco-flores-personalizado-para-200-oracoes.webp",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-2888525536-caderno-de-oraco-flores-personalizado-para-200-oracoes-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 25,
+      "nome": "Agenda Escolar Autista Permanente Personalizada",
+      "categoria": "Agenda Creche",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_603814-MLB96933909383_112025-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/agenda-escolar-autista-permanente-personalizada/up/MLBU3002495091?pdp_filters=item_id:MLB5277272226",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 26,
+      "nome": "Agenda Escolar Hot Wheels Permanente Personalizada",
+      "categoria": "Agenda Escolar",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_755843-MLB90300763673_082025-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/agenda-escolar-hot-wheels-permanente-personalizada/up/MLBU3623883609?pdp_filters=item_id:MLB4326798761",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 27,
+      "nome": "Planner De Estudos Bíblicos Devocional Personalizado",
+      "categoria": "Devocionais",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_748138-MLB80942772830_122024-F-planner-de-estudos-biblicos-devocional-personalizado.webp",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-5210897878-planner-de-estudos-biblicos-devocional-personalizado-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 28,
+      "nome": "Diário Das Emoções Divertidamente Personalizado",
+      "categoria": "Diários",
+      "preco": 76,
+      "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_679402-MLB88739873858_082025-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/diario-das-emocoes-divertidamente-personalizado/up/MLBU2882167767?pdp_filters=item_id:MLB5210999806",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 29,
+      "nome": "Agenda Escolar Super Mario Permanente Personalizada",
+      "categoria": "Agenda Escolar",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_640649-MLB96481819754_112025-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/agenda-escolar-super-mario-permanente-personalizada/up/MLBU2584433188?pdp_filters=item_id:MLB3890882273",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 30,
+      "nome": "Caderno Pautado Assinatura Primeira Eucaristia Personalizado",
+      "categoria": "Assinaturas",
+      "preco": 75,
+      "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_906262-MLB94149130305_102025-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/caderno-pautado-assinatura-primeira-eucaristia-personalizado/up/MLBU3055473532?pdp_filters=item_id:MLB5308379994",
+      "destaque": false,
+      "novo": false
     }
   ]
 }
