@@ -1,3 +1,22 @@
 {
-  "banners": []
+  "banners": [
+    {
+      "imagem": "banner-imagens/1784316720606-01.jpg",
+      "link": "",
+      "nomeArquivo": "1784316720606-01.jpg",
+      "sha": "5b3fe4425d6a2d6297f165ffd35a97d057743443"
+    },
+    {
+      "imagem": "banner-imagens/1784316728053-02.jpg",
+      "link": "",
+      "nomeArquivo": "1784316728053-02.jpg",
+      "sha": "e78818b0e9248cf1347e01dfb46d2da2d9f4c93c"
+    },
+    {
+      "imagem": "banner-imagens/1784316734965-03.jpg",
+      "link": "",
+      "nomeArquivo": "1784316734965-03.jpg",
+      "sha": "2690978b93801e9fa13dc417690fe3c82862fb6c"
+    }
+  ]
 }
