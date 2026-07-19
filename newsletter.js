@@ -1,5 +1,5 @@
 // Troque pela sua URL do Formspree (veja o passo a passo no COMO_USAR.md)
-const FORMSPREE_URL = "https://formspree.io/f/SEU_CODIGO_AQUI";
+const FORMSPREE_URL = "https://formspree.io/f/mrenkggr";
 
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("formNewsletter");
