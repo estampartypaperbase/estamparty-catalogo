@@ -39,7 +39,7 @@
 <div class="bm-wrap">
   <h1>Botão "Importar pro Estamparty"</h1>
   <p>
-    Esse botão puxa nome, foto, preço e descrição direto de um anúncio do Mercado Livre
+    Esse botão puxa nome, foto e preço direto de um anúncio do Mercado Livre
     enquanto você está navegando nele — sem bloqueio, porque roda no seu próprio navegador.
   </p>
 
@@ -56,51 +56,12 @@ var preco=precoTexto?precoTexto.replace(/\./g,&quot;&quot;):&quot;&quot;;
 var imgPrincipalEl=document.querySelector(&quot;.ui-pdp-gallery__figure img, .ui-pdp-image&quot;);
 var imagemPrincipal=altaRes((imgPrincipalEl&amp;&amp;(imgPrincipalEl.getAttribute(&quot;data-zoom&quot;)||imgPrincipalEl.getAttribute(&quot;data-src&quot;)||imgPrincipalEl.src))||pegarMeta(&quot;og:image&quot;)||&quot;&quot;);
 
-var imagensSet={};
-var seletoresGaleria=[
-  &quot;.ui-pdp-gallery__figure img&quot;,
-  &quot;.ui-pdp-thumbnail img&quot;,
-  &quot;.ui-pdp-gallery img&quot;,
-  &quot;figure.ui-pdp-gallery__figure img&quot;,
-  &quot;li.ui-pdp-thumbnail img&quot;
-];
-seletoresGaleria.forEach(function(sel){
-  document.querySelectorAll(sel).forEach(function(el){
-    var bruto=el.getAttribute(&quot;data-zoom&quot;)||el.getAttribute(&quot;data-src&quot;)||el.src||&quot;&quot;;
-    var url=altaRes(bruto);
-    if(url&amp;&amp;url.indexOf(&quot;data:image&quot;)!==0) imagensSet[url]=true;
-  });
-});
-if(imagemPrincipal) imagensSet[imagemPrincipal]=true;
-var imagens=Object.keys(imagensSet);
-
-var descricao=pegarTexto(&quot;.ui-pdp-description__content&quot;).slice(0,400);
-
-var avMedia=pegarTexto(&quot;.ui-pdp-review__rating, .ui-pdp-reviews__rating-summary__average&quot;);
-var avQtdTexto=pegarTexto(&quot;.ui-pdp-review__amount, .ui-pdp-reviews__rating-summary__amount&quot;);
-var avQtd=(avQtdTexto.match(/\d+/)||[&quot;&quot;])[0];
-
-var especificacoes=[];
-document.querySelectorAll(&quot;.ui-pdp-specs__table tr, .andes-table__row&quot;).forEach(function(linha){
-  var celulas=linha.querySelectorAll(&quot;th,td&quot;);
-  if(celulas.length>=2){
-    var chave=celulas[0].innerText.trim();
-    var valor=celulas[1].innerText.trim();
-    if(chave&amp;&amp;valor) especificacoes.push(chave+&quot;: &quot;+valor);
-  }
-});
-
 var link=window.location.href;
 
 var urlDashboard=&quot;https://estampartypaperbase.github.io/estamparty-catalogo/dashboard.html&quot;
   +&quot;?nome=&quot;+encodeURIComponent(nome)
   +&quot;&amp;preco=&quot;+encodeURIComponent(preco)
   +&quot;&amp;imagem=&quot;+encodeURIComponent(imagemPrincipal)
-  +&quot;&amp;imagens=&quot;+encodeURIComponent(JSON.stringify(imagens))
-  +&quot;&amp;descricao=&quot;+encodeURIComponent(descricao)
-  +&quot;&amp;avMedia=&quot;+encodeURIComponent(avMedia)
-  +&quot;&amp;avQtd=&quot;+encodeURIComponent(avQtd)
-  +&quot;&amp;especificacoes=&quot;+encodeURIComponent(JSON.stringify(especificacoes))
   +&quot;&amp;link=&quot;+encodeURIComponent(link);
 
 window.open(urlDashboard,&quot;_blank&quot;);
@@ -110,9 +71,8 @@ window.open(urlDashboard,&quot;_blank&quot;);
   <div class="bm-passos" style="background:#eaf6ff; border-color:var(--green-mid);">
     <strong>⚠️ Já instalou uma versão anterior deste botão?</strong>
     <p style="margin: 8px 0 0; color: var(--green-deep); font-size: 0.85rem;">
-      Melhorei a resolução das fotos e a captura da galeria completa. Arraste esse
-      botão de novo pra cima do botão salvo na barra de favoritos — ele substitui a
-      versão antiga automaticamente.
+      Simplifiquei pra trazer só o essencial (nome, preço, foto e link) — mais rápido
+      e confiável. Arraste esse botão de novo pra cima do salvo na barra de favoritos.
     </p>
   </div>
 

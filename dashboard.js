@@ -345,6 +345,7 @@ const SLIDERS = {
   pc: {
     storageKey: "estamparty_banners_pc",
     pastaGitHub: "banner-imagens-pc",
+    maxItens: 3,
     itens: [],
     idArquivo: "b_arquivo_pc",
     idBotaoEnviar: "btnEnviarBannerPC",
@@ -355,12 +356,25 @@ const SLIDERS = {
   mobile: {
     storageKey: "estamparty_banners_mobile",
     pastaGitHub: "banner-imagens-mobile",
+    maxItens: 3,
     itens: [],
     idArquivo: "b_arquivo_mobile",
     idBotaoEnviar: "btnEnviarBannerMobile",
     idStatusUpload: "statusUploadBannerMobile",
     idLista: "listaBannersMobile",
     idContador: "contadorBannersMobile"
+  },
+  depoimentos: {
+    storageKey: "estamparty_depoimentos",
+    pastaGitHub: "depoimentos-imagens",
+    maxItens: 10,
+    semLink: true,
+    itens: [],
+    idArquivo: "d_arquivo",
+    idBotaoEnviar: "btnEnviarDepoimento",
+    idStatusUpload: "statusUploadDepoimento",
+    idLista: "listaDepoimentos",
+    idContador: "contadorDepoimentos"
   }
 };
 
@@ -387,10 +401,10 @@ function renderizarSlider(tipo) {
       <img src="${b.imagem}?v=${Date.now()}" alt="">
       <div class="dash-item-info">
         <strong>Imagem ${i + 1}</strong>
-        <span>${b.link || "sem link ao clicar"}</span>
+        ${cfg.semLink ? "" : `<span>${b.link || "sem link ao clicar"}</span>`}
       </div>
       <div class="dash-item-actions">
-        <button class="btn-editar" data-tipo="${tipo}" data-i="${i}">Editar link</button>
+        ${cfg.semLink ? "" : `<button class="btn-editar" data-tipo="${tipo}" data-i="${i}">Editar link</button>`}
         <button class="btn-excluir" data-tipo="${tipo}" data-i="${i}">Remover</button>
       </div>
     </div>
@@ -406,7 +420,7 @@ function configurarSlider(tipo) {
     const file = arquivo.files[0];
 
     if (!file) { status.textContent = "Escolha uma imagem primeiro."; return; }
-    if (cfg.itens.length >= 3) { status.textContent = "Máximo de 3 imagens. Remova uma da lista antes de enviar outra."; return; }
+    if (cfg.itens.length >= cfg.maxItens) { status.textContent = `Máximo de ${cfg.maxItens} imagens. Remova uma da lista antes de enviar outra.`; return; }
 
     status.textContent = "Enviando imagem pro GitHub...";
     try {
@@ -455,6 +469,18 @@ function configurarSlider(tipo) {
 
 configurarSlider("pc");
 configurarSlider("mobile");
+configurarSlider("depoimentos");
+
+document.getElementById("btnPublicarDepoimentos").addEventListener("click", async () => {
+  const status = document.getElementById("statusPublicarDepoimentos");
+  status.textContent = "Publicando no GitHub...";
+  try {
+    await publicarNoGitHub("depoimentos.json", { depoimentos: SLIDERS.depoimentos.itens });
+    status.textContent = "✅ Publicado! O site atualiza em 1-2 minutos.";
+  } catch (erro) {
+    status.textContent = "❌ " + erro.message;
+  }
+});
 
 document.getElementById("btnExportarBanners").addEventListener("click", () => {
   const conteudo = JSON.stringify({
@@ -483,6 +509,54 @@ document.getElementById("btnPublicarBanners").addEventListener("click", async ()
     status.textContent = "❌ " + erro.message;
   }
 });
+
+// ---------- Nossa recomendação (destaque na home) ----------
+async function carregarRecomendacaoAtual() {
+  try {
+    const resp = await fetch("recomendacao.json", { cache: "no-store" });
+    return await resp.json();
+  } catch (e) {
+    return { ativo: false, nome: "", categoria: "", preco: "", imagem: "", imagens: [], video: "", descricao: "", linkML: "" };
+  }
+}
+
+document.getElementById("btnPublicarRecomendacao").addEventListener("click", async () => {
+  const status = document.getElementById("statusRecomendacao");
+  const imagens = document.getElementById("rec_imagens").value
+    .split("\n").map(s => s.trim()).filter(Boolean);
+
+  const dados = {
+    ativo: document.getElementById("rec_ativo").checked,
+    nome: document.getElementById("rec_nome").value.trim(),
+    categoria: document.getElementById("rec_categoria").value.trim(),
+    preco: parseFloat(document.getElementById("rec_preco").value) || 0,
+    imagem: imagens[0] || "",
+    imagens: imagens,
+    video: document.getElementById("rec_video").value.trim(),
+    descricao: document.getElementById("rec_descricao").value.trim(),
+    linkML: document.getElementById("rec_linkML").value.trim()
+  };
+
+  status.textContent = "Publicando no GitHub...";
+  try {
+    await publicarNoGitHub("recomendacao.json", dados);
+    status.textContent = "✅ Publicado! O site atualiza em 1-2 minutos.";
+  } catch (erro) {
+    status.textContent = "❌ " + erro.message;
+  }
+});
+
+(async function iniciarRecomendacao() {
+  const rec = await carregarRecomendacaoAtual();
+  document.getElementById("rec_ativo").checked = !!rec.ativo;
+  document.getElementById("rec_nome").value = rec.nome || "";
+  document.getElementById("rec_categoria").value = rec.categoria || "";
+  document.getElementById("rec_preco").value = rec.preco || "";
+  document.getElementById("rec_imagens").value = (rec.imagens && rec.imagens.length ? rec.imagens : [rec.imagem]).filter(Boolean).join("\n");
+  document.getElementById("rec_video").value = rec.video || "";
+  document.getElementById("rec_descricao").value = rec.descricao || "";
+  document.getElementById("rec_linkML").value = rec.linkML || "";
+})();
 
 (async function iniciarDashboard() {
   produtos = await carregarProdutos();

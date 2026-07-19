@@ -4,6 +4,9 @@ let TODOS_PRODUTOS = [];
 let categoriaAtual = "Todos";
 let buscaAtual = "";
 let ordemAtual = "relevancia";
+let listaFiltradaAtual = [];
+let itensVisiveis = 12;
+const ITENS_POR_PAGINA = 12;
 
 function formatarPreco(valor) {
   return valor.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
@@ -28,6 +31,7 @@ function criarCard(produto) {
           <span class="price-por">${formatarPreco(produto.preco)}</span>
         </div>
         <a class="card-cta" href="${produto.linkML}" target="_blank" rel="noopener noreferrer nofollow sponsored">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
           Ver no Mercado Livre
         </a>
       </div>
@@ -46,7 +50,7 @@ function aplicarFiltros() {
     const termo = buscaAtual.trim().toLowerCase();
     lista = lista.filter(p =>
       p.nome.toLowerCase().includes(termo) ||
-      p.descricao.toLowerCase().includes(termo) ||
+      (p.descricao || "").toLowerCase().includes(termo) ||
       p.categoria.toLowerCase().includes(termo)
     );
   }
@@ -62,6 +66,8 @@ function aplicarFiltros() {
       lista.sort((a, b) => (b.destaque === true) - (a.destaque === true));
   }
 
+  listaFiltradaAtual = lista;
+  itensVisiveis = ITENS_POR_PAGINA;
   renderizarGrid(lista);
 }
 
@@ -72,7 +78,24 @@ function renderizarGrid(lista) {
     grid.innerHTML = `<div class="empty-state">Nenhum produto encontrado. Tente outra busca ou categoria.</div>`;
     return;
   }
-  grid.innerHTML = lista.map(criarCard).join("");
+
+  const visiveis = lista.slice(0, itensVisiveis);
+  grid.innerHTML = visiveis.map(criarCard).join("");
+
+  const areaBotao = document.getElementById("areaCarregarMais");
+  if (areaBotao) {
+    areaBotao.innerHTML = itensVisiveis < lista.length
+      ? `<button class="btn-carregar-mais" id="btnCarregarMais">Carregar mais produtos</button>`
+      : "";
+
+    const btn = document.getElementById("btnCarregarMais");
+    if (btn) {
+      btn.addEventListener("click", () => {
+        itensVisiveis += ITENS_POR_PAGINA;
+        renderizarGrid(listaFiltradaAtual);
+      });
+    }
+  }
 }
 
 function renderizarFiltros(produtos) {

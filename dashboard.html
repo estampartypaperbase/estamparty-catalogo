@@ -126,6 +126,80 @@
     <small class="dash-hint" id="statusPublicarBanners"></small>
   </section>
 
+  <section class="dash-panel" id="painelDepoimentos">
+    <h2>💬 Depoimentos (até 10 imagens)</h2>
+    <p class="dash-config-desc">
+      Aparecem em círculo, logo abaixo do slider na página inicial, rolando
+      automaticamente na horizontal. Suba prints de conversas/depoimentos —
+      fica melhor se a imagem já for bem centralizada, já que vira um círculo.
+    </p>
+    <div class="dash-form">
+      <label>Enviar imagem
+        <input type="file" id="d_arquivo" accept="image/*">
+      </label>
+      <div class="dash-actions">
+        <button type="button" class="dash-btn-primary" id="btnEnviarDepoimento">⬆ Enviar e adicionar</button>
+        <span id="statusUploadDepoimento" class="dash-hint"></span>
+      </div>
+    </div>
+    <h3 class="dash-subtitulo">Depoimentos ativos (<span id="contadorDepoimentos">0</span>/10)</h3>
+    <div class="dash-list" id="listaDepoimentos"></div>
+
+    <div class="dash-actions" style="margin-top:14px;">
+      <button class="dash-btn-primary" id="btnPublicarDepoimentos">☁️ Publicar depoimentos no GitHub</button>
+    </div>
+    <small class="dash-hint" id="statusPublicarDepoimentos"></small>
+  </section>
+
+  <section class="dash-panel" id="painelRecomendacao">
+    <h2>⭐ Nossa recomendação (destaque na home)</h2>
+    <p class="dash-config-desc">
+      Aparece como uma seção especial na página inicial, com foto grande, galeria,
+      vídeo e descrição completa.
+    </p>
+    <div class="dash-form">
+      <label class="dash-check">
+        <input type="checkbox" id="rec_ativo">
+        Mostrar essa recomendação na página inicial
+      </label>
+
+      <label>Nome do produto
+        <input type="text" id="rec_nome" placeholder="Ex: Kit Painel Redondo Festa Infantil">
+      </label>
+
+      <div class="dash-row">
+        <label>Categoria
+          <input type="text" id="rec_categoria" placeholder="Ex: Decoração">
+        </label>
+        <label>Preço (R$)
+          <input type="number" id="rec_preco" step="0.01" min="0" placeholder="49.90">
+        </label>
+      </div>
+
+      <label>Galeria de fotos (uma URL por linha — a primeira é a principal)
+        <textarea id="rec_imagens" rows="3" placeholder="https://.../foto1.jpg&#10;https://.../foto2.jpg"></textarea>
+      </label>
+
+      <label>Vídeo do Instagram ou YouTube Shorts (opcional)
+        <input type="url" id="rec_video" placeholder="https://www.instagram.com/reel/XXXXX/ ou https://youtube.com/shorts/XXXXX">
+      </label>
+
+      <label>Descrição completa
+        <textarea id="rec_descricao" rows="5" placeholder="Descrição completa do produto..."></textarea>
+        <small class="dash-hint">No site, só os primeiros 200 caracteres aparecem, com um botão "Ver mais".</small>
+      </label>
+
+      <label>Link de afiliado do Mercado Livre
+        <input type="url" id="rec_linkML" placeholder="https://mercadolivre.com/sec/...">
+      </label>
+
+      <div class="dash-actions">
+        <button type="button" class="dash-btn-primary" id="btnPublicarRecomendacao">☁️ Publicar recomendação no GitHub</button>
+        <span id="statusRecomendacao" class="dash-hint"></span>
+      </div>
+    </div>
+  </section>
+
   <section class="dash-panel" id="painelConfig">
     <h2>⚙️ Publicar direto no GitHub (opcional)</h2>
     <p class="dash-config-desc">
