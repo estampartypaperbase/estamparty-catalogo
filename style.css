@@ -470,9 +470,9 @@ a { color: inherit; }
 .depoimentos-track:hover { animation-play-state: paused; }
 
 .depoimento-avatar {
-  width: 96px;
-  height: 96px;
-  border-radius: 50%;
+  width: 140px;
+  height: 140px;
+  border-radius: 16px;
   overflow: hidden;
   border: 3px solid var(--amber);
   flex-shrink: 0;
@@ -486,7 +486,7 @@ a { color: inherit; }
 }
 
 @media (max-width: 600px) {
-  .depoimento-avatar { width: 72px; height: 72px; }
+  .depoimento-avatar { width: 110px; height: 110px; }
 }
 
 /* ---------- Botão primário genérico do site ---------- */

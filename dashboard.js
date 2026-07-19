@@ -155,6 +155,7 @@ form.addEventListener("submit", (e) => {
 
   salvarProdutos(produtos);
   renderizarLista();
+  popularSelectProdutos();
   limparForm();
 });
 
@@ -546,6 +547,29 @@ document.getElementById("btnPublicarRecomendacao").addEventListener("click", asy
   }
 });
 
+function popularSelectProdutos() {
+  const select = document.getElementById("rec_produtoExistente");
+  if (!select) return;
+  select.innerHTML = '<option value="">— Selecione um produto —</option>' +
+    produtos.map(p => `<option value="${p.id}">${p.nome}</option>`).join("");
+}
+
+document.getElementById("btnPuxarProduto").addEventListener("click", () => {
+  const id = Number(document.getElementById("rec_produtoExistente").value);
+  const status = document.getElementById("statusPuxarProduto");
+
+  if (!id) { status.textContent = "Escolha um produto na lista primeiro."; return; }
+  const produto = produtos.find(p => p.id === id);
+  if (!produto) { status.textContent = "Produto não encontrado."; return; }
+
+  document.getElementById("rec_nome").value = produto.nome || "";
+  document.getElementById("rec_categoria").value = produto.categoria || "";
+  document.getElementById("rec_preco").value = produto.preco || "";
+  document.getElementById("rec_imagens").value = (produto.imagens && produto.imagens.length ? produto.imagens : [produto.imagem]).filter(Boolean).join("\n");
+  document.getElementById("rec_linkML").value = produto.linkML || "";
+  status.textContent = "✅ Dados trazidos! Adicione vídeo/descrição/mais fotos à vontade, e marque \"Mostrar\" antes de publicar.";
+});
+
 (async function iniciarRecomendacao() {
   const rec = await carregarRecomendacaoAtual();
   document.getElementById("rec_ativo").checked = !!rec.ativo;
@@ -562,6 +586,7 @@ document.getElementById("btnPublicarRecomendacao").addEventListener("click", asy
   produtos = await carregarProdutos();
   renderizarLista();
   preencherFormDaURL();
+  popularSelectProdutos();
 
   const config = carregarConfig();
   if (config.repo) document.getElementById("cfg_repo").value = config.repo;

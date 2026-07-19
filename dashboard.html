@@ -158,6 +158,16 @@
       vídeo e descrição completa.
     </p>
     <div class="dash-form">
+      <label>Puxar dados de um produto já cadastrado
+        <div class="dash-busca-row">
+          <select id="rec_produtoExistente">
+            <option value="">— Selecione um produto —</option>
+          </select>
+          <button type="button" class="dash-btn-primary" id="btnPuxarProduto">🔽 Puxar dados</button>
+        </div>
+        <small class="dash-hint" id="statusPuxarProduto"></small>
+      </label>
+
       <label class="dash-check">
         <input type="checkbox" id="rec_ativo">
         Mostrar essa recomendação na página inicial
