@@ -1,42 +1,18 @@
 {
   "bannersDesktop": [
     {
-      "imagem": "banner-imagens-pc/1784325137541-01.jpg",
+      "imagem": "banner-imagens-pc/1784582051455-Prancheta-1.jpg",
       "link": "",
-      "nomeArquivo": "1784325137541-01.jpg",
-      "sha": "3a116ae7c1869cdcf15c6c895a6140d3f3a96cae"
-    },
-    {
-      "imagem": "banner-imagens-pc/1784325144923-02.jpg",
-      "link": "",
-      "nomeArquivo": "1784325144923-02.jpg",
-      "sha": "fd9721a1b1e4698b2cb861ff13fb26652810d30f"
-    },
-    {
-      "imagem": "banner-imagens-pc/1784325150323-03.jpg",
-      "link": "",
-      "nomeArquivo": "1784325150323-03.jpg",
-      "sha": "f4734f5daad2561f0738e9cc15be73080bba35c2"
+      "nomeArquivo": "1784582051455-Prancheta-1.jpg",
+      "sha": "171b5a84e1dbff0403d26a0a433abc01e7f1a0db"
     }
   ],
   "bannersMobile": [
     {
-      "imagem": "banner-imagens-mobile/1784325246886-01.jpg",
+      "imagem": "banner-imagens-mobile/1784582067934-Prancheta-2.jpg",
       "link": "",
-      "nomeArquivo": "1784325246886-01.jpg",
-      "sha": "bbfaaf52327c21e432efc058efdc3daee1cce7ea"
-    },
-    {
-      "imagem": "banner-imagens-mobile/1784325252030-02.jpg",
-      "link": "",
-      "nomeArquivo": "1784325252030-02.jpg",
-      "sha": "68aa27b0c2da17f9ced22885ebd1c35056f90ac2"
-    },
-    {
-      "imagem": "banner-imagens-mobile/1784325258038-03.jpg",
-      "link": "",
-      "nomeArquivo": "1784325258038-03.jpg",
-      "sha": "1b5cf17cf22b5484c01c65ea36d2169422cac65a"
+      "nomeArquivo": "1784582067934-Prancheta-2.jpg",
+      "sha": "ae318d0dc93c29b91ad12427187843d72eaff555"
     }
   ]
 }
