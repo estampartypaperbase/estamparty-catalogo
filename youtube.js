@@ -1,5 +1,5 @@
 // Troque pela sua chave da API do YouTube Data v3 (veja o passo a passo no COMO_USAR.md)
-const YT_API_KEY = "SUA_CHAVE_DA_API_AQUI";
+const YT_API_KEY = "AIzaSyAdFQuOuKZI6GAT1osPdckHPlefR9VHyV0";
 const YT_CHANNEL_HANDLE = "EstampartyVideos"; // sem o @
 const YT_MAX_VIDEOS = 24;
 

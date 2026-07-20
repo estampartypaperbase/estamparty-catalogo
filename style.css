@@ -5,8 +5,8 @@
   --line: #d9ecf5;
   --green-deep: #0b4c7c;   /* azul profundo (era verde) */
   --green-mid: #1c8fc7;    /* azul médio */
-  --amber: #ffc61e;        /* amarelo do logo */
-  --amber-deep: #f2a900;   /* amarelo mais forte, pro texto/CTA */
+  --amber: #d7ce99;        /* amarelo do logo */
+  --amber-deep: #c2b464;   /* amarelo mais forte, pro texto/CTA */
   --muted: #5c7a90;
   --radius: 18px;
   --serif: "Fraunces", "Iowan Old Style", "Georgia", serif;
@@ -688,7 +688,7 @@ a { color: inherit; }
   box-shadow: 0 -8px 24px -12px rgba(0,0,0,0.3);
 }
 .lgpd-banner p { margin: 0; font-size: 0.85rem; max-width: 560px; }
-.lgpd-banner a { color: #ffd84d; }
+.lgpd-banner a { color: #d7ce99; }
 
 @media (max-width: 720px) {
   .recomendacao-card { grid-template-columns: 1fr; }
@@ -866,9 +866,9 @@ a { color: inherit; }
 }
 
 .card-cta:hover {
-  background: #ffd84d;
+  background: #e3dcb4;
   transform: scale(1.03);
-  box-shadow: 0 8px 18px -8px rgba(242, 169, 0, 0.6);
+  box-shadow: 0 8px 18px -8px rgba(194, 180, 100, 0.6);
 }
 
 .card-cta svg { width: 15px; height: 15px; flex-shrink: 0; }
