@@ -1,12 +1,12 @@
 :root {
   --ink: #0d2a44;
-  --paper: #FFFBF2;
+  --paper: #d7ce99;
   --panel: #ffffff;
   --line: #d9ecf5;
   --green-deep: #0b4c7c;   /* azul profundo (era verde) */
   --green-mid: #1c8fc7;    /* azul médio */
-  --amber: #d7ce99;        /* amarelo do logo */
-  --amber-deep: #c2b464;   /* amarelo mais forte, pro texto/CTA */
+  --amber: #FFE600;        /* amarelo Mercado Livre */
+  --amber-deep: #FFE600;   /* amarelo Mercado Livre, botão "Ver no Mercado Livre" */
   --muted: #5c7a90;
   --radius: 18px;
   --serif: "Fraunces", "Iowan Old Style", "Georgia", serif;
@@ -866,12 +866,13 @@ a { color: inherit; }
 }
 
 .card-cta:hover {
-  background: #e3dcb4;
+  background: #FFEB3B;
   transform: scale(1.03);
-  box-shadow: 0 8px 18px -8px rgba(194, 180, 100, 0.6);
+  box-shadow: 0 8px 18px -8px rgba(255, 230, 0, 0.6);
 }
 
 .card-cta svg { width: 15px; height: 15px; flex-shrink: 0; }
+.cta-icone-ml { width: 18px; height: 18px; flex-shrink: 0; object-fit: contain; }
 
 .empty-state {
   grid-column: 1 / -1;
