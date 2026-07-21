@@ -444,16 +444,6 @@
       "novo": false
     },
     {
-      "id": 45,
-      "nome": "Caderno De Viagem Planner Capa Dura",
-      "categoria": "Viagem",
-      "preco": 70,
-      "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_710208-MLB73784377760_012024-F-caderno-de-viagem-planner-capa-dura.webp",
-      "linkML": "https://produto.mercadolivre.com.br/MLB-2782200966-caderno-de-viagem-planner-capa-dura-_JM",
-      "destaque": false,
-      "novo": false
-    },
-    {
       "id": 46,
       "nome": "Caderno De Erros Personalizado",
       "categoria": "Estudos",
@@ -470,6 +460,1266 @@
       "preco": 75,
       "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_903572-MLB95108750673_102025-F.webp",
       "linkML": "https://www.mercadolivre.com.br/caderno-assinatura-crisma-personalizado-sem-pauta/up/MLBU3493776814?pdp_filters=item_id:MLB4252191235",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 48,
+      "nome": "Agenda Escolar Pokemon Permanente Personalizada",
+      "categoria": "Agenda Escolar",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_772087-MLB90301659165_082025-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/agenda-escolar-pokemon-permanente-personalizada/up/MLBU3370729992?pdp_filters=item_id:MLB5593631930",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 49,
+      "nome": "Caderno Para Ministério Infantil Personalizado",
+      "categoria": "Devocionais",
+      "preco": 110,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_739464-MLB98098921795_112025-F.webp",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-2783324055-caderno-para-ministerio-infantil-personalizado-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 50,
+      "nome": "Agendamento De Pacotes Mensais Para Petshop Personalizado",
+      "categoria": "Agendamentos",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_906502-MLB90564580711_082025-F.webp",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-3275626683-agendamento-de-pacotes-mensais-para-petshop-personalizado-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 51,
+      "nome": "Agenda Feminina Jurídica 2026 1dpp Personalizada",
+      "categoria": "Jurídico",
+      "preco": 125,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_779733-MLB94203059453_102025-F.webp",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-5768935736-agenda-feminina-juridica-2026-1dpp-personalizada-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 52,
+      "nome": "Agenda Escolar Moranguinho Permanente Personalizada",
+      "categoria": "Agenda Escolar",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_723183-MLB95371303987_102025-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/agenda-escolar-moranguinho-permanente-personalizada/up/MLBU2585097300?pdp_filters=item_id:MLB5144092994",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 53,
+      "nome": "Agenda Escolar Homem Aranha Permanente Personalizada",
+      "categoria": "Agenda Escolar",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_913619-MLB89922256976_082025-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/agenda-escolar-homem-aranha-permanente-personalizada/up/MLBU3370718570?pdp_filters=item_id:MLB5593566726",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 54,
+      "nome": "Álbum Do Bebê Menina Com Espaço Para 101 Fotos Personalizado",
+      "categoria": "Álbuns",
+      "preco": 145,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_906050-MLB70170642909_062023-F.webp",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-3706976456-album-do-beb-menina-com-espaco-para-101-fotos-personalizado-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 55,
+      "nome": "Caderno De Estudos Método Cornell Personalizado",
+      "categoria": "Estudos",
+      "preco": 77,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_960647-MLA105481727687_012026-F.webp",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-3927013899-caderno-de-estudos-metodo-cornell-personalizado-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 56,
+      "nome": "Diário Da Menina Cristã Personalizado",
+      "categoria": "Diários",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_970448-MLB81210982745_122024-F.webp",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-3927043541-diario-da-menina-crist-personalizado-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 57,
+      "nome": "Diário Caderno De Leituras Borboletas Personalizado",
+      "categoria": "Diários",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_750013-MLB90665615973_082025-F.webp",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-3933700415-diario-caderno-de-leituras-borboletas-personalizado-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 58,
+      "nome": "Agenda Escolar Hotwheels Personalizada Wire-o A5",
+      "categoria": "Agenda Escolar",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_755843-MLB90300763673_082025-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/agenda-escolar-hotwheels-personalizada-wireo-a5/up/MLBU3364619507?pdp_filters=item_id:MLB5593670260",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 59,
+      "nome": "Agenda Escolar Como Treinar Seu Dragão Perm. Personalizada",
+      "categoria": "Agenda Escolar",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_770530-MLB89726521056_082025-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/agenda-escolar-como-treinar-seu-dragao-perm-personalizada/up/MLBU3364740004?pdp_filters=item_id:MLB5579230276",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 60,
+      "nome": "Álbum Mesversário Para Menino",
+      "categoria": "Álbuns",
+      "preco": 110,
+      "imagem": "https://http2.mlstatic.com/storage/logos-api-admin/f3e8e940-f549-11ef-bad6-e9962bcd76e5-m.svg",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-3707021148-album-mesversario-para-menino-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 61,
+      "nome": "Agenda Masculina Versículos Bíblicos 2026 1dpp Personalizada",
+      "categoria": "Agenda",
+      "preco": 110,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_705511-MLB93790250120_102025-F.webp",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-4237055571-agenda-masculina-versiculos-biblicos-2026-1dpp-personalizada-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 62,
+      "nome": "Diário Caderno De Leituras Personalizado",
+      "categoria": "Diários",
+      "preco": 75,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_753630-MLB80945140202_122024-F.webp",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-5211064774-diario-caderno-de-leituras-personalizado-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 63,
+      "nome": "Caderno De Pedidos Para Costureiras Personalizado",
+      "categoria": "Pedidos",
+      "preco": 93,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_826387-MLB93028117567_092025-F.webp",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-5211209480-caderno-de-pedidos-para-costureiras-personalizado-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 64,
+      "nome": "Agenda Escolar Luluca Permanente Personalizada",
+      "categoria": "Agenda Escolar",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_845394-MLB90047586899_082025-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/agenda-escolar-luluca-permanente-personalizada/up/MLBU3363470038?pdp_filters=item_id:MLB5578206428",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 65,
+      "nome": "Diário Caderno De Leituras Clean Personalizado",
+      "categoria": "Diários",
+      "preco": 75,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_945591-MLB94852239855_102025-F.webp",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-5450082082-diario-caderno-de-leituras-clean-personalizado-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 66,
+      "nome": "Agenda Feminina Cristã Com Versículos 2026 Personalizada",
+      "categoria": "Agenda",
+      "preco": 120,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_676620-MLB96259973081_102025-F.webp",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-5849982042-agenda-feminina-crist-com-versiculos-2026-personalizada-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 67,
+      "nome": "Agenda Escolar Turma Da Mônica Permanente Personalizada",
+      "categoria": "Agenda Escolar",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_779013-MLB96289863013_102025-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/agenda-escolar-turma-da-monica-permanente-personalizada/up/MLBU3519270650?pdp_filters=item_id:MLB5849862582",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 68,
+      "nome": "Agenda Escolar Dragon Ball Permanente Personalizada",
+      "categoria": "Agenda Escolar",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_601427-MLB89921607764_082025-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/agenda-escolar-dragon-ball-permanente-personalizada/up/MLBU3370697792?pdp_filters=item_id:MLB5593643766",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 69,
+      "nome": "Devocional Diário Feminino Completo Personalizado Capa Dura",
+      "categoria": "Devocionais",
+      "preco": 130,
+      "imagem": "https://http2.mlstatic.com/storage/logos-api-admin/f3e8e940-f549-11ef-bad6-e9962bcd76e5-m.svg",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-2783284249-devocional-diario-feminino-completo-personalizado-capa-dura-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 70,
+      "nome": "Agenda Escolar Roblox Permanente Personalizada",
+      "categoria": "Agenda Escolar",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_656899-MLB96933512879_112025-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/agenda-escolar-roblox-permanente-personalizada/up/MLBU2989866432?pdp_filters=item_id:MLB5271831800",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 71,
+      "nome": "Agenda Escolar Stitch Permanente Personalizada",
+      "categoria": "Agenda Escolar",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_612398-MLB89838337465_082025-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/agenda-escolar-stitch-permanente-personalizada/up/MLBU2585156250?pdp_filters=item_id:MLB5144144494",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 72,
+      "nome": "Agenda Escolar Brainrots Permanente Personalizada",
+      "categoria": "Agenda Escolar",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_772702-MLB90342091453_082025-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/agenda-escolar-brainrots-permanente-personalizada/up/MLBU3365505653?pdp_filters=item_id:MLB5595069146",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 73,
+      "nome": "Caderno De Anotações P/ Professora A5 Personalizado 120 Fls",
+      "categoria": "Caderno Pautado",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_662466-MLB89498304326_082025-F.webp",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-3933677533-caderno-de-anotacoes-p-professora-a5-personalizado-120-fls-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 74,
+      "nome": "Diário Cartas Para Deus Personalizado",
+      "categoria": "Diários",
+      "preco": 76,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_999859-MLB92594282099_092025-F.webp",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-5210906170-diario-cartas-para-deus-personalizado-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 75,
+      "nome": "Agenda Escolar Hello Kitty Permanente Personalizada",
+      "categoria": "Agenda Escolar",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_808901-MLB94862971111_102025-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/agenda-escolar-hello-kitty-permanente-personalizada/up/MLBU2579757309?pdp_filters=item_id:MLB3890934621",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 76,
+      "nome": "Caderno Líder Círculo De Oração Personalizado (6 Meses)",
+      "categoria": "Devocionais",
+      "preco": 110,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_990350-MLB91050953552_092025-F.webp",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-3949162839-caderno-lider-circulo-de-oraco-personalizado-6-meses-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 77,
+      "nome": "Agenda Feminina Cristã 1dpp 2026 Candy Personalizada",
+      "categoria": "Agenda",
+      "preco": 116,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_604715-MLB92691967173_092025-F.webp",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-4209901339-agenda-feminina-crist-1dpp-2026-candy-personalizada-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 78,
+      "nome": "Agenda Harry Potter 2026 1dpp Personalizada",
+      "categoria": "Agenda",
+      "preco": 110,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_916647-MLB93776231656_102025-F.webp",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-4236481403-agenda-harry-potter-2026-1dpp-personalizada-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 79,
+      "nome": "Caderno De Ministração E Pregação Floral Azul Personalizado",
+      "categoria": "Devocionais",
+      "preco": 75,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_848351-MLB94129372237_102025-F.webp",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-5450775226-caderno-de-ministraco-e-pregaco-floral-azul-personalizado-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 80,
+      "nome": "Agenda Escolar Minions Permanente Personalizada",
+      "categoria": "Agenda Escolar",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_928453-MLB96933512751_112025-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/agenda-escolar-minions-permanente-personalizada/up/MLBU2183873438?pdp_filters=item_id:MLB5111748384",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 81,
+      "nome": "Agenda Para Creche Ou Berçário Permanente Personalizada",
+      "categoria": "Agenda",
+      "preco": 69,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_945745-MLB94201140481_102025-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/agenda-para-creche-ou-bercario-permanente-personalizada/up/MLBU3470602958?pdp_filters=item_id:MLB5768830934",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 82,
+      "nome": "Caderno De Colorir Minecraft (+brinde) Estilo Bobbie G.",
+      "categoria": "Caderno De Colorir",
+      "preco": 58,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_745278-MLB98131439681_112025-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/caderno-de-colorir-minecraft-brinde-estilo-bobbie-g/up/MLBU3094961781?pdp_filters=item_id:MLB4018363649",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 83,
+      "nome": "Diário Das Emoções Bts Personalizado",
+      "categoria": "Diários",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_763896-MLB110982990104_052026-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/diario-das-emocoes-bts-personalizado/up/MLBU3989884340?pdp_filters=item_id:MLB4696256667",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 84,
+      "nome": "Planner De Viagem Feminino 12 Viagens Personalizado",
+      "categoria": "Viagem",
+      "preco": 72,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_810864-MLB80398057702_112024-F.webp",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-3595304657-planner-de-viagem-feminino-12-viagens-personalizado-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 85,
+      "nome": "Álbum Mesversário Para Menina",
+      "categoria": "Álbuns",
+      "preco": 110,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_998871-MLB73806992486_012024-F.webp",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-3705427800-album-mesversario-para-menina-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 86,
+      "nome": "Planner Feminino 2026 Candy Modelo Horizontal Personalizado",
+      "categoria": "Planner",
+      "preco": 105,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_935490-MLB95047102778_102025-F.webp",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-4258462389-planner-feminino-2026-candy-modelo-horizontal-personalizado-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 87,
+      "nome": "Caderno De Resumos Escolar (50 Resumos) Personalizado",
+      "categoria": "Estudos",
+      "preco": 69,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_911119-MLB73807172202_012024-F.webp",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-2888526178-caderno-de-resumos-escolar-50-resumos-personalizado-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 88,
+      "nome": "Caderno De Catequese Personalizado Inteligência Artificial",
+      "categoria": "Devocionais",
+      "preco": 76,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_808793-MLB90044774605_082025-F.webp",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-5384872522-caderno-de-catequese-personalizado-inteligncia-artificial-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 89,
+      "nome": "Agenda Bobbie Goods 2 Feminina 2026 1dpp Personalizada",
+      "categoria": "Agenda",
+      "preco": 110,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_770600-MLB92665948341_092025-F.webp",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-5713314678-agenda-bobbie-goods-2-feminina-2026-1dpp-personalizada-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 90,
+      "nome": "Caderno De Colorir Frozen (+brinde) Estilo Bobbie G.",
+      "categoria": "Caderno De Colorir",
+      "preco": 58,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_948173-MLB93054149344_092025-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/caderno-de-colorir-frozen-brinde-estilo-bobbie-g/up/MLBU3094981049?pdp_filters=item_id:MLB4018338243",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 91,
+      "nome": "Agenda Escolar Sonic Permanente Personalizada",
+      "categoria": "Agenda Escolar",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_819337-MLB96933909951_112025-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/agenda-escolar-sonic-permanente-personalizada/up/MLBU2584181848?pdp_filters=item_id:MLB3890904629",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 92,
+      "nome": "Caderno De Ministrações E Pregações Personalizado",
+      "categoria": "Devocionais",
+      "preco": 67,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_679436-MLB73906172063_012024-F.webp",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-2783243414-caderno-de-ministracoes-e-pregacoes-personalizado-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 93,
+      "nome": "Agenda Jurídica Masculina 2026 1dpp Personalizada",
+      "categoria": "Jurídico",
+      "preco": 110,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_940611-MLB93780567476_102025-F.webp",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-5768794430-agenda-juridica-masculina-2026-1dpp-personalizada-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 94,
+      "nome": "Agenda Escolar Barbie Permanente Personalizada",
+      "categoria": "Agenda Escolar",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_602055-MLB94935331818_102025-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/agenda-escolar-barbie-permanente-personalizada/up/MLBU2580177299?pdp_filters=item_id:MLB5144078916",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 95,
+      "nome": "Caderno De Anotações Pautado Bts Army A5 100fls",
+      "categoria": "Caderno Pautado",
+      "preco": 67,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_992735-MLB113309761693_062026-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/caderno-de-anotacoes-pautado-bts-army-a5-100fls/up/MLBU4112252362?pdp_filters=item_id:MLB6972567284",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 96,
+      "nome": "Agenda Escolar Patrulha Canina Permanente Personalizada",
+      "categoria": "Agenda Escolar",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_957507-MLB89922434062_082025-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/agenda-escolar-patrulha-canina-permanente-personalizada/up/MLBU3370726552?pdp_filters=item_id:MLB5593618696",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 97,
+      "nome": "Caderneta De Saúde Meninos Personalizada",
+      "categoria": "Cadernetas",
+      "preco": 64,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_932282-MLB74495391383_022024-F.webp",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-3765619022-caderneta-de-saude-meninos-personalizada-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 98,
+      "nome": "Caderno Anotações Versículos Ande Pela Fé 100 Folhas",
+      "categoria": "Devocionais",
+      "preco": 70,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_933317-MLB81426546299_122024-F.webp",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-5222480272-caderno-anotacoes-versiculos-ande-pela-fe-100-folhas-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 99,
+      "nome": "Diário Caderno De Leitura Almanaque Personalizado",
+      "categoria": "Diários",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_784197-MLB80944752476_122024-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/diario-caderno-de-leitura-almanaque-personalizado/up/MLBU3971143157",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 100,
+      "nome": "Caderno Devocional Kids Meu Tempo Com Deus Personalizado",
+      "categoria": "Devocionais",
+      "preco": 70,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_815557-MLB94447565591_102025-F.webp",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-3572218443-caderno-devocional-kids-meu-tempo-com-deus-personalizado-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 102,
+      "nome": "Caderno De Ministração E Pregação Clean Personalizado",
+      "categoria": "Devocionais",
+      "preco": 67,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_903707-MLB90669113617_082025-F.webp",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-4102114897-caderno-de-ministraco-e-pregaco-clean-personalizado-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 103,
+      "nome": "Planner Feminino 2026 Candy Modelo Vertical Personalizado",
+      "categoria": "Planner",
+      "preco": 96,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_787355-MLB95481242407_102025-F.webp",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-4258501747-planner-feminino-2026-candy-modelo-vertical-personalizado-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 104,
+      "nome": "Planner Diário Fitness Personalizado Permanente",
+      "categoria": "Planner Diário",
+      "preco": 75,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_881934-MLB80943281174_122024-F.webp",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-5210952248-planner-diario-fitness-personalizado-permanente-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 105,
+      "nome": "Planner Diário Stitch Personalizado Permanente",
+      "categoria": "Planner Diário",
+      "preco": 75,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_980206-MLB89543654891_082025-F.webp",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-5210995352-planner-diario-stitch-personalizado-permanente-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 106,
+      "nome": "Agenda Escolar Minecraft Menina Permanente Personalizada",
+      "categoria": "Agenda Escolar",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_719751-MLB89751327762_082025-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/agenda-escolar-minecraft-menina-permanente-personalizada/up/MLBU3365811720?pdp_filters=item_id:MLB5580450710",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 107,
+      "nome": "Caderno De Assinaturas De Primeira Comunhão Eucaristia",
+      "categoria": "Assinaturas",
+      "preco": 60,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_916789-MLB80771622619_112024-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/caderno-de-assinaturas-de-primeira-comunhao-eucaristia/up/MLBU2807941440?pdp_filters=item_id:MLB3910743681",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 108,
+      "nome": "Diário Das Emoções Stranger Things Personalizado",
+      "categoria": "Diários",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_883089-MLB111579562325_052026-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/diario-das-emocoes-stranger-things-personalizado/up/MLBU3954591883?pdp_filters=item_id:MLB6760197624",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 109,
+      "nome": "Caderno De Colorir Divertidamente (+brinde) Estilo Bobbie G.",
+      "categoria": "Caderno De Colorir",
+      "preco": 58,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_847107-MLB92006237972_092025-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/caderno-de-colorir-divertidamente-brinde-estilo-bobbie-g/up/MLBU3100292106?pdp_filters=item_id:MLB4018399481",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 110,
+      "nome": "Caderno De Colorir Stitch (+brinde) Estilo Bobbie G.",
+      "categoria": "Caderno De Colorir",
+      "preco": 58,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_847034-MLB82652795565_022025-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/caderno-de-colorir-stitch-brinde-estilo-bobbie-g/up/MLBU3094901511?pdp_filters=item_id:MLB4018272589",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 111,
+      "nome": "Caderno De Receitas Personalizado",
+      "categoria": "Caderno Pautado",
+      "preco": 68,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_827648-MLB73807072240_012024-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/caderno-de-receitas-personalizado/up/MLBU751667543?pdp_filters=item_id:MLB2782203712",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 112,
+      "nome": "Caderno De Anotação De Ministração Para Pregador",
+      "categoria": "Devocionais",
+      "preco": 70,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_806974-MLB112166195070_062026-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/caderno-de-anotacao-de-ministracao-para-pregador/up/MLBU4112303622?pdp_filters=item_id:MLB6972602018",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 113,
+      "nome": "Caderno Diário De Leituras Bússola Literária",
+      "categoria": "Diários",
+      "preco": 75,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_809465-MLB111519109092_062026-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/caderno-diario-de-leituras-bussola-literaria/up/MLBU4029406527?pdp_filters=item_id:MLB6881351502",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 114,
+      "nome": "Caderneta De Saúde Meninas Personalizada + Cartão Sus Brinde",
+      "categoria": "Cadernetas",
+      "preco": 66,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_989791-MLB73906327597_012024-F.webp",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-2783228034-caderneta-de-saude-meninas-personalizada-carto-sus-brinde-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 115,
+      "nome": "Caderno Planner Da Consultora De Beleza Personalizado",
+      "categoria": "Planner",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_990043-MLB73841657364_012024-F.webp",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-3031032354-caderno-planner-da-consultora-de-beleza-personalizado-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 116,
+      "nome": "Caderno De Pedidos Personalizado Para Confeiteira",
+      "categoria": "Pedidos",
+      "preco": 93,
+      "imagem": "https://http2.mlstatic.com/storage/logos-api-admin/f3e8e940-f549-11ef-bad6-e9962bcd76e5-m.svg",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-3478512701-caderno-de-pedidos-personalizado-para-confeiteira-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 117,
+      "nome": "Caderno Séries, Filmes E Livros Personalizado",
+      "categoria": "Caderno Pautado",
+      "preco": 75,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_788281-MLB73807199122_012024-F.webp",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-2782211595-caderno-series-filmes-e-livros-personalizado-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 118,
+      "nome": "Caderno De Redação Personalizado",
+      "categoria": "Estudos",
+      "preco": 77,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_690827-MLB89957785131_082025-F.webp",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-3927079047-caderno-de-redaco-personalizado-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 119,
+      "nome": "Sketchbook Caderno Para Desenho Personalizado Capa Dura",
+      "categoria": "Cadernos Sem Pauta",
+      "preco": 47,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_734073-MLB88725637964_072025-F.webp",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-4033474103-sketchbook-caderno-para-desenho-personalizado-capa-dura-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 120,
+      "nome": "Caderno De Estudo Das Mulheres Da Bíblia Personalizado",
+      "categoria": "Estudos",
+      "preco": 73,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_736686-MLB86225141338_062025-F.webp",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-4102142171-caderno-de-estudo-das-mulheres-da-biblia-personalizado-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 121,
+      "nome": "Caderno De Estudo Escola Bíblica Dominical Ebd Personalizado",
+      "categoria": "Estudos",
+      "preco": 76,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_728170-MLB86225158436_062025-F.webp",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-4102193641-caderno-de-estudo-escola-biblica-dominical-ebd-personalizado-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 122,
+      "nome": "Diário Cartas Para Deus Rosa Floral Personalizado",
+      "categoria": "Devocionais",
+      "preco": 74,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_712581-MLB86544135773_062025-F.webp",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-4102208541-diario-cartas-para-deus-rosa-floral-personalizado-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 123,
+      "nome": "Diário Cartas Escritas Nunca Enviadas Dorama Personalizada",
+      "categoria": "Diários",
+      "preco": 74,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_706212-MLB81210593287_122024-F.webp",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-5211079170-diario-cartas-escritas-nunca-enviadas-dorama-personalizada-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 124,
+      "nome": "Agenda Escolar Frozen Permanente Personalizada",
+      "categoria": "Agenda Escolar",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_980076-MLB90047306439_082025-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/agenda-escolar-frozen-permanente-personalizada/up/MLBU3357405251?pdp_filters=item_id:MLB5578322574",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 125,
+      "nome": "Diário Das Emoções Ana Castela Personalizado",
+      "categoria": "Diários",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_999366-MLB113061533020_072026-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/diario-das-emocoes-ana-castela-personalizado/up/MLBU4175233582?pdp_filters=item_id:MLB7046564214",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 126,
+      "nome": "Caderno De Colorir Homem-aranha (+brinde) Estilo Bobbie G.",
+      "categoria": "Caderno De Colorir",
+      "preco": 58,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_791214-MLB82367710858_022025-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/caderno-de-colorir-homemaranha-brinde-estilo-bobbie-g/up/MLBU3094952887?pdp_filters=item_id:MLB4018425629",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 127,
+      "nome": "Planner Diário De Viagem Personalizado",
+      "categoria": "Planner Diário",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_838956-MLB110696712023_042026-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/planner-diario-de-viagem-personalizado/up/MLBU3907964037",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 128,
+      "nome": "Caderno De Ministração E Pregação Floral Azul",
+      "categoria": "Devocionais",
+      "preco": 60,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_848351-MLB94129372237_102025-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/caderno-de-ministracao-e-pregacao-floral-azul/up/MLBU4112278686?pdp_filters=item_id:MLB4782853715",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 129,
+      "nome": "Caderno Assinatura Debutante Personalizado Com Ou Sem Pauta",
+      "categoria": "Assinaturas",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_737752-MLB108860205393_032026-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/caderno-assinatura-debutante-personalizado-com-ou-sem-pauta/up/MLBU3841686763?pdp_filters=item_id:MLB6469914386",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 130,
+      "nome": "Diário Das Emoções Stray Kids K-pop Personalizado",
+      "categoria": "Diários",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_844532-MLB111954709519_052026-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/diario-das-emocoes-stray-kids-kpop-personalizado/up/MLBU3977295841?pdp_filters=item_id:MLB4696241443",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 131,
+      "nome": "Agenda Escolar Minnie Permanente Personalizada",
+      "categoria": "Agenda Escolar",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_852870-MLB96257613181_102025-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/agenda-escolar-minnie-permanente-personalizada/up/MLBU3519194360?pdp_filters=item_id:MLB5849859930",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 132,
+      "nome": "Devocional Diário Jovem Completo Personalizado",
+      "categoria": "Devocionais",
+      "preco": 98,
+      "imagem": "https://http2.mlstatic.com/storage/logos-api-admin/f3e8e940-f549-11ef-bad6-e9962bcd76e5-m.svg",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-2865253323-devocional-diario-jovem-completo-personalizado-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 133,
+      "nome": "Planner Para Empreendedores Permanente Personalizado",
+      "categoria": "Planner",
+      "preco": 120,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_656036-MLB73841401768_012024-F.webp",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-3031022633-planner-para-empreendedores-permanente-personalizado-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 134,
+      "nome": "Caderno De Agendamento Simples Permanente Personalizado",
+      "categoria": "Agendamentos",
+      "preco": 77,
+      "imagem": "https://http2.mlstatic.com/storage/logos-api-admin/f3e8e940-f549-11ef-bad6-e9962bcd76e5-m.svg",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-3278897402-caderno-de-agendamento-simples-permanente-personalizado-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 135,
+      "nome": "Planner Financeiro Permanente Personalizado",
+      "categoria": "Planner",
+      "preco": 73,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_922047-MLB77330408730_072024-F.webp",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-3771495465-planner-financeiro-permanente-personalizado-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 136,
+      "nome": "Caderno Andamento De Processos Masculino Personalizado",
+      "categoria": "Jurídico",
+      "preco": 71,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_881940-MLB77436284826_072024-F.webp",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-3777025635-caderno-andamento-de-processos-masculino-personalizado-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 137,
+      "nome": "Caderno Andamento De Processos Feminino Personalizado",
+      "categoria": "Jurídico",
+      "preco": 75,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_881940-MLB77436284826_072024-F.webp",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-3777064497-caderno-andamento-de-processos-feminino-personalizado-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 138,
+      "nome": "Diário De Leitura Professores Personalizado",
+      "categoria": "Diários",
+      "preco": 77,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_944169-MLB81211508821_122024-F.webp",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-3927034787-diario-de-leitura-professores-personalizado-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 139,
+      "nome": "Devocional Diário Completo Masculino Personalizado",
+      "categoria": "Devocionais",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_928959-MLB82348246101_022025-F.webp",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-3971328431-devocional-diario-completo-masculino-personalizado-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 140,
+      "nome": "Caderno De Fichas De Resumos Personalizado",
+      "categoria": "Estudos",
+      "preco": 74,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_715747-MLB89519374918_082025-F.webp",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-4101642049-caderno-de-fichas-de-resumos-personalizado-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 141,
+      "nome": "Caderno De Estudos De Versículos Bíblicos Masc Personalizado",
+      "categoria": "Estudos",
+      "preco": 70,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_792516-MLB86196152860_062025-F.webp",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-4101693215-caderno-de-estudos-de-versiculos-biblicos-masc-personalizado-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 142,
+      "nome": "Caderno De Anotação Ministração Para Pregadora Personalizado",
+      "categoria": "Devocionais",
+      "preco": 76,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_753982-MLB89651785218_082025-F.webp",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-4102103421-caderno-de-anotaco-ministraco-para-pregadora-personalizado-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 143,
+      "nome": "Planner Estudante Completo Permanente Personalizado",
+      "categoria": "Planner",
+      "preco": 98,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_840511-MLB74495496043_022024-F.webp",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-5222258380-planner-estudante-completo-permanente-personalizado-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 144,
+      "nome": "Caderno De Anotação De Ministração Kids Personalizado",
+      "categoria": "Caderno Pautado",
+      "preco": 73,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_966188-MLB86614176115_062025-F.webp",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-5452576094-caderno-de-anotaco-de-ministraco-kids-personalizado-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 145,
+      "nome": "Caderno De Estudos Bíblicos Devocional Teen Personalizado",
+      "categoria": "Caderno Pautado",
+      "preco": 73,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_708139-MLB86613072805_062025-F.webp",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-5452738400-caderno-de-estudos-biblicos-devocional-teen-personalizado-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 146,
+      "nome": "Planner Devocional Encontro Diário Com Jesus Personalizado",
+      "categoria": "Planner",
+      "preco": 95,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_989495-MLB110313556243_042026-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/planner-devocional-encontro-diario-com-jesus-personalizado/up/MLBU3890336111",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 147,
+      "nome": "Pack De Memes Arquivos De Imagem Vídeo E Som",
+      "categoria": "Packs",
+      "preco": 20,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_916348-MLB113114522862_072026-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/pack-de-memes-arquivos-de-imagem-video-e-som/up/MLBU4276899176?pdp_filters=item_id:MLB7136144472",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 148,
+      "nome": "Caderno De Colorir Roblox (+brinde) Estilo Bobbie G.",
+      "categoria": "Caderno De Colorir",
+      "preco": 58,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_863543-MLB93295041228_092025-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/caderno-de-colorir-roblox-brinde-estilo-bobbie-g/up/MLBU3094968671?pdp_filters=item_id:MLB4018463831",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 149,
+      "nome": "Caderno De Pedidos Crochê (crocheteira) Personalizado",
+      "categoria": "Pedidos",
+      "preco": 93,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_909036-MLB109846134088_042026-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/caderno-de-pedidos-croche-crocheteira-personalizado/up/MLBU3910017943",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 150,
+      "nome": "Agendamento Feminino Completo Permanente Personalizado",
+      "categoria": "Agendamentos",
+      "preco": 95,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_891222-MLB107117566350_022026-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/agendamento-feminino-completo-permanente-personalizado/up/MLBU3820854718?pdp_filters=item_id:MLB6311928238",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 151,
+      "nome": "Caderno De Colorir Barbie (+brinde) Estilo Bobbie G.",
+      "categoria": "Caderno De Colorir",
+      "preco": 58,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_847325-MLB89808853414_082025-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/caderno-de-colorir-barbie-brinde-estilo-bobbie-g/up/MLBU3367049838?pdp_filters=item_id:MLB4163892973",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 152,
+      "nome": "Planner Diário Harry Potter Personalizado",
+      "categoria": "Planner Diário",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_949097-MLB114003029349_072026-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/planner-diario-harry-potter-personalizado/up/MLBU4184385953",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 153,
+      "nome": "Planner Diário Meninas Super Poderosas Personalizado",
+      "categoria": "Planner Diário",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_773297-MLA114288729291_072026-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/planner-diario-meninas-super-poderosas-personalizado/up/MLBU4263481308?pdp_filters=item_id:MLB7125315892",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 154,
+      "nome": "Caderno De Colorir Capivara (+brinde) Estilo Bobbie G.",
+      "categoria": "Caderno De Colorir",
+      "preco": 58,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_666618-MLB89971425569_082025-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/caderno-de-colorir-capivara-brinde-estilo-bobbie-g/up/MLBU3094926945?pdp_filters=item_id:MLB4018349025",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 155,
+      "nome": "Diário De Ministrações E Pregações Personalizdo",
+      "categoria": "Devocionais",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_704271-MLB110312324943_042026-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/diario-de-ministracoes-e-pregacoes-personalizdo/up/MLBU3901610944",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 156,
+      "nome": "Agenda Escolar Roblox Menina Permanente Personalizada",
+      "categoria": "Agenda Escolar",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_914024-MLB90047590359_082025-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/agenda-escolar-roblox-menina-permanente-personalizada/up/MLBU3357431377?pdp_filters=item_id:MLB5578233084",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 157,
+      "nome": "Diário Das Emoções Dos Rosa Emily Vick Personalizado",
+      "categoria": "Diários",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_902779-MLB110827917670_052026-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/diario-das-emocoes-dos-rosa-emily-vick-personalizado/up/MLBU3967243311?pdp_filters=item_id:MLB6788077178",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 158,
+      "nome": "Caderno De Colorir Bob Esponja (+brinde) Estilo Bobbie G.",
+      "categoria": "Caderno De Colorir",
+      "preco": 58,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_891748-MLB97891667892_112025-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/caderno-de-colorir-bob-esponja-brinde-estilo-bobbie-g/up/MLBU3100329264?pdp_filters=item_id:MLB4018364129",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 159,
+      "nome": "Planner Diário Bts Army Personalizado",
+      "categoria": "Planner Diário",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_907589-MLB114419697077_072026-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/planner-diario-bts-army-personalizado/up/MLBU4295390994?pdp_filters=item_id:MLB7149336324",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 160,
+      "nome": "Caderno De Colorir Chaves (+brinde) Estilo Bobbie G.",
+      "categoria": "Caderno De Colorir",
+      "preco": 58,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_952429-MLB85464443894_062025-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/caderno-de-colorir-chaves-brinde-estilo-bobbie-g/up/MLBU3222244297?pdp_filters=item_id:MLB4088416861",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 161,
+      "nome": "Planner Diário Masculino Com Versículos Personalizado",
+      "categoria": "Planner Diário",
+      "preco": 69,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_765653-MLB114152246375_072026-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/planner-diario-masculino-com-versiculos-personalizado/up/MLBU4230405546",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 162,
+      "nome": "Caderno Colorir Crianças E Jesus (+brinde) Estilo Bobbie G.",
+      "categoria": "Caderno De Colorir",
+      "preco": 58,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_929966-MLB90186242161_082025-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/caderno-colorir-criancas-e-jesus-brinde-estilo-bobbie-g/up/MLBU3367046310?pdp_filters=item_id:MLB4164022623",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 163,
+      "nome": "Diário Caderno De Leituras Candy",
+      "categoria": "Diários",
+      "preco": 75,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_820899-MLB107899715311_032026-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/diario-caderno-de-leituras-candy/up/MLBU3823505900",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 164,
+      "nome": "Planner Diário Snoppy Personalizado",
+      "categoria": "Planner Diário",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_968125-MLB113182875080_072026-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/planner-diario-snoppy-personalizado/up/MLBU4293995498?pdp_filters=item_id:MLB4880000969",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 165,
+      "nome": "Caderno De Anotações Pautado Bts Army Personalizado A5 100fl",
+      "categoria": "Caderno Pautado",
+      "preco": 73,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_801555-MLB112166507190_062026-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/caderno-de-anotacoes-pautado-bts-army-personalizado-a5-100fl/up/MLBU4112231404?pdp_filters=item_id:MLB4782827123",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 166,
+      "nome": "Agenda Escolar Naruto Permanente Personalizada",
+      "categoria": "Agenda Escolar",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_722270-MLB89922615564_082025-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/agenda-escolar-naruto-permanente-personalizada/up/MLBU3370723080?pdp_filters=item_id:MLB5593657326",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 167,
+      "nome": "Devocional Diário Borboletas Personalizado",
+      "categoria": "Devocionais",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_615025-MLB109096668269_032026-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/devocional-diario-borboletas-personalizado/up/MLBU3849489281",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 168,
+      "nome": "Agenda Escolar Cebolinha Permanente Personalizada",
+      "categoria": "Agenda Escolar",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_819209-MLB96258393323_102025-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/agenda-escolar-cebolinha-permanente-personalizada/up/MLBU3512066865?pdp_filters=item_id:MLB4272659995",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 169,
+      "nome": "Planner Diário Coragem, O Cão Covarde Personalizado",
+      "categoria": "Planner Diário",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_689432-MLB112987053356_072026-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/planner-diario-coragem-o-cao-covarde-personalizado/up/MLBU4224051139?pdp_filters=item_id:MLB7105554874",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 170,
+      "nome": "Caderno De Planejamento Para Coordenadora Personalizado",
+      "categoria": "Professores",
+      "preco": 98,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_905306-MLB95484533827_102025-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/caderno-de-planejamento-para-coordenadora-personalizado/up/MLBU3933386784",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 171,
+      "nome": "Planner Diário Paris Personalizado",
+      "categoria": "Planner Diário",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_898853-MLB114153747223_072026-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/planner-diario-paris-personalizado/up/MLBU4230694718",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 172,
+      "nome": "Planner Diário Hello Kitty Personalizado",
+      "categoria": "Planner Diário",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_855905-MLB113114009640_072026-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/planner-diario-hello-kitty-personalizado/up/MLBU4276710748?pdp_filters=item_id:MLB7136346810",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 173,
+      "nome": "Planner Diário Love Panda Personalizado",
+      "categoria": "Planner Diário",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_889910-MLA114058201861_072026-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/planner-diario-love-panda-personalizado/up/MLBU4213209636",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 174,
+      "nome": "Planner Diário Lettering Collor Personalizado",
+      "categoria": "Planner Diário",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_Q_NP_623287-MLB114052075143_072026-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/planner-diario-lettering-collor-personalizado/up/MLBU4212195246",
       "destaque": false,
       "novo": false
     }
