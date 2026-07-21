@@ -1,6 +1,6 @@
 :root {
   --ink: #0d2a44;
-  --paper: #d7ce99;
+  --paper: #ffe765;
   --panel: #ffffff;
   --line: #d9ecf5;
   --green-deep: #0b4c7c;   /* azul profundo (era verde) */
@@ -19,7 +19,9 @@ html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  background: var(--paper);
+  background-color: var(--paper);
+  background-image: url('repeat.png');
+  background-repeat: repeat;
   color: var(--ink);
   font-family: var(--sans);
   -webkit-font-smoothing: antialiased;
@@ -130,8 +132,6 @@ a { color: inherit; }
   aspect-ratio: 16 / 9;
   border-radius: var(--radius);
   overflow: hidden;
-  border: 1px solid var(--line);
-  background: #eef6fb;
 }
 
 .hero-slider-slide {
