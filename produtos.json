@@ -502,6 +502,36 @@
       "linkML": "https://www.mercadolivre.com.br/diario-das-emocoes-stray-kids-kpop-personalizado/up/MLBU3977295841?pdp_filters=item_id:MLB4696241443",
       "destaque": false,
       "novo": false
+    },
+    {
+      "id": 51,
+      "nome": "Diário Das Emoções Dos Rosa Emily Vick Personalizado",
+      "categoria": "Diários",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_902779-MLB110827917670_052026-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/diario-das-emocoes-dos-rosa-emily-vick-personalizado/up/MLBU3967243311?pdp_filters=item_id:MLB6788077178",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 52,
+      "nome": "Diário Das Emoções Ana Castela Personalizado",
+      "categoria": "Diários",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_999366-MLB113061533020_072026-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/diario-das-emocoes-ana-castela-personalizado/up/MLBU4175233582?pdp_filters=item_id:MLB7046564214",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 53,
+      "nome": "Diário Das Emoções Stranger Things Personalizado",
+      "categoria": "Diários",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_883089-MLB111579562325_052026-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/diario-das-emocoes-stranger-things-personalizado/up/MLBU3954591883?pdp_filters=item_id:MLB6760197624",
+      "destaque": false,
+      "novo": false
     }
   ]
 }
