@@ -1,18 +1,4 @@
 {
-  "bannersDesktop": [
-    {
-      "imagem": "banner-imagens-pc/1784662754843-Prancheta-1.jpg",
-      "link": "",
-      "nomeArquivo": "1784662754843-Prancheta-1.jpg",
-      "sha": "171b5a84e1dbff0403d26a0a433abc01e7f1a0db"
-    }
-  ],
-  "bannersMobile": [
-    {
-      "imagem": "banner-imagens-mobile/1784662760522-Prancheta-2.jpg",
-      "link": "",
-      "nomeArquivo": "1784662760522-Prancheta-2.jpg",
-      "sha": "ae318d0dc93c29b91ad12427187843d72eaff555"
-    }
-  ]
+  "bannersDesktop": [],
+  "bannersMobile": []
 }
