@@ -582,6 +582,40 @@ document.getElementById("btnPuxarProduto").addEventListener("click", () => {
   document.getElementById("rec_linkML").value = rec.linkML || "";
 })();
 
+// ---------- SEO ----------
+async function carregarSEOAtual() {
+  try {
+    const resp = await fetch("seo.json", { cache: "no-store" });
+    return await resp.json();
+  } catch (e) {
+    return { titulo: "", descricao: "", palavrasChave: "" };
+  }
+}
+
+document.getElementById("btnPublicarSEO").addEventListener("click", async () => {
+  const status = document.getElementById("statusSEO");
+  const dados = {
+    titulo: document.getElementById("seo_titulo").value.trim(),
+    descricao: document.getElementById("seo_descricao").value.trim(),
+    palavrasChave: document.getElementById("seo_palavras").value.trim()
+  };
+
+  status.textContent = "Publicando no GitHub...";
+  try {
+    await publicarNoGitHub("seo.json", dados);
+    status.textContent = "✅ Publicado! O site atualiza em 1-2 minutos.";
+  } catch (erro) {
+    status.textContent = "❌ " + erro.message;
+  }
+});
+
+(async function iniciarSEO() {
+  const seo = await carregarSEOAtual();
+  document.getElementById("seo_titulo").value = seo.titulo || "";
+  document.getElementById("seo_descricao").value = seo.descricao || "";
+  document.getElementById("seo_palavras").value = seo.palavrasChave || "";
+})();
+
 (async function iniciarDashboard() {
   produtos = await carregarProdutos();
   renderizarLista();

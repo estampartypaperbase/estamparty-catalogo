@@ -210,6 +210,40 @@
     </div>
   </section>
 
+  <section class="dash-panel" id="painelSEO">
+    <h2>🔍 SEO — como o site aparece no Google</h2>
+    <p class="dash-config-desc">
+      Controla o título, a descrição e as palavras-chave que aparecem nos resultados
+      de busca do Google e quando o link é compartilhado.
+    </p>
+    <div class="dash-form">
+      <label>Título do site (aparece na aba do navegador e no Google)
+        <input type="text" id="seo_titulo" placeholder="Ex: Estamparty — Papelaria Personalizada">
+        <small class="dash-hint">Ideal até 60 caracteres.</small>
+      </label>
+
+      <label>Descrição (aparece embaixo do título nos resultados do Google)
+        <textarea id="seo_descricao" rows="3" placeholder="Descrição atrativa do seu site..."></textarea>
+        <small class="dash-hint">Ideal até 160 caracteres.</small>
+      </label>
+
+      <label>Palavras-chave (separadas por vírgula)
+        <textarea id="seo_palavras" rows="2" placeholder="agenda escolar personalizada, papelaria personalizada, ..."></textarea>
+        <small class="dash-hint">
+          Sugestões pro seu nicho: agenda escolar personalizada, papelaria personalizada,
+          planner personalizado, caderno personalizado infantil, presente personalizado
+          infantil, caderno de assinatura primeira eucaristia, agenda 2026 personalizada,
+          lembrancinha primeira eucaristia personalizada, planner diário personalizado feminino
+        </small>
+      </label>
+
+      <div class="dash-actions">
+        <button type="button" class="dash-btn-primary" id="btnPublicarSEO">☁️ Publicar SEO no GitHub</button>
+        <span id="statusSEO" class="dash-hint"></span>
+      </div>
+    </div>
+  </section>
+
   <section class="dash-panel" id="painelConfig">
     <h2>⚙️ Publicar direto no GitHub (opcional)</h2>
     <p class="dash-config-desc">

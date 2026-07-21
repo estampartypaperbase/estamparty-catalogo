@@ -98,6 +98,14 @@ a { color: inherit; }
 .social-icons a:hover { background: var(--green-mid); }
 .social-icons svg { width: 17px; height: 17px; }
 
+.header-versiculo {
+  text-align: center;
+  font-size: 0.78rem;
+  font-style: italic;
+  color: var(--muted);
+  margin: 10px 0 0;
+}
+
 /* ---------- Hero com mascote (página inicial) ---------- */
 .hero-mascote {
   max-width: 1100px;

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://SEU-DOMINIO-AQUI/sitemap.xml
+Sitemap: https://estampartypaperbase.github.io/estamparty-catalogo/sitemap.xml

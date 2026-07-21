@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://SEU-DOMINIO-AQUI/index.html</loc></url>
-  <url><loc>https://SEU-DOMINIO-AQUI/sobre.html</loc></url>
+  <url><loc>https://estampartypaperbase.github.io/estamparty-catalogo/</loc><priority>1.0</priority></url>
+  <url><loc>https://estampartypaperbase.github.io/estamparty-catalogo/sobre.html</loc><priority>0.7</priority></url>
+  <url><loc>https://estampartypaperbase.github.io/estamparty-catalogo/politica-trocas.html</loc><priority>0.3</priority></url>
+  <url><loc>https://estampartypaperbase.github.io/estamparty-catalogo/vendas-fora-ml.html</loc><priority>0.3</priority></url>
+  <url><loc>https://estampartypaperbase.github.io/estamparty-catalogo/youtube.html</loc><priority>0.5</priority></url>
+  <url><loc>https://estampartypaperbase.github.io/estamparty-catalogo/contato.html</loc><priority>0.4</priority></url>
+  <url><loc>https://estampartypaperbase.github.io/estamparty-catalogo/privacidade.html</loc><priority>0.2</priority></url>
 </urlset>
