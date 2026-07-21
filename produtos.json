@@ -442,6 +442,36 @@
       "linkML": "https://produto.mercadolivre.com.br/MLB-2782200966-caderno-de-viagem-planner-capa-dura-_JM",
       "destaque": false,
       "novo": false
+    },
+    {
+      "id": 45,
+      "nome": "Caderno De Viagem Planner Capa Dura",
+      "categoria": "Viagem",
+      "preco": 70,
+      "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_710208-MLB73784377760_012024-F-caderno-de-viagem-planner-capa-dura.webp",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-2782200966-caderno-de-viagem-planner-capa-dura-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 46,
+      "nome": "Caderno De Erros Personalizado",
+      "categoria": "Estudos",
+      "preco": 75,
+      "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_660414-MLB93494210176_102025-F-caderno-de-erros-personalizado.webp",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-3927025839-caderno-de-erros-personalizado-_JM",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 47,
+      "nome": "Caderno Assinatura Crisma Personalizado Sem Pauta",
+      "categoria": "Assinaturas",
+      "preco": 75,
+      "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_903572-MLB95108750673_102025-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/caderno-assinatura-crisma-personalizado-sem-pauta/up/MLBU3493776814?pdp_filters=item_id:MLB4252191235",
+      "destaque": false,
+      "novo": false
     }
   ]
 }
