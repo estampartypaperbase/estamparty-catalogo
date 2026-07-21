@@ -492,6 +492,16 @@
       "linkML": "https://www.mercadolivre.com.br/diario-das-emocoes-bts-personalizado/up/MLBU3989884340?pdp_filters=item_id:MLB4696256667",
       "destaque": false,
       "novo": false
+    },
+    {
+      "id": 50,
+      "nome": "Diário Das Emoções Stray Kids K-pop Personalizado",
+      "categoria": "Diários",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_844532-MLB111954709519_052026-F.webp",
+      "linkML": "https://www.mercadolivre.com.br/diario-das-emocoes-stray-kids-kpop-personalizado/up/MLBU3977295841?pdp_filters=item_id:MLB4696241443",
+      "destaque": false,
+      "novo": false
     }
   ]
 }
