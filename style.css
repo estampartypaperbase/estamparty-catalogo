@@ -442,6 +442,27 @@ a { color: inherit; }
   transition: transform 0.15s ease;
 }
 .whatsapp-float:hover { transform: scale(1.08); }
+.filtros-mobile {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  .filters { display: none; }
+  .filtros-mobile {
+    display: block;
+    max-width: 1100px;
+    margin: 0 auto 16px;
+    width: calc(100% - 48px);
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--ink);
+    padding: 12px 20px;
+  }
+}
+
 .filters {
   max-width: 1100px;
   margin: 0 auto;

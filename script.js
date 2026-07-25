@@ -107,6 +107,7 @@ function renderizarGrid(lista) {
 function renderizarFiltros(produtos) {
   const categorias = ["Todos", ...new Set(produtos.map(p => p.categoria))];
   const filtros = document.getElementById("filtros");
+  const filtrosMobile = document.getElementById("filtrosMobile");
   if (!filtros) return;
 
   const temNovidades = produtos.some(p => p.novo);
@@ -115,14 +116,28 @@ function renderizarFiltros(produtos) {
     .map((cat, i) => `<button class="filter-btn ${i === 0 ? "active" : ""}" data-cat="${cat}">${cat}</button>`)
     .join("") + (temNovidades ? `<button class="filter-btn filter-novidades" data-cat="__novidades__">🆕 Novidades</button>` : "");
 
+  if (filtrosMobile) {
+    filtrosMobile.innerHTML = categorias
+      .map(cat => `<option value="${cat}">${cat}</option>`)
+      .join("") + (temNovidades ? `<option value="__novidades__">🆕 Novidades</option>` : "");
+  }
+
+  function selecionarCategoria(cat) {
+    filtros.querySelectorAll(".filter-btn").forEach(b => b.classList.toggle("active", b.dataset.cat === cat));
+    if (filtrosMobile) filtrosMobile.value = cat;
+    categoriaAtual = cat;
+    aplicarFiltros();
+  }
+
   filtros.addEventListener("click", (e) => {
     const btn = e.target.closest(".filter-btn");
     if (!btn) return;
-    filtros.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
-    btn.classList.add("active");
-    categoriaAtual = btn.dataset.cat;
-    aplicarFiltros();
+    selecionarCategoria(btn.dataset.cat);
   });
+
+  if (filtrosMobile) {
+    filtrosMobile.addEventListener("change", () => selecionarCategoria(filtrosMobile.value));
+  }
 }
 
 function configurarBusca() {
