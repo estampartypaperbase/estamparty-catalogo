@@ -16,6 +16,25 @@ function gerarEmbedVideoRec(link) {
   return null;
 }
 
+let recGaleriaImagens = [];
+let recGaleriaIndice = 0;
+
+function abrirLightbox(indice) {
+  recGaleriaIndice = indice;
+  const lightbox = document.getElementById("recLightbox");
+  document.getElementById("recLightboxImg").src = recGaleriaImagens[recGaleriaIndice];
+  lightbox.classList.add("aberto");
+}
+
+function mudarLightbox(delta) {
+  recGaleriaIndice = (recGaleriaIndice + delta + recGaleriaImagens.length) % recGaleriaImagens.length;
+  document.getElementById("recLightboxImg").src = recGaleriaImagens[recGaleriaIndice];
+}
+
+function fecharLightbox() {
+  document.getElementById("recLightbox").classList.remove("aberto");
+}
+
 async function carregarRecomendacao() {
   const wrap = document.getElementById("recomendacaoWrap");
   if (!wrap) return;
@@ -27,7 +46,7 @@ async function carregarRecomendacao() {
     if (!produto.ativo || !produto.nome) { wrap.style.display = "none"; return; }
 
     const imagens = (produto.imagens && produto.imagens.length) ? produto.imagens : [produto.imagem];
-    const outrasFotos = imagens.slice(1, 5);
+    recGaleriaImagens = imagens;
     const embedVideo = gerarEmbedVideoRec(produto.video);
 
     const descricaoCompleta = produto.descricao || "";
@@ -37,39 +56,60 @@ async function carregarRecomendacao() {
     wrap.innerHTML = `
       <h2 class="recomendacao-titulo">Nossa recomendação</h2>
       <div class="recomendacao-card">
-        <div class="recomendacao-galeria">
+        <div class="recomendacao-hero">
           <div class="recomendacao-foto-principal">
             <img id="recImgPrincipal" src="${imagens[0]}" alt="${produto.nome}">
           </div>
-          ${outrasFotos.length ? `
-            <div class="recomendacao-miniaturas">
-              ${outrasFotos.map(url => `<button class="rec-mini" data-src="${url}"><img src="${url}" alt=""></button>`).join("")}
-            </div>
-          ` : ""}
-          ${embedVideo ? `
-            <div class="recomendacao-video">
-              <iframe src="${embedVideo}" loading="lazy" allowtransparency="true" frameborder="0" scrolling="no" allowfullscreen></iframe>
-            </div>
-          ` : ""}
+          <div class="recomendacao-info">
+            <div class="card-cat">${produto.categoria || ""}</div>
+            <h3>${produto.nome}</h3>
+            <div class="price-por" style="font-size:1.8rem;">${formatarPrecoRec(produto.preco)}</div>
+            <p class="recomendacao-desc" id="recDescricao">${temMais ? descricaoCurta + "…" : descricaoCompleta}</p>
+            ${temMais ? `<button class="rec-ver-mais" id="recVerMais">Ver mais</button>` : ""}
+            <a class="card-cta" href="${produto.linkML}" target="_blank" rel="noopener noreferrer nofollow sponsored">
+              <img src="mercadolivre-icon.png" alt="" class="cta-icone-ml">
+              Ver no Mercado Livre
+            </a>
+          </div>
         </div>
-        <div class="recomendacao-info">
-          <div class="card-cat">${produto.categoria || ""}</div>
-          <h3>${produto.nome}</h3>
-          <div class="price-por" style="font-size:1.8rem;">${formatarPrecoRec(produto.preco)}</div>
-          <p class="recomendacao-desc" id="recDescricao">${temMais ? descricaoCurta + "…" : descricaoCompleta}</p>
-          ${temMais ? `<button class="rec-ver-mais" id="recVerMais">Ver mais</button>` : ""}
-          <a class="card-cta" href="${produto.linkML}" target="_blank" rel="noopener noreferrer nofollow sponsored">
-            <img src="mercadolivre-icon.png" alt="" class="cta-icone-ml">
-            Ver no Mercado Livre
-          </a>
-        </div>
+
+        ${imagens.length > 1 ? `
+          <div class="recomendacao-galeria-linha">
+            ${imagens.map((url, i) => `<button class="rec-mini" data-i="${i}"><img src="${url}" alt="Foto ${i + 1}"></button>`).join("")}
+          </div>
+        ` : ""}
+
+        ${embedVideo ? `
+          <div class="recomendacao-video">
+            <iframe src="${embedVideo}" loading="lazy" allowtransparency="true" frameborder="0" scrolling="no" allowfullscreen></iframe>
+          </div>
+        ` : ""}
+
+        ${produto.textoIA ? `
+          <div class="recomendacao-texto-ia">
+            <span class="recomendacao-texto-ia-selo">✨ Recomendado pela IA do Mercado Livre</span>
+            <p>${produto.textoIA}</p>
+          </div>
+        ` : ""}
+      </div>
+
+      <div class="rec-lightbox" id="recLightbox">
+        <button class="rec-lightbox-fechar" id="recLightboxFechar" aria-label="Fechar">✕</button>
+        <button class="rec-lightbox-seta rec-lightbox-anterior" id="recLightboxAnterior" aria-label="Anterior">‹</button>
+        <img class="rec-lightbox-img" id="recLightboxImg" src="" alt="">
+        <button class="rec-lightbox-seta rec-lightbox-proximo" id="recLightboxProximo" aria-label="Próximo">›</button>
       </div>
     `;
 
     wrap.querySelectorAll(".rec-mini").forEach(btn => {
-      btn.addEventListener("click", () => {
-        document.getElementById("recImgPrincipal").src = btn.dataset.src;
-      });
+      btn.addEventListener("click", () => abrirLightbox(Number(btn.dataset.i)));
+    });
+    document.getElementById("recImgPrincipal").addEventListener("click", () => abrirLightbox(0));
+    document.getElementById("recLightboxFechar").addEventListener("click", fecharLightbox);
+    document.getElementById("recLightboxAnterior").addEventListener("click", () => mudarLightbox(-1));
+    document.getElementById("recLightboxProximo").addEventListener("click", () => mudarLightbox(1));
+    document.getElementById("recLightbox").addEventListener("click", (e) => {
+      if (e.target.id === "recLightbox") fecharLightbox();
     });
 
     const btnVerMais = document.getElementById("recVerMais");

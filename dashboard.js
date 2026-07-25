@@ -555,6 +555,7 @@ document.getElementById("btnPublicarRecomendacao").addEventListener("click", asy
     imagens: imagens,
     video: document.getElementById("rec_video").value.trim(),
     descricao: document.getElementById("rec_descricao").value.trim(),
+    textoIA: document.getElementById("rec_textoIA").value.trim(),
     linkML: document.getElementById("rec_linkML").value.trim()
   };
 
@@ -599,6 +600,7 @@ document.getElementById("btnPuxarProduto").addEventListener("click", () => {
   document.getElementById("rec_imagens").value = (rec.imagens && rec.imagens.length ? rec.imagens : [rec.imagem]).filter(Boolean).join("\n");
   document.getElementById("rec_video").value = rec.video || "";
   document.getElementById("rec_descricao").value = rec.descricao || "";
+  document.getElementById("rec_textoIA").value = rec.textoIA || "";
   document.getElementById("rec_linkML").value = rec.linkML || "";
 })();
 
