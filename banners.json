@@ -1,4 +1,18 @@
 {
-  "bannersDesktop": [],
-  "bannersMobile": []
+  "bannersDesktop": [
+    {
+      "imagem": "banner-imagens-pc/1784664141370-slide001pc.jpg",
+      "link": "",
+      "nomeArquivo": "1784664141370-slide001pc.jpg",
+      "sha": "a2570f368b583ebf0bd10f1d47fb028f81699c7e"
+    }
+  ],
+  "bannersMobile": [
+    {
+      "imagem": "banner-imagens-mobile/1784664144521-slide001cel.jpg",
+      "link": "",
+      "nomeArquivo": "1784664144521-slide001cel.jpg",
+      "sha": "2a8f867a6d1f4f25732d30bb4dc40fe2f933c6c7"
+    }
+  ]
 }
