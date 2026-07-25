@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dashboard — Estamparty</title>
+<link rel="icon" href="favicon.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
@@ -274,6 +275,7 @@
     <div class="dash-panel-head">
       <h2>Produtos cadastrados (<span id="contador">0</span>)</h2>
       <div class="dash-actions">
+        <button class="dash-btn-ghost" id="btnSincronizar">🔄 Sincronizar com GitHub</button>
         <button class="dash-btn-primary" id="btnPublicar">☁️ Publicar no GitHub</button>
         <button class="dash-btn-ghost" id="btnExportar">⬇ Baixar produtos.json</button>
       </div>
@@ -285,5 +287,6 @@
 </div>
 
 <script src="dashboard.js"></script>
+<script src="analytics.js"></script>
 </body>
 </html>

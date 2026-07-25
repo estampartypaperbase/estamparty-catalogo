@@ -34,6 +34,10 @@ function criarCard(produto) {
           <img src="mercadolivre-icon.png" alt="" class="cta-icone-ml">
           Ver no Mercado Livre
         </a>
+        <div class="selo-seguranca">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg>
+          Compra segura pelo Mercado Livre
+        </div>
       </div>
     </article>
   `;
@@ -42,7 +46,9 @@ function criarCard(produto) {
 function aplicarFiltros() {
   let lista = [...TODOS_PRODUTOS];
 
-  if (categoriaAtual !== "Todos") {
+  if (categoriaAtual === "__novidades__") {
+    lista = lista.filter(p => p.novo);
+  } else if (categoriaAtual !== "Todos") {
     lista = lista.filter(p => p.categoria === categoriaAtual);
   }
 
@@ -103,9 +109,11 @@ function renderizarFiltros(produtos) {
   const filtros = document.getElementById("filtros");
   if (!filtros) return;
 
+  const temNovidades = produtos.some(p => p.novo);
+
   filtros.innerHTML = categorias
     .map((cat, i) => `<button class="filter-btn ${i === 0 ? "active" : ""}" data-cat="${cat}">${cat}</button>`)
-    .join("");
+    .join("") + (temNovidades ? `<button class="filter-btn filter-novidades" data-cat="__novidades__">🆕 Novidades</button>` : "");
 
   filtros.addEventListener("click", (e) => {
     const btn = e.target.closest(".filter-btn");
@@ -166,7 +174,7 @@ async function carregarBanners() {
     if (!banners.length) { slider.style.display = "none"; return; }
 
     slider.innerHTML = banners.map((b, i) => {
-      const img = `<img src="${b.imagem}" alt="Banner ${i + 1}">`;
+      const img = `<img src="${b.imagem}" alt="Banner ${i + 1}" ${i === 0 ? "" : 'loading="lazy"'}>`;
       const conteudo = b.link
         ? `<a href="${b.link}" target="_blank" rel="noopener noreferrer">${img}</a>`
         : img;

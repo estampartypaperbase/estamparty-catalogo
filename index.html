@@ -12,7 +12,7 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Estamparty — Papelaria Personalizada">
 <meta property="og:description" content="Agenda escolar, planner e presentes 100% personalizados com o nome do seu filho(a). Compra segura pelo Mercado Livre.">
-<meta property="og:image" content="logo.png">
+<meta property="og:image" content="mascote.png">
 <meta property="og:locale" content="pt_BR">
 
 <script type="application/ld+json">
@@ -29,6 +29,7 @@
 }
 </script>
 
+<link rel="icon" href="favicon.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
@@ -42,6 +43,7 @@
     <a href="politica-trocas.html">Política de Trocas</a>
     <a href="vendas-fora-ml.html">Vendas fora do Mercado Livre</a>
     <a href="youtube.html">Vídeos</a>
+    <a href="faq.html">Dúvidas</a>
     <a href="contato.html">Contato</a>
   </nav>
   <div class="gold-rule"></div>
@@ -78,7 +80,10 @@
 <div class="filters" id="filtros"></div>
 
 <main class="grid" id="grid">
-  <div class="empty-state">Carregando produtos...</div>
+  <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-linha"></div><div class="skeleton-linha curta"></div></div>
+  <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-linha"></div><div class="skeleton-linha curta"></div></div>
+  <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-linha"></div><div class="skeleton-linha curta"></div></div>
+  <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-linha"></div><div class="skeleton-linha curta"></div></div>
 </main>
 
 <div class="area-carregar-mais" id="areaCarregarMais"></div>
@@ -121,5 +126,6 @@
 <script src="recomendacao.js"></script>
 <script src="newsletter.js"></script>
 <script src="consent.js"></script>
+<script src="analytics.js"></script>
 </body>
 </html>

@@ -34,20 +34,28 @@ async function publicarNoGitHub(caminhoArquivo, objetoConteudo) {
   };
 
   const respAtual = await fetch(apiUrl, { headers });
-  if (!respAtual.ok) {
+  let shaAtual = undefined;
+
+  if (respAtual.ok) {
+    const dadosAtuais = await respAtual.json();
+    shaAtual = dadosAtuais.sha;
+  } else if (respAtual.status !== 404) {
+    // 404 é esperado quando o arquivo ainda não existe (vamos criá-lo).
+    // Qualquer outro erro (ex: token/repositório errado) a gente avisa.
     throw new Error("Não consegui acessar o repositório. Confira o nome (usuario/repositorio) e o token.");
   }
-  const dadosAtuais = await respAtual.json();
 
   const conteudo = JSON.stringify(objetoConteudo, null, 2);
+  const corpo = {
+    message: `Atualiza ${caminhoArquivo} via dashboard`,
+    content: base64Utf8(conteudo)
+  };
+  if (shaAtual) corpo.sha = shaAtual;
+
   const respSalvar = await fetch(apiUrl, {
     method: "PUT",
     headers: { ...headers, "Content-Type": "application/json" },
-    body: JSON.stringify({
-      message: `Atualiza ${caminhoArquivo} via dashboard`,
-      content: base64Utf8(conteudo),
-      sha: dadosAtuais.sha
-    })
+    body: JSON.stringify(corpo)
   });
 
   if (!respSalvar.ok) {
@@ -57,15 +65,18 @@ async function publicarNoGitHub(caminhoArquivo, objetoConteudo) {
 }
 
 async function carregarProdutos() {
-  const salvos = localStorage.getItem(STORAGE_KEY);
-  if (salvos) {
-    try { return JSON.parse(salvos); } catch (e) { /* ignora e cai no seed */ }
-  }
   try {
     const resposta = await fetch("produtos.json", { cache: "no-store" });
     const dados = await resposta.json();
-    return dados.produtos || [];
+    const produtosRemotos = dados.produtos || [];
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(produtosRemotos));
+    return produtosRemotos;
   } catch (e) {
+    // Sem internet ou GitHub Pages fora do ar: usa a última cópia salva neste navegador
+    const salvos = localStorage.getItem(STORAGE_KEY);
+    if (salvos) {
+      try { return JSON.parse(salvos); } catch (e2) { /* ignora */ }
+    }
     return [];
   }
 }
@@ -230,6 +241,15 @@ document.getElementById("btnSalvarConfig").addEventListener("click", () => {
 
   salvarConfig({ repo, token });
   status.textContent = "✅ Configuração salva neste navegador.";
+});
+
+document.getElementById("btnSincronizar").addEventListener("click", async () => {
+  const status = document.getElementById("statusPublicar");
+  status.textContent = "Sincronizando com o GitHub...";
+  produtos = await carregarProdutos();
+  renderizarLista();
+  popularSelectProdutos();
+  status.textContent = `✅ Sincronizado! ${produtos.length} produto(s) carregado(s) do GitHub.`;
 });
 
 document.getElementById("btnPublicar").addEventListener("click", async () => {
