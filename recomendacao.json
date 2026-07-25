@@ -1,11 +1,13 @@
 {
-  "ativo": false,
-  "nome": "",
-  "categoria": "",
-  "preco": "",
-  "imagem": "",
-  "imagens": [],
+  "ativo": true,
+  "nome": "Planner Diário Pequeno Principe Personalizado",
+  "categoria": "Planner Diário",
+  "preco": 74,
+  "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_995203-MLB89918399515_082025-F-planner-diario-pequeno-principe-personalizado.webp",
+  "imagens": [
+    "https://http2.mlstatic.com/D_NQ_NP_2X_995203-MLB89918399515_082025-F-planner-diario-pequeno-principe-personalizado.webp"
+  ],
   "video": "",
   "descricao": "",
-  "linkML": ""
+  "linkML": "https://produto.mercadolivre.com.br/MLB-4103282799-planner-diario-pequeno-principe-personalizado-_JM"
 }
