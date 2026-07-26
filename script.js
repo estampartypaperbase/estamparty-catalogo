@@ -17,7 +17,7 @@ function criarCard(produto) {
 
   return `
     <article class="card" data-categoria="${produto.categoria}">
-      <a class="card-media-link" href="${produto.linkML}" target="_blank" rel="noopener noreferrer nofollow sponsored">
+      <a class="card-media-link" href="${produto.linkML}" target="_blank" rel="noopener noreferrer nofollow sponsored" data-id="${produto.id}">
         <div class="card-media">
           <img src="${imagemPrincipal}" alt="${produto.nome}" loading="lazy">
           ${produto.novo ? '<span class="badge-novo">Novo</span>' : ""}
@@ -25,8 +25,16 @@ function criarCard(produto) {
         </div>
       </a>
       <div class="card-body">
-        <div class="card-cat">${produto.categoria}</div>
-        <h3 class="card-title"><a href="${produto.linkML}" target="_blank" rel="noopener noreferrer nofollow sponsored">${produto.nome}</a></h3>
+        <div class="card-top-row">
+          <div class="card-cat">${produto.categoria}</div>
+          <div class="card-icones">
+            <button class="btn-favorito ${ehFavorito(produto.id) ? "ativo" : ""}" data-id="${produto.id}" aria-label="Favoritar">${ehFavorito(produto.id) ? "♥" : "♡"}</button>
+            <button class="btn-compartilhar" data-nome="${produto.nome}" data-link="${produto.linkML}" aria-label="Compartilhar">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 10.5 6.8-3.9M8.6 13.5l6.8 3.9"/></svg>
+            </button>
+          </div>
+        </div>
+        <h3 class="card-title"><a href="${produto.linkML}" target="_blank" rel="noopener noreferrer nofollow sponsored" data-id="${produto.id}">${produto.nome}</a></h3>
         <div class="card-price-row">
           <span class="price-por">${formatarPreco(produto.preco)}</span>
         </div>
@@ -43,21 +51,61 @@ function criarCard(produto) {
   `;
 }
 
+function normalizarTexto(texto) {
+  return texto
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, ""); // remove acentos
+}
+
+function distanciaEdicao(a, b) {
+  if (Math.abs(a.length - b.length) > 2) return 99; // atalho: já é diferente demais
+  const dp = Array.from({ length: a.length + 1 }, (_, i) => [i, ...Array(b.length).fill(0)]);
+  for (let j = 0; j <= b.length; j++) dp[0][j] = j;
+  for (let i = 1; i <= a.length; i++) {
+    for (let j = 1; j <= b.length; j++) {
+      dp[i][j] = a[i - 1] === b[j - 1]
+        ? dp[i - 1][j - 1]
+        : 1 + Math.min(dp[i - 1][j - 1], dp[i - 1][j], dp[i][j - 1]);
+    }
+  }
+  return dp[a.length][b.length];
+}
+
+function textoContemAproximado(textoCompleto, termoBusca) {
+  const textoNorm = normalizarTexto(textoCompleto);
+  const termoNorm = normalizarTexto(termoBusca);
+  if (textoNorm.includes(termoNorm)) return true;
+
+  // Tolera 1 letra errada por palavra (ex: "escolr" acha "escolar")
+  const palavrasTexto = textoNorm.split(/\s+/);
+  const palavrasTermo = termoNorm.split(/\s+/);
+  return palavrasTermo.every(palavraTermo =>
+    palavrasTexto.some(palavraTexto => {
+      if (palavraTexto.includes(palavraTermo) || palavraTermo.includes(palavraTexto)) return true;
+      if (palavraTermo.length < 4) return false;
+      return distanciaEdicao(palavraTexto, palavraTermo) <= 1;
+    })
+  );
+}
+
 function aplicarFiltros() {
   let lista = [...TODOS_PRODUTOS];
 
   if (categoriaAtual === "__novidades__") {
     lista = lista.filter(p => p.novo);
+  } else if (categoriaAtual === "__favoritos__") {
+    const favoritos = obterFavoritos();
+    lista = lista.filter(p => favoritos.includes(p.id));
   } else if (categoriaAtual !== "Todos") {
     lista = lista.filter(p => p.categoria === categoriaAtual);
   }
 
   if (buscaAtual.trim()) {
-    const termo = buscaAtual.trim().toLowerCase();
     lista = lista.filter(p =>
-      p.nome.toLowerCase().includes(termo) ||
-      (p.descricao || "").toLowerCase().includes(termo) ||
-      p.categoria.toLowerCase().includes(termo)
+      textoContemAproximado(p.nome, buscaAtual) ||
+      textoContemAproximado(p.descricao || "", buscaAtual) ||
+      textoContemAproximado(p.categoria, buscaAtual)
     );
   }
 
@@ -114,12 +162,16 @@ function renderizarFiltros(produtos) {
 
   filtros.innerHTML = categorias
     .map((cat, i) => `<button class="filter-btn ${i === 0 ? "active" : ""}" data-cat="${cat}">${cat}</button>`)
-    .join("") + (temNovidades ? `<button class="filter-btn filter-novidades" data-cat="__novidades__">🆕 Novidades</button>` : "");
+    .join("")
+    + (temNovidades ? `<button class="filter-btn filter-novidades" data-cat="__novidades__">🆕 Novidades</button>` : "")
+    + `<button class="filter-btn filter-favoritos" data-cat="__favoritos__">❤ Favoritos</button>`;
 
   if (filtrosMobile) {
     filtrosMobile.innerHTML = categorias
       .map(cat => `<option value="${cat}">${cat === "Todos" ? "Categorias" : cat}</option>`)
-      .join("") + (temNovidades ? `<option value="__novidades__">🆕 Novidades</option>` : "");
+      .join("")
+      + (temNovidades ? `<option value="__novidades__">🆕 Novidades</option>` : "")
+      + `<option value="__favoritos__">❤ Favoritos</option>`;
   }
 
   function selecionarCategoria(cat) {
@@ -217,6 +269,58 @@ async function carregarBanners() {
   }
 }
 
+// ---------- Vistos recentemente ----------
+const VISTOS_CHAVE = "estamparty_vistos";
+const VISTOS_MAX = 8;
+
+function registrarVisto(produto) {
+  let vistos = [];
+  try { vistos = JSON.parse(localStorage.getItem(VISTOS_CHAVE)) || []; } catch (e) { /* ignora */ }
+
+  vistos = vistos.filter(v => v.id !== produto.id);
+  vistos.unshift({
+    id: produto.id,
+    nome: produto.nome,
+    imagem: produto.imagem || (produto.imagens && produto.imagens[0]) || "",
+    preco: produto.preco,
+    linkML: produto.linkML
+  });
+  vistos = vistos.slice(0, VISTOS_MAX);
+  localStorage.setItem(VISTOS_CHAVE, JSON.stringify(vistos));
+}
+
+function renderizarVistosRecentemente() {
+  const wrap = document.getElementById("vistosRecentementeWrap");
+  if (!wrap) return;
+
+  let vistos = [];
+  try { vistos = JSON.parse(localStorage.getItem(VISTOS_CHAVE)) || []; } catch (e) { /* ignora */ }
+
+  if (!vistos.length) { wrap.style.display = "none"; return; }
+
+  wrap.style.display = "";
+  wrap.innerHTML = `
+    <h2 class="vistos-titulo">Vistos recentemente</h2>
+    <div class="vistos-trilho">
+      ${vistos.map(v => `
+        <a class="vistos-item" href="${v.linkML}" target="_blank" rel="noopener noreferrer nofollow sponsored">
+          <img src="${v.imagem}" alt="${v.nome}">
+          <div class="vistos-item-nome">${v.nome}</div>
+          <div class="vistos-item-preco">${formatarPreco(v.preco)}</div>
+        </a>
+      `).join("")}
+    </div>
+  `;
+}
+
+document.addEventListener("click", (e) => {
+  const link = e.target.closest("[data-id]");
+  if (!link || !link.closest(".card")) return;
+  const id = Number(link.dataset.id);
+  const produto = TODOS_PRODUTOS.find(p => p.id === id);
+  if (produto) registrarVisto(produto);
+});
+
 document.addEventListener("DOMContentLoaded", carregarBanners);
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -225,5 +329,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   renderizarFiltros(TODOS_PRODUTOS);
   configurarBusca();
   aplicarFiltros();
+  renderizarVistosRecentemente();
 });
 

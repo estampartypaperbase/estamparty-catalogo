@@ -1,0 +1,13 @@
+{
+  "name": "Estamparty - Papelaria Personalizada",
+  "short_name": "Estamparty",
+  "description": "Catálogo de papelaria personalizada da Estamparty",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#ffe765",
+  "theme_color": "#0b4c7c",
+  "icons": [
+    { "src": "favicon.png", "sizes": "256x256", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
