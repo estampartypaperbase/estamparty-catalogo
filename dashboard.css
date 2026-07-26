@@ -17,6 +17,34 @@
   padding: 28px 24px 60px;
 }
 
+@media (min-width: 1000px) {
+  .dash-wrap {
+    max-width: 1500px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    align-items: start;
+  }
+
+  .dash-warning,
+  #painelNovoProduto,
+  #painelListaProdutos {
+    grid-column: 1 / -1;
+  }
+
+  #painelNovoProduto .dash-form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px 24px;
+    align-items: start;
+  }
+
+  #painelNovoProduto .dash-form > label:first-of-type,
+  #painelNovoProduto .dash-actions {
+    grid-column: 1 / -1;
+  }
+}
+
 .dash-warning {
   background: #fff7d6;
   border: 1px solid var(--amber);

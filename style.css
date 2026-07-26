@@ -1161,14 +1161,17 @@ footer {
     max-width: 1100px;
     margin: 0 auto 16px;
     width: calc(100% - 48px);
-    background: var(--panel);
-    border: 1px solid var(--line);
+    background: #0096cb;
+    border: 1px solid #0096cb;
     border-radius: 999px;
     font-size: 0.85rem;
     font-weight: 700;
-    color: var(--ink);
+    color: #ffffff;
+    text-align: center;
+    text-align-last: center;
     padding: 10px 18px;
   }
+  .filtros-mobile option { color: var(--ink); }
 
   .toolbar {
     padding: 0 24px;
@@ -1182,8 +1185,16 @@ footer {
   }
 
   .sort-select {
-    flex: 1;
+    flex: 1 1 100%;
     padding: 8px 12px;
+    margin-bottom: 10px;
     font-size: 0.78rem;
+    background: #0096cb;
+    border: 1px solid #0096cb;
+    color: #ffffff;
+    font-weight: 700;
+    text-align: center;
+    text-align-last: center;
   }
+  .sort-select option { color: var(--ink); }
 }
