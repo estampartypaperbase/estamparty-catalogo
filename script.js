@@ -118,7 +118,7 @@ function renderizarFiltros(produtos) {
 
   if (filtrosMobile) {
     filtrosMobile.innerHTML = categorias
-      .map(cat => `<option value="${cat}">${cat}</option>`)
+      .map(cat => `<option value="${cat}">${cat === "Todos" ? "Categorias" : cat}</option>`)
       .join("") + (temNovidades ? `<option value="__novidades__">🆕 Novidades</option>` : "");
   }
 
