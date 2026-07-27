@@ -250,6 +250,24 @@
     </div>
   </section>
 
+  <section class="dash-panel" id="painelAnalytics">
+    <h2>📊 Google Analytics</h2>
+    <p class="dash-config-desc">
+      Mostra quantas pessoas visitam o site, de onde vêm e o que mais acessam.
+      Crie uma conta grátis em analytics.google.com, gere uma propriedade "Web" e
+      copie o ID de medição (formato G-XXXXXXXXXX).
+    </p>
+    <div class="dash-form">
+      <label>ID de medição do Google Analytics
+        <input type="text" id="ga_id" placeholder="G-XXXXXXXXXX">
+      </label>
+      <div class="dash-actions">
+        <button type="button" class="dash-btn-primary" id="btnPublicarAnalytics">☁️ Publicar Analytics no GitHub</button>
+        <span id="statusAnalytics" class="dash-hint"></span>
+      </div>
+    </div>
+  </section>
+
   <section class="dash-panel" id="painelConfig">
     <h2>⚙️ Publicar direto no GitHub (opcional)</h2>
     <p class="dash-config-desc">

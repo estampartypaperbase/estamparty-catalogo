@@ -638,6 +638,34 @@ document.getElementById("btnPublicarSEO").addEventListener("click", async () => 
   document.getElementById("seo_palavras").value = seo.palavrasChave || "";
 })();
 
+// ---------- Google Analytics ----------
+async function carregarAnalyticsAtual() {
+  try {
+    const resp = await fetch("analytics.json", { cache: "no-store" });
+    return await resp.json();
+  } catch (e) {
+    return { gaId: "" };
+  }
+}
+
+document.getElementById("btnPublicarAnalytics").addEventListener("click", async () => {
+  const status = document.getElementById("statusAnalytics");
+  const dados = { gaId: document.getElementById("ga_id").value.trim() };
+
+  status.textContent = "Publicando no GitHub...";
+  try {
+    await publicarNoGitHub("analytics.json", dados);
+    status.textContent = "✅ Publicado! O site atualiza em 1-2 minutos.";
+  } catch (erro) {
+    status.textContent = "❌ " + erro.message;
+  }
+});
+
+(async function iniciarAnalyticsPainel() {
+  const dados = await carregarAnalyticsAtual();
+  document.getElementById("ga_id").value = dados.gaId || "";
+})();
+
 (async function iniciarDashboard() {
   produtos = await carregarProdutos();
   renderizarLista();
