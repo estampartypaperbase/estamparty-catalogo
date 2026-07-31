@@ -1,17 +1,21 @@
-// Troque pelo seu ID de medição do Google Analytics (formato G-XXXXXXXXXX)
-// Veja o passo a passo no COMO_USAR.md
-const GA_MEASUREMENT_ID = "G-SEU-ID-AQUI";
+(async function iniciarAnalytics() {
+  try {
+    const resposta = await fetch("analytics.json", { cache: "no-store" });
+    const dados = await resposta.json();
+    const gaId = dados.gaId;
 
-(function () {
-  if (GA_MEASUREMENT_ID.includes("SEU-ID-AQUI")) return;
+    if (!gaId) return; // ainda não configurado no dashboard
 
-  const script1 = document.createElement("script");
-  script1.async = true;
-  script1.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
-  document.head.appendChild(script1);
+    const script1 = document.createElement("script");
+    script1.async = true;
+    script1.src = `https://www.googletagmanager.com/gtag/js?id=${gaId}`;
+    document.head.appendChild(script1);
 
-  window.dataLayer = window.dataLayer || [];
-  function gtag() { dataLayer.push(arguments); }
-  gtag("js", new Date());
-  gtag("config", GA_MEASUREMENT_ID);
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag("js", new Date());
+    gtag("config", gaId);
+  } catch (erro) {
+    // Sem analytics.json ainda: site continua funcionando normal
+  }
 })();
