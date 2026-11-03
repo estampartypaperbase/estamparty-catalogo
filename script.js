@@ -14,37 +14,40 @@ function formatarPreco(valor) {
 
 function criarCard(produto) {
   const imagemPrincipal = produto.imagem || (produto.imagens && produto.imagens[0]) || "";
+  const fav = ehFavorito(produto.id);
 
   return `
     <article class="card" data-categoria="${produto.categoria}">
-      <a class="card-media-link" href="${produto.linkML}" target="_blank" rel="noopener noreferrer nofollow sponsored" data-id="${produto.id}">
-        <div class="card-media">
-          <img src="${imagemPrincipal}" alt="${produto.nome}" loading="lazy">
+      <div class="card-topo">
+        <a class="card-media-link" href="${produto.linkML}" target="_blank" rel="noopener noreferrer nofollow sponsored" data-id="${produto.id}">
+          <div class="card-media">
+            <img src="${imagemPrincipal}" alt="${produto.nome}" loading="lazy">
+          </div>
+        </a>
+        <div class="card-selos">
           ${produto.novo ? '<span class="badge-novo">Novo</span>' : ""}
           ${produto.destaque ? '<span class="badge-destaque-topo">Destaque</span>' : ""}
         </div>
-      </a>
-      <div class="card-body">
-        <div class="card-top-row">
-          <div class="card-cat">${produto.categoria}</div>
-          <div class="card-icones">
-            <button class="btn-favorito ${ehFavorito(produto.id) ? "ativo" : ""}" data-id="${produto.id}" aria-label="Favoritar">${ehFavorito(produto.id) ? "♥" : "♡"}</button>
-            <button class="btn-compartilhar" data-nome="${produto.nome}" data-link="${produto.linkML}" aria-label="Compartilhar">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 10.5 6.8-3.9M8.6 13.5l6.8 3.9"/></svg>
-            </button>
-          </div>
+        <div class="card-icones">
+          <button class="btn-favorito ${fav ? "ativo" : ""}" data-id="${produto.id}" aria-label="Favoritar">${fav ? "♥" : "♡"}</button>
+          <button class="btn-compartilhar" data-nome="${produto.nome}" data-link="${produto.linkML}" aria-label="Compartilhar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 10.5 6.8-3.9M8.6 13.5l6.8 3.9"/></svg>
+          </button>
         </div>
+      </div>
+      <div class="card-body">
+        <div class="card-cat">${produto.categoria}</div>
         <h3 class="card-title"><a href="${produto.linkML}" target="_blank" rel="noopener noreferrer nofollow sponsored" data-id="${produto.id}">${produto.nome}</a></h3>
         <div class="card-price-row">
           <span class="price-por">${formatarPreco(produto.preco)}</span>
         </div>
         <a class="card-cta" href="${produto.linkML}" target="_blank" rel="noopener noreferrer nofollow sponsored">
           <img src="mercadolivre-icon.png" alt="" class="cta-icone-ml">
-          Ver no Mercado Livre
+          Comprar no Mercado Livre
         </a>
         <div class="selo-seguranca">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg>
-          Compra segura pelo Mercado Livre
+          Compra segura
         </div>
       </div>
     </article>
@@ -74,12 +77,13 @@ function distanciaEdicao(a, b) {
 
 function textoContemAproximado(textoCompleto, termoBusca) {
   const textoNorm = normalizarTexto(textoCompleto);
-  const termoNorm = normalizarTexto(termoBusca);
+  const termoNorm = normalizarTexto(termoBusca).trim();
+  if (!textoNorm.trim() || !termoNorm) return false; // texto vazio nunca combina
   if (textoNorm.includes(termoNorm)) return true;
 
   // Tolera 1 letra errada por palavra (ex: "escolr" acha "escolar")
-  const palavrasTexto = textoNorm.split(/\s+/);
-  const palavrasTermo = termoNorm.split(/\s+/);
+  const palavrasTexto = textoNorm.split(/\s+/).filter(Boolean);
+  const palavrasTermo = termoNorm.split(/\s+/).filter(Boolean);
   return palavrasTermo.every(palavraTermo =>
     palavrasTexto.some(palavraTexto => {
       if (palavraTexto.includes(palavraTermo) || palavraTermo.includes(palavraTexto)) return true;
@@ -125,6 +129,40 @@ function aplicarFiltros() {
   renderizarGrid(lista);
 }
 
+function atualizarDadosEstruturados(produtos) {
+  const antigo = document.getElementById("dadosEstruturadosProdutos");
+  if (antigo) antigo.remove();
+  if (!produtos.length) return;
+
+  const itemListElement = produtos.map((p, i) => ({
+    "@type": "ListItem",
+    "position": i + 1,
+    "item": {
+      "@type": "Product",
+      "name": p.nome,
+      "image": p.imagem || (p.imagens && p.imagens[0]) || "",
+      "category": p.categoria,
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "BRL",
+        "price": p.preco,
+        "availability": "https://schema.org/InStock",
+        "url": p.linkML
+      }
+    }
+  }));
+
+  const script = document.createElement("script");
+  script.type = "application/ld+json";
+  script.id = "dadosEstruturadosProdutos";
+  script.textContent = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "itemListElement": itemListElement
+  });
+  document.head.appendChild(script);
+}
+
 function renderizarGrid(lista) {
   const grid = document.getElementById("grid");
   if (!grid) return;
@@ -135,6 +173,7 @@ function renderizarGrid(lista) {
 
   const visiveis = lista.slice(0, itensVisiveis);
   grid.innerHTML = visiveis.map(criarCard).join("");
+  atualizarDadosEstruturados(visiveis);
 
   const areaBotao = document.getElementById("areaCarregarMais");
   if (areaBotao) {
@@ -149,6 +188,37 @@ function renderizarGrid(lista) {
         renderizarGrid(listaFiltradaAtual);
       });
     }
+  }
+}
+
+function emojiDaCategoria(nome) {
+  const n = normalizarTexto(nome);
+  if (n.includes("agenda")) return "📒";
+  if (n.includes("planner")) return "📅";
+  if (n.includes("caderno")) return "📓";
+  if (n.includes("present") || n.includes("kit")) return "🎁";
+  if (n.includes("eucaristia") || n.includes("batiz") || n.includes("crisma")) return "✝️";
+  if (n.includes("lembranc")) return "🎀";
+  if (n.includes("festa") || n.includes("aniversar")) return "🎉";
+  return "🛍️";
+}
+
+function selecionarCategoria(cat, rolar) {
+  const filtros = document.getElementById("filtros");
+  const filtrosMobile = document.getElementById("filtrosMobile");
+  if (filtros) filtros.querySelectorAll(".filter-btn").forEach(b => b.classList.toggle("active", b.dataset.cat === cat));
+  if (filtrosMobile) filtrosMobile.value = cat;
+  categoriaAtual = cat;
+  const titulo = document.getElementById("tituloProdutos");
+  if (titulo) {
+    titulo.textContent = cat === "Todos" ? "Nossos produtos"
+      : cat === "__novidades__" ? "Novidades"
+      : cat === "__favoritos__" ? "Seus favoritos" : cat;
+  }
+  aplicarFiltros();
+  if (rolar) {
+    const alvo = document.getElementById("produtos");
+    if (alvo) alvo.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 }
 
@@ -174,21 +244,44 @@ function renderizarFiltros(produtos) {
       + `<option value="__favoritos__">❤ Favoritos</option>`;
   }
 
-  function selecionarCategoria(cat) {
-    filtros.querySelectorAll(".filter-btn").forEach(b => b.classList.toggle("active", b.dataset.cat === cat));
-    if (filtrosMobile) filtrosMobile.value = cat;
-    categoriaAtual = cat;
-    aplicarFiltros();
-  }
-
   filtros.addEventListener("click", (e) => {
     const btn = e.target.closest(".filter-btn");
     if (!btn) return;
     selecionarCategoria(btn.dataset.cat);
   });
-
   if (filtrosMobile) {
     filtrosMobile.addEventListener("change", () => selecionarCategoria(filtrosMobile.value));
+  }
+
+  // categorias em círculos
+  const soCategorias = categorias.slice(1);
+  const secaoCats = document.getElementById("categoriasSecao");
+  const circulos = document.getElementById("catCirculos");
+  if (secaoCats && circulos && soCategorias.length) {
+    circulos.style.setProperty("--cols", Math.min(Math.max(soCategorias.length, 3), 6));
+    circulos.innerHTML = soCategorias
+      .map(cat => `<button class="cat" type="button" data-cat="${cat}"><i>${emojiDaCategoria(cat)}</i>${cat}</button>`)
+      .join("");
+    secaoCats.hidden = false;
+    circulos.addEventListener("click", (e) => {
+      const b = e.target.closest(".cat");
+      if (b) selecionarCategoria(b.dataset.cat, true);
+    });
+  }
+
+  // categorias no menu do topo
+  const menuCats = document.getElementById("menuCats");
+  if (menuCats) {
+    menuCats.innerHTML = soCategorias
+      .map(cat => `<a href="#produtos" data-cat="${cat}">${cat}</a>`)
+      .join("")
+      + (temNovidades ? `<a href="#produtos" class="menu-novidades" data-cat="__novidades__">Novidades</a>` : "");
+    menuCats.addEventListener("click", (e) => {
+      const a = e.target.closest("a[data-cat]");
+      if (!a) return;
+      e.preventDefault();
+      selecionarCategoria(a.dataset.cat, true);
+    });
   }
 }
 
@@ -199,6 +292,21 @@ function configurarBusca() {
     campo.addEventListener("input", (e) => {
       buscaAtual = e.target.value;
       aplicarFiltros();
+    });
+  }
+  const formBusca = document.getElementById("formBusca");
+  if (formBusca) {
+    formBusca.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const alvo = document.getElementById("produtos");
+      if (alvo) alvo.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  }
+  const ladoNovidades = document.getElementById("ladoNovidades");
+  if (ladoNovidades) {
+    ladoNovidades.addEventListener("click", () => {
+      const existe = TODOS_PRODUTOS.some(p => p.novo);
+      selecionarCategoria(existe ? "__novidades__" : "Todos", true);
     });
   }
   if (ordenar) {
@@ -239,6 +347,8 @@ async function carregarBanners() {
     const listaEscolhida = ehMobile ? dados.bannersMobile : dados.bannersDesktop;
     const banners = (listaEscolhida || []).slice(0, 3);
     if (!banners.length) { slider.style.display = "none"; return; }
+    const hero = document.getElementById("heroPrincipal");
+    if (hero) hero.classList.add("com-banners");
 
     slider.innerHTML = banners.map((b, i) => {
       const img = `<img src="${b.imagem}" alt="Banner ${i + 1}" ${i === 0 ? "" : 'loading="lazy"'}>`;
@@ -325,10 +435,30 @@ document.addEventListener("DOMContentLoaded", carregarBanners);
 
 document.addEventListener("DOMContentLoaded", async () => {
   TODOS_PRODUTOS = await carregarProdutos();
-  if (!TODOS_PRODUTOS.length) return; // erro já foi mostrado dentro de carregarProdutos()
+  if (!TODOS_PRODUTOS.length) {
+    const grid = document.getElementById("grid");
+    if (grid && !grid.querySelector(".empty-state")) {
+      grid.innerHTML = `<div class="empty-state"><b>Novidades em breve</b>Estamos preparando o catálogo. Enquanto isso, fale com a gente no WhatsApp.</div>`;
+    }
+    return; // erro já foi mostrado dentro de carregarProdutos()
+  }
   renderizarFiltros(TODOS_PRODUTOS);
   configurarBusca();
+
+  const params = new URLSearchParams(location.search);
+  const buscaUrl = params.get("busca");
+  const catUrl = params.get("cat");
+  if (buscaUrl) {
+    buscaAtual = buscaUrl;
+    const campo = document.getElementById("campoBusca");
+    if (campo) campo.value = buscaUrl;
+  }
   aplicarFiltros();
+  if (catUrl) selecionarCategoria(catUrl, true);
+  else if (buscaUrl) {
+    const alvo = document.getElementById("produtos");
+    if (alvo) alvo.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
   renderizarVistosRecentemente();
 });
 

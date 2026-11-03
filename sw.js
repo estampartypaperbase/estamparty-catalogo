@@ -1,4 +1,4 @@
-const CACHE_NOME = "estamparty-v1";
+const CACHE_NOME = "estamparty-v2";
 const ARQUIVOS_ESSENCIAIS = [
   "index.html",
   "style.css",

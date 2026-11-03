@@ -7,36 +7,31 @@
 <meta name="description" content="Vídeos e shorts do canal da Estamparty no YouTube.">
 <link rel="icon" href="favicon.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="youtube.css">
 </head>
 <body>
 
-<header class="site-header">
-  <nav class="site-nav">
-    <a href="index.html">Home</a>
-    <a href="sobre.html">A Estamparty</a>
-    <a href="politica-trocas.html">Política de Trocas</a>
-    <a href="vendas-fora-ml.html">Vendas fora do Mercado Livre</a>
-    <a href="youtube.html">Vídeos</a>
-    <a href="faq.html">Dúvidas</a>
-    <a href="contato.html">Contato</a>
-  </nav>
-  <div class="gold-rule"></div>
-  <a href="index.html" class="logo-link"><img src="logo.png" alt="Estamparty" class="logo-wordmark"></a>
-  <div class="social-icons">
-    <a href="https://www.instagram.com/estampartypaper/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.25.07 1.63.07 4.81 0 3.2-.01 3.56-.07 4.81-.15 3.23-1.66 4.77-4.92 4.92-1.25.06-1.62.07-4.85.07-3.2 0-3.6-.01-4.85-.07-3.26-.15-4.77-1.7-4.92-4.92C2.16 15.56 2.15 15.2 2.15 12c0-3.2.01-3.56.08-4.81C2.38 3.96 3.9 2.42 7.15 2.27 8.4 2.21 8.8 2.2 12 2.2zm0 1.8c-3.14 0-3.5.01-4.73.07-2.44.11-3.58 1.27-3.69 3.69C3.51 8.98 3.5 9.34 3.5 12s.01 3.02.08 4.24c.11 2.42 1.25 3.58 3.69 3.69 1.22.06 1.58.07 4.73.07s3.5-.01 4.73-.07c2.44-.11 3.58-1.26 3.69-3.69.06-1.22.08-1.58.08-4.24s-.01-3.02-.08-4.24c-.11-2.42-1.25-3.58-3.69-3.69C15.5 4.01 15.14 4 12 4zm0 3.65a4.35 4.35 0 1 1 0 8.7 4.35 4.35 0 0 1 0-8.7zm0 1.8a2.55 2.55 0 1 0 0 5.1 2.55 2.55 0 0 0 0-5.1zm4.55-2.02a1.02 1.02 0 1 1 0 2.04 1.02 1.02 0 0 1 0-2.04z"/></svg>
-    </a>
-    <a href="https://www.facebook.com/estampartypaper2" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7.6h2.55l.38-2.96h-2.93V8.55c0-.86.24-1.44 1.47-1.44h1.57V4.46C16.2 4.42 15.24 4.34 14.13 4.34c-2.32 0-3.9 1.42-3.9 4.02v2.08H7.68v2.96h2.55V21h3.27z"/></svg>
-    </a>
-    <a href="https://www.youtube.com/@EstampartyVideos/shorts" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 12s0-3.4-.43-5.03a2.9 2.9 0 0 0-2.05-2.05C18.9 4.5 12 4.5 12 4.5s-6.9 0-8.52.42a2.9 2.9 0 0 0-2.05 2.05C1 8.6 1 12 1 12s0 3.4.43 5.03a2.9 2.9 0 0 0 2.05 2.05C5.1 19.5 12 19.5 12 19.5s6.9 0 8.52-.42a2.9 2.9 0 0 0 2.05-2.05C23 15.4 23 12 23 12zM9.75 15.5v-7l6 3.5-6 3.5z"/></svg>
-    </a>
+<div class="aviso"><div class="wrap">
+  <span>🔒 Compra segura pelo <b>Mercado Livre</b></span>
+  <span>✏️ Personalizado com o <b>nome</b> do seu filho(a)</span>
+  <span>🚚 Enviamos para <b>todo o Brasil</b></span>
+</div></div>
+
+<header class="topo">
+  <div class="wrap topo-linha">
+    <a class="logo" href="index.html"><img src="logo.png" alt="Estamparty"></a>
+    <form class="busca" action="index.html" method="get" id="formBusca">
+      <input type="search" name="busca" id="campoBusca" placeholder="O que você está procurando? Ex.: agenda escolar" aria-label="Buscar produto" autocomplete="off">
+      <button type="submit" aria-label="Buscar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
+    </form>
+    <nav class="acoes" aria-label="Atalhos">
+      <a class="acao" href="index.html?cat=__favoritos__"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg><span>Favoritos</span></a>
+      <a class="acao" href="https://wa.me/5512920021678" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"/></svg><span>Atendimento</span></a>
+    </nav>
   </div>
-  <p class="header-versiculo">...eu e minha casa serviremos ao Senhor! (Josué 24:15)</p>
+  <nav class="menu" aria-label="Menu principal"><div class="wrap"><a href="index.html">Início</a><span id="menuCats" style="display:contents"></span><a href="sobre.html">A Estamparty</a><a href="youtube.html" class="ativo">Vídeos</a><a href="faq.html">Dúvidas</a><a href="contato.html">Contato</a></div></nav>
 </header>
 
 <div class="yt-wrap">
@@ -47,8 +42,14 @@
   </div>
 </div>
 
-<footer>
-  Estamparty é um catálogo independente de recomendações. Os links levam ao Mercado Livre, onde a compra é processada com segurança.
+<footer class="rodape">
+  <div class="wrap">
+    <div><img src="logo.png" alt="Estamparty"><p>Papelaria personalizada. Os links levam ao Mercado Livre, onde a compra é processada com segurança.</p></div>
+    <div><h4>Loja</h4><a href="index.html#produtos">Todos os produtos</a><a href="index.html?cat=__novidades__">Novidades</a><a href="index.html?cat=__favoritos__">Meus favoritos</a><a href="youtube.html">Vídeos</a></div>
+    <div><h4>Ajuda</h4><a href="faq.html">Dúvidas</a><a href="politica-trocas.html">Política de trocas</a><a href="vendas-fora-ml.html">Vendas fora do Mercado Livre</a><a href="contato.html">Contato</a><a href="privacidade.html">Privacidade</a></div>
+    <div><h4>Siga a Estamparty</h4><a href="https://www.instagram.com/estampartypaper/" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://www.facebook.com/estampartypaper2" target="_blank" rel="noopener noreferrer">Facebook</a><a href="https://www.youtube.com/@EstampartyVideos" target="_blank" rel="noopener noreferrer">YouTube</a><a href="sobre.html">A Estamparty</a></div>
+  </div>
+  <div class="fim">“...eu e minha casa serviremos ao Senhor!” (Josué 24:15)</div>
 </footer>
 
 <a class="whatsapp-float" href="https://wa.me/5512920021678" target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp">
@@ -58,5 +59,6 @@
 <script src="youtube.js"></script>
 <script src="consent.js"></script>
 <script src="analytics.js"></script>
+<script src="tema.js"></script>
 </body>
 </html>

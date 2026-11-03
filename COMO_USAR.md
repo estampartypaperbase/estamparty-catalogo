@@ -216,16 +216,18 @@ Recomendo baixar uma cópia de segurança de tempos em tempos (ex: 1x por mês):
 2. Guarde esse arquivo numa pasta no seu computador (ex: "Backups Estamparty")
 Isso te protege contra qualquer imprevisto (exclusão acidental, problema no GitHub, etc).
 
-## 20. Configurando o Google Analytics (gratuito)
+## 20. Configurando o Google Analytics (gratuito, direto pelo dashboard)
 Pra saber quantas pessoas visitam seu site, de onde vêm e quais produtos são mais
 clicados:
 1. Acesse **analytics.google.com** e crie uma conta gratuita
 2. Crie uma propriedade nova, escolha "Web"
 3. Copie o **ID de medição** (formato `G-XXXXXXXXXX`)
-4. Abra o arquivo `analytics.js`, troque `"G-SEU-ID-AQUI"` pelo seu ID
-5. Suba o `analytics.js` atualizado
+4. No dashboard do site, seção **"📊 Google Analytics"**, cole o ID
+5. Clique em **"☁️ Publicar Analytics no GitHub"**
 
 Os dados de visita começam a aparecer no painel do Analytics em algumas horas.
+Se quiser trocar o ID depois, é só repetir o processo — não precisa mexer em
+nenhum arquivo de código.
 
 ## 21. Páginas novas dessa versão
 - **`faq.html`** — Perguntas Frequentes, com sanfona de pergunta/resposta
@@ -233,7 +235,51 @@ Os dados de visita começam a aparecer no painel do Analytics em algumas horas.
   automaticamente pra qualquer link quebrado do site)
 - **Favicon** — o iconezinho da Tuguinha agora aparece na aba do navegador
 
-## 22. Resumo de tudo que tem nessa versão
+## 22. Google Search Console (gratuito)
+Ajuda o Google a indexar seu site mais rápido e mostra quais termos as pessoas
+buscam pra chegar até você:
+1. Acesse **search.google.com/search-console**
+2. Clique em **"Adicionar propriedade"**
+3. Escolha o tipo **"Prefixo do URL"** (mais simples) e cola o link do site:
+   `https://estampartypaperbase.github.io/estamparty-catalogo/`
+4. Ele vai pedir uma verificação — a forma mais simples é baixar um arquivo HTML
+   que ele fornece e subir na raiz do seu repositório (mesmo lugar do `index.html`)
+5. Depois de verificado, vá em **"Sitemaps"** no menu da esquerda
+6. Cole `sitemap.xml` e clique em **"Enviar"**
+
+Em alguns dias, o Google começa a mostrar (na aba "Desempenho") quais buscas
+trazem gente pro seu site.
+
+## 23. Dados estruturados por produto
+Já implementei — cada produto visível na página agora carrega informações extras
+"escondidas" (preço, disponibilidade, categoria) que ajudam o Google a exibir
+selos de preço direto no resultado de busca. Não precisa fazer nada, isso já
+funciona sozinho conforme os produtos aparecem na tela.
+
+Se quiser conferir se está funcionando: depois de publicado, cole a URL do seu
+site em **search.google.com/test/rich-results** (Teste de Resultados Enriquecidos
+do Google).
+
+## 24. Verificando a velocidade do site (PageSpeed Insights)
+1. Acesse **pagespeed.web.dev**
+2. Cola o link do seu site publicado
+3. Clica em **"Analisar"**
+4. Ele te dá uma nota (0-100) pra celular e pra PC, e uma lista do que pode
+   melhorar (ex: "otimize imagens", "reduza JavaScript não usado")
+
+Não precisa perseguir nota 100 — o importante é ficar na faixa verde (acima de 50-60).
+
+## 25. Testando banners diferentes
+Agora que o Analytics está ativo, dá pra comparar informalmente qual banner do
+slider performa melhor:
+1. Publica um banner por algumas semanas
+2. No Analytics, olha os cliques/engajamento da página inicial nesse período
+   (Relatórios → Engajamento → Páginas e telas)
+3. Troca o banner, espera o mesmo período, compara
+Não é um teste A/B automático (isso exigiria uma ferramenta à parte), mas dá
+uma noção real de qual imagem/chamada funciona melhor com o tempo.
+
+## 26. Resumo de tudo que tem nessa versão
 - Busca por texto e ordenação no catálogo
 - Página própria por produto, com relacionados
 - Página "Sobre"
