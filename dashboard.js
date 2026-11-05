@@ -65,6 +65,27 @@ async function publicarNoGitHub(caminhoArquivo, objetoConteudo) {
 }
 
 async function carregarProdutos() {
+  // 1º: lê direto do repositório no GitHub (sempre atual, sem esperar o site republicar)
+  const config = carregarConfig();
+  if (config.repo && config.token) {
+    try {
+      const r = await fetch(`https://api.github.com/repos/${config.repo}/contents/produtos.json?t=${Date.now()}`, {
+        cache: "no-store",
+        headers: {
+          Authorization: `Bearer ${config.token}`,
+          Accept: "application/vnd.github.raw+json"
+        }
+      });
+      if (r.ok) {
+        const dados = JSON.parse(await r.text());
+        const remotos = dados.produtos || [];
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(remotos));
+        return remotos;
+      }
+      if (r.status === 404) return []; // arquivo ainda não existe: começa vazio
+    } catch (e) { /* tenta as próximas opções */ }
+  }
+  // 2º: lê o site publicado
   try {
     const resposta = await fetch("produtos.json", { cache: "no-store" });
     const dados = await resposta.json();
@@ -72,12 +93,31 @@ async function carregarProdutos() {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(produtosRemotos));
     return produtosRemotos;
   } catch (e) {
-    // Sem internet ou GitHub Pages fora do ar: usa a última cópia salva neste navegador
+    // 3º: última cópia salva neste navegador
     const salvos = localStorage.getItem(STORAGE_KEY);
     if (salvos) {
       try { return JSON.parse(salvos); } catch (e2) { /* ignora */ }
     }
     return [];
+  }
+}
+
+// Publica a lista no GitHub logo depois de salvar ou excluir (se a conexão estiver configurada)
+async function publicarAutomatico(textoOk) {
+  const alvo = document.getElementById("statusSalvar");
+  const config = carregarConfig();
+  if (!config.repo || !config.token) {
+    if (alvo) alvo.textContent = "⚠️ Salvo só neste navegador. Configure a conexão com o GitHub (menu ⚙️) para publicar.";
+    return false;
+  }
+  if (alvo) alvo.textContent = "Publicando no GitHub...";
+  try {
+    await publicarNoGitHub("produtos.json", { produtos });
+    if (alvo) alvo.textContent = "✅ " + textoOk + " O site atualiza em 1 a 2 minutos.";
+    return true;
+  } catch (erro) {
+    if (alvo) alvo.textContent = "❌ Salvo neste navegador, mas NÃO publicou: " + erro.message;
+    return false;
   }
 }
 
@@ -158,6 +198,7 @@ form.addEventListener("submit", (e) => {
     novo: document.getElementById("f_novo").checked
   };
 
+  const editandoIdAntes = editandoId;
   if (editandoId) {
     produtos = produtos.map(p => (p.id === editandoId ? dados : p));
   } else {
@@ -168,6 +209,7 @@ form.addEventListener("submit", (e) => {
   renderizarLista();
   popularSelectProdutos();
   limparForm();
+  publicarAutomatico(editandoIdAntes ? "Produto atualizado." : "Produto cadastrado.");
 });
 
 btnCancelar.addEventListener("click", limparForm);
@@ -225,6 +267,8 @@ lista.addEventListener("click", (e) => {
       salvarProdutos(produtos);
       renderizarLista();
       if (editandoId === id) limparForm();
+      popularSelectProdutos();
+      publicarAutomatico("Produto excluído.");
     }
   }
 });

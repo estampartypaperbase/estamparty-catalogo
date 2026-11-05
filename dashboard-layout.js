@@ -20,18 +20,23 @@
   if (!inicial) { try { inicial = localStorage.getItem(CHAVE) || ""; } catch (e) { inicial = ""; } }
   abrir(inicial || "produtos");
 
-  // Busca dentro da lista de produtos cadastrados
+  // Busca dentro da lista de produtos cadastrados.
+  // O filtro só vale quando VOCÊ digita; texto que o navegador preenche sozinho é apagado.
   const filtro = document.getElementById("filtroLista");
   const lista = document.getElementById("listaProdutos");
+  let digitado = false;
   function aplicarFiltro() {
     if (!filtro || !lista) return;
-    const termo = filtro.value.trim().toLowerCase();
+    const termo = digitado ? filtro.value.trim().toLowerCase() : "";
     lista.querySelectorAll(".dash-item").forEach(item => {
       item.style.display = !termo || item.textContent.toLowerCase().includes(termo) ? "" : "none";
     });
   }
   if (filtro && lista) {
-    filtro.addEventListener("input", aplicarFiltro);
+    filtro.addEventListener("input", (e) => { digitado = !!e.isTrusted && document.activeElement === filtro; if (!digitado) filtro.value = ""; aplicarFiltro(); });
+    const limparAuto = () => { if (!digitado) { filtro.value = ""; aplicarFiltro(); } };
+    [0, 300, 1000, 2500].forEach(ms => setTimeout(limparAuto, ms));
+    window.addEventListener("pageshow", limparAuto);
     new MutationObserver(aplicarFiltro).observe(lista, { childList: true });
   }
 })();

@@ -188,3 +188,5 @@
 #painelNovoProduto .dash-row { grid-template-columns: 1fr; }
 #painelRecomendacao .dash-form > .dash-check,
 #painelRecomendacao .dash-form > label:has(input[type="url"]) { grid-column: 1 / -1; }
+
+.dash-status-salvar { margin: 10px 0 0; font-size: 0.84rem; line-height: 1.5; color: var(--mudo); min-height: 1.2em; }

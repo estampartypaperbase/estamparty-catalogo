@@ -34,8 +34,8 @@
 
   <section class="dash-view ativo" id="view-produtos">
     <div class="dash-aviso" id="avisoExport">
-      💡 Cadastrou ou editou? Clique em <strong>☁️ Publicar no GitHub</strong> na lista de produtos para o site atualizar.
-      Se trocar de computador, comece com <strong>🔄 Sincronizar com GitHub</strong>.
+      💡 Ao clicar em <strong>Salvar produto</strong> (ou excluir), o painel já publica no GitHub e o site atualiza em 1 a 2 minutos.
+      Antes disso, confira a conexão em <strong>⚙️ Conexão GitHub</strong>.
     </div>
     <div class="dash-produtos">
       <section class="dash-panel" id="painelNovoProduto">
@@ -88,12 +88,13 @@
         <button type="submit" class="dash-btn-primary" id="btnSalvar">Salvar produto</button>
         <button type="button" class="dash-btn-ghost" id="btnCancelar" style="display:none;">Cancelar edição</button>
       </div>
+      <p class="dash-status-salvar" id="statusSalvar" role="status"></p>
     </form>
   </section>
       <section class="dash-panel" id="painelListaProdutos">
     <div class="dash-panel-head">
       <h2>Produtos cadastrados (<span id="contador">0</span>)</h2>
-      <input type="search" id="filtroLista" class="dash-filtro" placeholder="Buscar na lista..." aria-label="Buscar na lista de produtos">
+      <input type="text" id="filtroLista" name="filtro-lista" autocomplete="off" readonly onfocus="this.removeAttribute('readonly')" class="dash-filtro" placeholder="Buscar na lista..." aria-label="Buscar na lista de produtos">
       <div class="dash-actions">
         <button class="dash-btn-ghost" id="btnSincronizar">🔄 Sincronizar com GitHub</button>
         <button class="dash-btn-primary" id="btnPublicar">☁️ Publicar no GitHub</button>
