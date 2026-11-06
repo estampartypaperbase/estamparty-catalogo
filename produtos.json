@@ -673,7 +673,7 @@
     {
       "id": 68,
       "nome": "Caderno Andamento De Processos Feminino Personalizado",
-      "categoria": "Agenda Jurídica",
+      "categoria": "Agenda e Cadernos Jurídicos",
       "preco": 75,
       "imagem": "https://http2.mlstatic.com/D_788754-MLB77436110356_072024-F.jpg",
       "linkML": "https://produto.mercadolivre.com.br/MLB-3777064497",
@@ -773,7 +773,7 @@
     {
       "id": 78,
       "nome": "Agenda Feminina Jurídica 2027 1dpp Advogada Personalizada",
-      "categoria": "Agenda Jurídica",
+      "categoria": "Agenda e Cadernos Jurídicos",
       "preco": 110,
       "imagem": "https://http2.mlstatic.com/D_733353-MLB118936265145_102026-F.jpg",
       "linkML": "https://produto.mercadolivre.com.br/MLB-7735299644",
@@ -943,7 +943,7 @@
     {
       "id": 95,
       "nome": "Caderno Andamento De Processos Masculino Personalizado",
-      "categoria": "Agenda Jurídica",
+      "categoria": "Agenda e Cadernos Jurídicos",
       "preco": 71,
       "imagem": "https://http2.mlstatic.com/D_973019-MLB77652608599_072024-F.jpg",
       "linkML": "https://www.mercadolivre.com.br/metricas/MLB3777025635/performance-item?channel=ml_tabs&start_period_evolutionary=lastSevenDays&callback_url=https%3A%2F%2Fvendedores.mercadolivre.com.br%2Fanuncios%3Fpage%3D4%26sort%3DDEFAULT",
@@ -2455,7 +2455,6 @@
     "Agenda Escolar",
     "Assinatura",
     "Planner",
-    "Agenda Jurídica",
     "Diários de Viagem",
     "Devocionais",
     "Cadernos Pautados",
@@ -2470,6 +2469,7 @@
     "Diários",
     "Cadernetas",
     "Agendas",
-    "Fichários"
+    "Fichários",
+    "Agenda e Cadernos Jurídicos"
   ]
 }
