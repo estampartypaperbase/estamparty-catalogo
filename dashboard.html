@@ -17,6 +17,7 @@
   <a href="index.html" class="dash-marca"><img src="logo.png" alt="Estamparty"></a>
   <nav class="dash-menu" aria-label="Seções do painel">
     <button class="dash-menu-item ativo" data-view="produtos"><i>📦</i>Produtos</button>
+    <button class="dash-menu-item" data-view="lote"><i>📥</i>Importar em lote</button>
     <button class="dash-menu-item" data-view="banners"><i>🖼️</i>Banners</button>
     <button class="dash-menu-item" data-view="depoimentos"><i>💬</i>Depoimentos</button>
     <button class="dash-menu-item" data-view="recomendacao"><i>⭐</i>Recomendação</button>
@@ -102,8 +103,52 @@
       </div>
     </div>
     <small class="dash-hint" id="statusPublicar"></small>
-    <div class="dash-list" id="listaProdutos"></div>
+    <datalist id="listaCategorias"></datalist>
+      <div class="dash-lote-barra" id="barraLote">
+        <label class="dash-check"><input type="checkbox" id="selTodos"> <span id="selContagem">Marcar produtos</span></label>
+        <input type="text" id="selCategoria" list="listaCategorias" placeholder="Categoria para os marcados" autocomplete="off" aria-label="Categoria para os produtos marcados">
+        <button type="button" class="dash-btn-primary" id="btnAplicarCategoria">Aplicar categoria</button>
+        <button type="button" class="btn-excluir-lote" id="btnExcluirMarcados">Excluir marcados</button>
+        <span class="dash-hint" id="statusBarraLote" role="status"></span>
+      </div>
+      <div class="dash-list" id="listaProdutos"></div>
   </section>
+    </div>
+  </section>
+
+  <section class="dash-view" id="view-lote">
+    <h1 class="dash-titulo-pagina">Importar em lote</h1>
+    <div class="dash-lote-passos">
+      <div class="dash-panel">
+        <h2>1. Copie os anúncios</h2>
+        <p class="dash-config-desc">
+          No Mercado Livre, abra <strong>Anúncios → Gestão de anúncios</strong>, role a página até o final
+          (para carregar todos) e clique no botão <strong>📦 Importar vários</strong> da barra de favoritos.
+          Ele copia nome, preço, foto e link de todos os anúncios da página.
+        </p>
+        <p class="dash-config-desc">Não tem o botão? <a href="bookmarklet.html" target="_blank" rel="noopener"><strong>Como instalar</strong></a>.
+        Se a lista tiver várias páginas, repita em cada uma: o painel soma sem apagar o que já tem.</p>
+      </div>
+      <div class="dash-panel">
+        <h2>2. Cole aqui</h2>
+        <textarea id="lote_texto" class="dash-lote-texto" rows="5" placeholder="Clique aqui e cole (Ctrl+V)..." aria-label="Cole aqui os anúncios copiados"></textarea>
+        <div class="dash-actions">
+          <button type="button" class="dash-btn-primary" id="btnLerLote">Ler lista</button>
+          <span class="dash-hint" id="statusLote" role="status"></span>
+        </div>
+      </div>
+    </div>
+    <div class="dash-panel" id="loteRevisao" hidden>
+      <h2>3. Confira e adicione</h2>
+      <div class="dash-lote-topo">
+        <label class="dash-check"><input type="checkbox" id="lote_todos" checked> Marcar todos</label>
+        <label>Categoria para todos (opcional)
+          <input type="text" id="lote_categoria" list="listaCategorias" placeholder="Ex.: Agendas" autocomplete="off">
+        </label>
+        <button type="button" class="dash-btn-primary" id="btnAdicionarLote">Adicionar ao site</button>
+      </div>
+      <p class="dash-hint" id="loteResumo"></p>
+      <div class="dash-lote-lista" id="loteLista"></div>
     </div>
   </section>
 
@@ -341,6 +386,7 @@
 
 <script src="dashboard.js"></script>
 <script src="dashboard-layout.js"></script>
+<script src="dashboard-lote.js"></script>
 <script src="analytics.js"></script>
 </body>
 </html>

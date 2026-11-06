@@ -103,8 +103,8 @@ async function carregarProdutos() {
 }
 
 // Publica a lista no GitHub logo depois de salvar ou excluir (se a conexão estiver configurada)
-async function publicarAutomatico(textoOk) {
-  const alvo = document.getElementById("statusSalvar");
+async function publicarAutomatico(textoOk, idAlvo) {
+  const alvo = document.getElementById(idAlvo || "statusSalvar");
   const config = carregarConfig();
   if (!config.repo || !config.token) {
     if (alvo) alvo.textContent = "⚠️ Salvo só neste navegador. Configure a conexão com o GitHub (menu ⚙️) para publicar.";
@@ -165,12 +165,14 @@ function renderizarLista() {
   contador.textContent = produtos.length;
 
   if (!produtos.length) {
-    lista.innerHTML = `<div class="dash-empty">Nenhum produto cadastrado ainda. Use o formulário acima.</div>`;
+    lista.innerHTML = `<div class="dash-empty">Nenhum produto cadastrado ainda. Use o formulário ao lado ou a tela "Importar em lote".</div>`;
+    document.dispatchEvent(new Event("lista-renderizada"));
     return;
   }
 
   lista.innerHTML = produtos.map(p => `
     <div class="dash-item">
+      <input type="checkbox" class="sel-prod" data-id="${p.id}" aria-label="Marcar produto">
       <img src="${p.imagem}" alt="">
       <div class="dash-item-info">
         <strong>${p.nome} ${p.destaque ? "⭐" : ""}</strong>
@@ -182,6 +184,7 @@ function renderizarLista() {
       </div>
     </div>
   `).join("");
+  document.dispatchEvent(new Event("lista-renderizada"));
 }
 
 form.addEventListener("submit", (e) => {
