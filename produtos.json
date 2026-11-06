@@ -843,7 +843,7 @@
     {
       "id": 85,
       "nome": "Agenda Masculina Clássica 2027 1dpp Personalizada",
-      "categoria": "Agenda Masculina",
+      "categoria": "Agendas",
       "preco": 100,
       "imagem": "https://http2.mlstatic.com/D_629367-MLB117659153015_092026-F.jpg",
       "linkML": "https://produto.mercadolivre.com.br/MLB-7639985676",
@@ -2456,7 +2456,6 @@
     "Assinatura",
     "Planner",
     "Agenda Feminina",
-    "Agenda Masculina",
     "Agenda Jurídica",
     "Diários de Viagem",
     "Devocionais",
@@ -2470,6 +2469,7 @@
     "Planner Temático",
     "Agendamento e Pedidos",
     "Diários",
-    "Cadernetas"
+    "Cadernetas",
+    "Agendas"
   ]
 }
