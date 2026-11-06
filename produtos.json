@@ -83,7 +83,7 @@
     {
       "id": 9,
       "nome": "Caderno De Pedidos Simples Modelo Color Modelo",
-      "categoria": "Sem categoria",
+      "categoria": "Pedidos",
       "preco": 78,
       "imagem": "https://http2.mlstatic.com/D_900053-MLB73906293483_012024-F.jpg",
       "linkML": "https://produto.mercadolivre.com.br/MLB-3347734178",
@@ -173,7 +173,7 @@
     {
       "id": 18,
       "nome": "Caderno De Pedidos Completo P/ 100 Registros Personalizado",
-      "categoria": "Sem categoria",
+      "categoria": "Pedidos",
       "preco": 90.21,
       "imagem": "https://http2.mlstatic.com/D_898382-MLB96547931094_112025-F.jpg",
       "linkML": "https://produto.mercadolivre.com.br/MLB-2782200233",
@@ -183,7 +183,7 @@
     {
       "id": 19,
       "nome": "Agendamento De Pacotes Mensais Para Petshop Personalizado",
-      "categoria": "Sem categoria",
+      "categoria": "Pedidos",
       "preco": 78,
       "imagem": "https://http2.mlstatic.com/D_906502-MLB90564580711_082025-F.jpg",
       "linkML": "https://produto.mercadolivre.com.br/MLB-3275626683",
@@ -253,7 +253,7 @@
     {
       "id": 26,
       "nome": "Caderno De Pedidos Para Costureiras Personalizado",
-      "categoria": "Sem categoria",
+      "categoria": "Pedidos",
       "preco": 90.21,
       "imagem": "https://http2.mlstatic.com/D_864957-MLB116751230428_092026-F.jpg",
       "linkML": "https://produto.mercadolivre.com.br/MLB-5211209480",
@@ -663,7 +663,7 @@
     {
       "id": 67,
       "nome": "Caderno De Pedidos Personalizado Para Confeiteira",
-      "categoria": "Sem categoria",
+      "categoria": "Pedidos",
       "preco": 93,
       "imagem": "https://http2.mlstatic.com/D_761604-MLB74383450062_022024-F.jpg",
       "linkML": "https://produto.mercadolivre.com.br/MLB-3478512701",
