@@ -1,18 +1,42 @@
 {
   "bannersDesktop": [
     {
-      "imagem": "banner-imagens-pc/1784664141370-slide001pc.jpg",
+      "imagem": "banner-imagens-pc/1793977102770-slide01-resultado.jpg",
       "link": "",
-      "nomeArquivo": "1784664141370-slide001pc.jpg",
-      "sha": "a2570f368b583ebf0bd10f1d47fb028f81699c7e"
+      "nomeArquivo": "1793977102770-slide01-resultado.jpg",
+      "sha": "f9dc3f836e013634bd74b72d4021fddacf9cb5c5"
+    },
+    {
+      "imagem": "banner-imagens-pc/1793977109721-slide-02-resultado.jpg",
+      "link": "",
+      "nomeArquivo": "1793977109721-slide-02-resultado.jpg",
+      "sha": "f170518971931b9bad5f95fff73f3ceab867a7a2"
+    },
+    {
+      "imagem": "banner-imagens-pc/1793977114273-slide-03-resultado.jpg",
+      "link": "",
+      "nomeArquivo": "1793977114273-slide-03-resultado.jpg",
+      "sha": "a1ad812cc8a34c3e1c668153ade250518fa88b48"
     }
   ],
   "bannersMobile": [
     {
-      "imagem": "banner-imagens-mobile/1784664144521-slide001cel.jpg",
+      "imagem": "banner-imagens-mobile/1793977194861-cel-01-resultado.jpg",
       "link": "",
-      "nomeArquivo": "1784664144521-slide001cel.jpg",
-      "sha": "2a8f867a6d1f4f25732d30bb4dc40fe2f933c6c7"
+      "nomeArquivo": "1793977194861-cel-01-resultado.jpg",
+      "sha": "058499462abfcf35085cef53193e134a2432e6d5"
+    },
+    {
+      "imagem": "banner-imagens-mobile/1793977200404-cel-02-resultado.jpg",
+      "link": "",
+      "nomeArquivo": "1793977200404-cel-02-resultado.jpg",
+      "sha": "4da76817d199369e1bfe784266ff52febdd06940"
+    },
+    {
+      "imagem": "banner-imagens-mobile/1793977206140-cel-03-resultado.jpg",
+      "link": "",
+      "nomeArquivo": "1793977206140-cel-03-resultado.jpg",
+      "sha": "2e59411db62355efe0d706dd46e7bf1c7f47d2f7"
     }
   ]
 }
