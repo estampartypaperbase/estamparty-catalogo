@@ -2454,7 +2454,6 @@
   "categorias": [
     "Agenda Escolar",
     "Assinatura",
-    "Diários",
     "Pedidos",
     "Planner",
     "Agenda Feminina",
@@ -2465,6 +2464,7 @@
     "Cadernos Pautados",
     "Leitura",
     "Cadernos Temáticos",
-    "Agenda Creche Maternal"
+    "Agenda Creche Maternal",
+    "Diários de Emoções"
   ]
 }
