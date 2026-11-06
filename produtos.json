@@ -1,16 +1,6 @@
 {
   "produtos": [
     {
-      "id": 1,
-      "nome": "Agenda Escolar Dos Rosa Permanente Personalizada",
-      "categoria": "Agenda Escolar",
-      "preco": 72,
-      "imagem": "https://http2.mlstatic.com/D_NQ_NP_2X_649785-MLB115360385054_082026-F-agenda-escolar-dos-rosa-permanente-personalizada.webp",
-      "linkML": "https://www.mercadolivre.com.br/agenda-escolar-dos-rosa-permanente-personalizada/up/MLBU4975926906",
-      "destaque": false,
-      "novo": false
-    },
-    {
       "id": 2,
       "nome": "Caderno Assinatura Crisma Personalizado Sem Pauta",
       "categoria": "Assinaturas",
