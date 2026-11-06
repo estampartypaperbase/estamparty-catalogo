@@ -300,5 +300,8 @@
       "destaque": false,
       "novo": false
     }
+  ],
+  "categorias": [
+    "Agenda Escolar"
   ]
 }
