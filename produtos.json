@@ -1,3 +1,304 @@
 {
-  "produtos": []
+  "produtos": [
+    {
+      "id": 1,
+      "nome": "Caderno Assinatura Primeira Eucaristia Unissex Personalizado",
+      "categoria": "Sem categoria",
+      "preco": 75,
+      "imagem": "https://http2.mlstatic.com/D_625132-MLB118923871629_102026-F.jpg",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-7765364192",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 2,
+      "nome": "Agenda Escolar Dos Rosa Permanente Personalizada",
+      "categoria": "Sem categoria",
+      "preco": 72,
+      "imagem": "https://http2.mlstatic.com/D_649785-MLB115360385054_082026-F.jpg",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-5140689471",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 3,
+      "nome": "Caderno Pautado Assinatura Primeira Eucaristia Personalizado",
+      "categoria": "Sem categoria",
+      "preco": 75,
+      "imagem": "https://http2.mlstatic.com/D_906262-MLB94149130305_102025-F.jpg",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-5308379994",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 4,
+      "nome": "Diário De Viagem Personalizado",
+      "categoria": "Sem categoria",
+      "preco": 76,
+      "imagem": "https://http2.mlstatic.com/D_887991-MLB80944663162_122024-F.jpg",
+      "linkML": "https://www.mercadolivre.com.br/metricas/MLB3927059391/performance-item?channel=ml_tabs&start_period_evolutionary=lastSevenDays&callback_url=https%3A%2F%2Fvendedores.mercadolivre.com.br%2Fanuncios%3Fpage%3D1%26sort%3DDEFAULT",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 5,
+      "nome": "Diário Das Emoções Guerreiras Do Kpop Personalizado Capa 1 2026",
+      "categoria": "Sem categoria",
+      "preco": 75.66,
+      "imagem": "https://http2.mlstatic.com/D_702322-MLB97197095894_112025-F.jpg",
+      "linkML": "https://www.mercadolivre.com.br/metricas/MLB5917365708/performance-item?channel=ml_tabs&start_period_evolutionary=lastSevenDays&callback_url=https%3A%2F%2Fvendedores.mercadolivre.com.br%2Fanuncios%3Fpage%3D1%26sort%3DDEFAULT",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 6,
+      "nome": "Diário Das Emoções Divertidamente Personalizado Capa 1 2025",
+      "categoria": "Sem categoria",
+      "preco": 78.9,
+      "imagem": "https://http2.mlstatic.com/D_679402-MLB88739873858_082025-F.jpg",
+      "linkML": "https://www.mercadolivre.com.br/metricas/MLB5210999806/performance-item?channel=ml_tabs&start_period_evolutionary=lastSevenDays&callback_url=https%3A%2F%2Fvendedores.mercadolivre.com.br%2Fanuncios%3Fpage%3D1%26sort%3DDEFAULT",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 7,
+      "nome": "Caderno Assinatura Crisma Personalizado Pautado",
+      "categoria": "Sem categoria",
+      "preco": 75,
+      "imagem": "https://http2.mlstatic.com/D_903572-MLB95108750673_102025-F.jpg",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-4252307783",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 8,
+      "nome": "Caderno De Erros Personalizado",
+      "categoria": "Sem categoria",
+      "preco": 75,
+      "imagem": "https://http2.mlstatic.com/D_660414-MLB93494210176_102025-F.jpg",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-3927025839",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 9,
+      "nome": "Caderno De Pedidos Simples Modelo Color Modelo",
+      "categoria": "Sem categoria",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_900053-MLB73906293483_012024-F.jpg",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-3347734178",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 10,
+      "nome": "Planner Da Debutante Com Planejamento Completo Personalizado",
+      "categoria": "Sem categoria",
+      "preco": 78.9,
+      "imagem": "https://http2.mlstatic.com/D_950293-MLB97557195167_112025-F.jpg",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-4792884804",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 11,
+      "nome": "Planner De Estudos Bíblicos Devocional Personalizado",
+      "categoria": "Sem categoria",
+      "preco": 78.9,
+      "imagem": "https://http2.mlstatic.com/D_748138-MLB80942772830_122024-F.jpg",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-5210897878",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 12,
+      "nome": "Agenda Escolar Autista Permanente Personalizada Capa Sugerida 2025",
+      "categoria": "Sem categoria",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_603814-MLB96933909383_112025-F.jpg",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-5277272226",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 13,
+      "nome": "Diário Caderno De Leitura Almanaque",
+      "categoria": "Sem categoria",
+      "preco": 75,
+      "imagem": "https://http2.mlstatic.com/D_661335-MLB113073013000_072026-F.jpg",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-6972653016",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 14,
+      "nome": "Caderno De Oração Flores Personalizado Para 200 Orações",
+      "categoria": "Sem categoria",
+      "preco": 74,
+      "imagem": "https://http2.mlstatic.com/D_907904-MLB91541966966_092025-F.jpg",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-2888525536",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 15,
+      "nome": "Caderno De Estudos Método Cornell Personalizado",
+      "categoria": "Sem categoria",
+      "preco": 77,
+      "imagem": "https://http2.mlstatic.com/D_960647-MLA105481727687_012026-F.jpg",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-3927013899",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 16,
+      "nome": "Planner Diário Pequeno Principe Personalizado",
+      "categoria": "Sem categoria",
+      "preco": 74.69,
+      "imagem": "https://http2.mlstatic.com/D_995203-MLB89918399515_082025-F.jpg",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-4103282799",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 17,
+      "nome": "Diário Das Emoções Stitch Personalizado Capa 1 2025",
+      "categoria": "Sem categoria",
+      "preco": 78.9,
+      "imagem": "https://http2.mlstatic.com/D_784295-MLB93725555993_092025-F.jpg",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-3927016747",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 18,
+      "nome": "Caderno De Pedidos Completo P/ 100 Registros Personalizado",
+      "categoria": "Sem categoria",
+      "preco": 90.21,
+      "imagem": "https://http2.mlstatic.com/D_898382-MLB96547931094_112025-F.jpg",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-2782200233",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 19,
+      "nome": "Agendamento De Pacotes Mensais Para Petshop Personalizado",
+      "categoria": "Sem categoria",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_906502-MLB90564580711_082025-F.jpg",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-3275626683",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 20,
+      "nome": "Caderno Assinatura Crisma Personalizado Sem Pauta Capa Sugerida",
+      "categoria": "Sem categoria",
+      "preco": 75,
+      "imagem": "https://http2.mlstatic.com/D_903572-MLB95108750673_102025-F.jpg",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-4252191235",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 21,
+      "nome": "Caderno De Viagem Planner Capa Dura",
+      "categoria": "Sem categoria",
+      "preco": 70,
+      "imagem": "https://http2.mlstatic.com/D_710208-MLB73784377760_012024-F.jpg",
+      "linkML": "https://www.mercadolivre.com.br/metricas/MLB2782200966/performance-item?channel=ml_tabs&start_period_evolutionary=lastSevenDays&callback_url=https%3A%2F%2Fvendedores.mercadolivre.com.br%2Fanuncios%3Fpage%3D1%26sort%3DDEFAULT",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 22,
+      "nome": "Diário Da Menina Cristã Personalizado",
+      "categoria": "Sem categoria",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_970448-MLB81210982745_122024-F.jpg",
+      "linkML": "https://www.mercadolivre.com.br/metricas/MLB3927043541/performance-item?channel=ml_tabs&start_period_evolutionary=lastSevenDays&callback_url=https%3A%2F%2Fvendedores.mercadolivre.com.br%2Fanuncios%3Fpage%3D1%26sort%3DDEFAULT",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 23,
+      "nome": "Caderno Anotações Pautado Diario De Uma Apotecária A5 100fls Capa Principal",
+      "categoria": "Sem categoria",
+      "preco": 63.05,
+      "imagem": "https://http2.mlstatic.com/D_908112-MLB114827893578_082026-F.jpg",
+      "linkML": "https://www.mercadolivre.com.br/metricas/MLB5065015653/performance-item?channel=ml_tabs&start_period_evolutionary=lastSevenDays&callback_url=https%3A%2F%2Fvendedores.mercadolivre.com.br%2Fanuncios%3Fpage%3D1%26sort%3DDEFAULT",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 24,
+      "nome": "Diário Das Emoções Bts Personalizado Capa Principal 2026",
+      "categoria": "Sem categoria",
+      "preco": 76.53,
+      "imagem": "https://http2.mlstatic.com/D_763896-MLB110982990104_052026-F.jpg",
+      "linkML": "https://www.mercadolivre.com.br/metricas/MLB4696256667/performance-item?channel=ml_tabs&start_period_evolutionary=lastSevenDays&callback_url=https%3A%2F%2Fvendedores.mercadolivre.com.br%2Fanuncios%3Fpage%3D1%26sort%3DDEFAULT",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 25,
+      "nome": "Caderno Para Ministério Infantil Personalizado",
+      "categoria": "Sem categoria",
+      "preco": 110,
+      "imagem": "https://http2.mlstatic.com/D_739464-MLB98098921795_112025-F.jpg",
+      "linkML": "https://www.mercadolivre.com.br/metricas/MLB2783324055/performance-item?channel=ml_tabs&start_period_evolutionary=lastSevenDays&callback_url=https%3A%2F%2Fvendedores.mercadolivre.com.br%2Fanuncios%3Fpage%3D1%26sort%3DDEFAULT",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 26,
+      "nome": "Caderno De Pedidos Para Costureiras Personalizado",
+      "categoria": "Sem categoria",
+      "preco": 90.21,
+      "imagem": "https://http2.mlstatic.com/D_864957-MLB116751230428_092026-F.jpg",
+      "linkML": "https://www.mercadolivre.com.br/metricas/MLB5211209480/performance-item?channel=ml_tabs&start_period_evolutionary=lastSevenDays&callback_url=https%3A%2F%2Fvendedores.mercadolivre.com.br%2Fanuncios%3Fpage%3D1%26sort%3DDEFAULT",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 27,
+      "nome": "Diário Caderno De Leituras Borboletas Personalizado",
+      "categoria": "Sem categoria",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_750013-MLB90665615973_082025-F.jpg",
+      "linkML": "https://www.mercadolivre.com.br/metricas/MLB3933700415/performance-item?channel=ml_tabs&start_period_evolutionary=lastSevenDays&callback_url=https%3A%2F%2Fvendedores.mercadolivre.com.br%2Fanuncios%3Fpage%3D1%26sort%3DDEFAULT",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 28,
+      "nome": "Diário Caderno De Leituras Personalizado",
+      "categoria": "Sem categoria",
+      "preco": 72.75,
+      "imagem": "https://http2.mlstatic.com/D_753630-MLB80945140202_122024-F.jpg",
+      "linkML": "https://www.mercadolivre.com.br/metricas/MLB5211064774/performance-item?channel=ml_tabs&start_period_evolutionary=lastSevenDays&callback_url=https%3A%2F%2Fvendedores.mercadolivre.com.br%2Fanuncios%3Fpage%3D1%26sort%3DDEFAULT",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 29,
+      "nome": "Agenda Escolar Como Treinar Seu Dragão Perm. Personalizada",
+      "categoria": "Sem categoria",
+      "preco": 72,
+      "imagem": "https://http2.mlstatic.com/D_881148-MLB115597837464_092026-F.jpg",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-7524905108",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 30,
+      "nome": "Diário Caderno De Leituras Clean Personalizado",
+      "categoria": "Sem categoria",
+      "preco": 75,
+      "imagem": "https://http2.mlstatic.com/D_945591-MLB94852239855_102025-F.jpg",
+      "linkML": "https://www.mercadolivre.com.br/metricas/MLB5450082082/performance-item?channel=ml_tabs&start_period_evolutionary=lastSevenDays&callback_url=https%3A%2F%2Fvendedores.mercadolivre.com.br%2Fanuncios%3Fpage%3D1%26sort%3DDEFAULT",
+      "destaque": false,
+      "novo": false
+    }
+  ]
 }
