@@ -3,6 +3,9 @@
 // um novo produtos.js pra substituir o arquivo do site.
 
 const STORAGE_KEY = "estamparty_produtos";
+const CATS_KEY = "estamparty_categorias";
+let categoriasLista = (function () { try { return JSON.parse(localStorage.getItem(CATS_KEY) || "[]"); } catch (e) { return []; } })();
+function guardarCategorias(dados) { if (dados && Array.isArray(dados.categorias)) { categoriasLista = dados.categorias; try { localStorage.setItem(CATS_KEY, JSON.stringify(categoriasLista)); } catch (e) {} } }
 const CONFIG_KEY = "estamparty_github_config";
 
 // Troque pelo link da sua function depois de publicar na Vercel (veja o COMO_USAR.md)
@@ -78,6 +81,7 @@ async function carregarProdutos() {
       });
       if (r.ok) {
         const dados = JSON.parse(await r.text());
+        guardarCategorias(dados);
         const remotos = dados.produtos || [];
         localStorage.setItem(STORAGE_KEY, JSON.stringify(remotos));
         return remotos;
@@ -89,6 +93,7 @@ async function carregarProdutos() {
   try {
     const resposta = await fetch("produtos.json", { cache: "no-store" });
     const dados = await resposta.json();
+    guardarCategorias(dados);
     const produtosRemotos = dados.produtos || [];
     localStorage.setItem(STORAGE_KEY, JSON.stringify(produtosRemotos));
     return produtosRemotos;
@@ -112,7 +117,7 @@ async function publicarAutomatico(textoOk, idAlvo) {
   }
   if (alvo) alvo.textContent = "Publicando no GitHub...";
   try {
-    await publicarNoGitHub("produtos.json", { produtos });
+    await publicarNoGitHub("produtos.json", { produtos, categorias: categoriasLista });
     if (alvo) alvo.textContent = "✅ " + textoOk + " O site atualiza em 1 a 2 minutos.";
     return true;
   } catch (erro) {
@@ -303,7 +308,7 @@ document.getElementById("btnPublicar").addEventListener("click", async () => {
   const status = document.getElementById("statusPublicar");
   status.textContent = "Publicando no GitHub...";
   try {
-    await publicarNoGitHub("produtos.json", { produtos });
+    await publicarNoGitHub("produtos.json", { produtos, categorias: categoriasLista });
     status.textContent = "✅ Publicado! O site atualiza em 1-2 minutos.";
   } catch (erro) {
     status.textContent = "❌ " + erro.message;
@@ -311,7 +316,7 @@ document.getElementById("btnPublicar").addEventListener("click", async () => {
 });
 
 document.getElementById("btnExportar").addEventListener("click", () => {
-  const conteudo = JSON.stringify({ produtos }, null, 2);
+  const conteudo = JSON.stringify({ produtos, categorias: categoriasLista }, null, 2);
   const blob = new Blob([conteudo], { type: "application/json" });
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");

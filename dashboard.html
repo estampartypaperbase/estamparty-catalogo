@@ -17,6 +17,7 @@
   <a href="index.html" class="dash-marca"><img src="logo.png" alt="Estamparty"></a>
   <nav class="dash-menu" aria-label="Seções do painel">
     <button class="dash-menu-item ativo" data-view="produtos"><i>📦</i>Produtos</button>
+    <button class="dash-menu-item" data-view="categorias"><i>🏷️</i>Categorias</button>
     <button class="dash-menu-item" data-view="lote"><i>📥</i>Importar em lote</button>
     <button class="dash-menu-item" data-view="banners"><i>🖼️</i>Banners</button>
     <button class="dash-menu-item" data-view="depoimentos"><i>💬</i>Depoimentos</button>
@@ -113,6 +114,29 @@
       </div>
       <div class="dash-list" id="listaProdutos"></div>
   </section>
+    </div>
+  </section>
+
+  <section class="dash-view" id="view-categorias">
+    <h1 class="dash-titulo-pagina">Categorias</h1>
+    <div class="cats-layout">
+      <aside class="cats-lado">
+        <div class="cats-nova">
+          <input type="text" id="catNova" placeholder="Nome da nova categoria" autocomplete="off" aria-label="Nova categoria">
+          <button type="button" class="dash-btn-primary" id="btnCriarCat">Criar</button>
+        </div>
+        <div id="catsLista" class="cats-lista"></div>
+        <small class="dash-hint" id="statusCats" role="status"></small>
+      </aside>
+      <div class="cats-principal">
+        <div class="dash-lote-barra" id="catsBarra">
+          <label class="dash-check"><input type="checkbox" id="catSelTodos"> <span id="catContagem">Marcar produtos</span></label>
+          <select id="catDestino" aria-label="Mover para a categoria"></select>
+          <button type="button" class="dash-btn-primary" id="btnMoverCat" disabled>Mover marcados</button>
+        </div>
+        <div class="cats-titulo" id="catsTitulo"></div>
+        <div class="cats-prods" id="catsProdutos"></div>
+      </div>
     </div>
   </section>
 
@@ -387,6 +411,7 @@
 <script src="dashboard.js"></script>
 <script src="dashboard-layout.js"></script>
 <script src="dashboard-lote.js"></script>
+<script src="dashboard-categorias.js"></script>
 <script src="analytics.js"></script>
 </body>
 </html>
