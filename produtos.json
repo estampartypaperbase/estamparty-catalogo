@@ -899,6 +899,306 @@
       "linkML": "https://www.mercadolivre.com.br/metricas/MLB5847706114/performance-item?channel=ml_tabs&start_period_evolutionary=lastSevenDays&callback_url=https%3A%2F%2Fvendedores.mercadolivre.com.br%2Fanuncios%3Fpage%3D3%26sort%3DDEFAULT",
       "destaque": false,
       "novo": false
+    },
+    {
+      "id": 91,
+      "nome": "Caderneta Para Pet Personalizado",
+      "categoria": "Sem categoria",
+      "preco": 70,
+      "imagem": "https://http2.mlstatic.com/D_692909-MLB73807160204_012024-F.jpg",
+      "linkML": "https://www.mercadolivre.com.br/metricas/MLB2782238517/performance-item?channel=ml_tabs&start_period_evolutionary=lastSevenDays&callback_url=https%3A%2F%2Fvendedores.mercadolivre.com.br%2Fanuncios%3Fpage%3D4%26sort%3DDEFAULT",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 92,
+      "nome": "Devocional Diário Jovem Completo Personalizado",
+      "categoria": "Sem categoria",
+      "preco": 98,
+      "imagem": "https://http2.mlstatic.com/D_883348-MLB73906867427_012024-F.jpg",
+      "linkML": "https://www.mercadolivre.com.br/metricas/MLB2865253323/performance-item?channel=ml_tabs&start_period_evolutionary=lastSevenDays&callback_url=https%3A%2F%2Fvendedores.mercadolivre.com.br%2Fanuncios%3Fpage%3D4%26sort%3DDEFAULT",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 93,
+      "nome": "Caderno De Agendamento Simples Permanente Personalizado",
+      "categoria": "Sem categoria",
+      "preco": 77,
+      "imagem": "https://http2.mlstatic.com/D_979545-MLB73843123178_012024-F.jpg",
+      "linkML": "https://www.mercadolivre.com.br/metricas/MLB3278897402/performance-item?channel=ml_tabs&start_period_evolutionary=lastSevenDays&callback_url=https%3A%2F%2Fvendedores.mercadolivre.com.br%2Fanuncios%3Fpage%3D4%26sort%3DDEFAULT",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 94,
+      "nome": "Planner Financeiro Permanente Personalizado",
+      "categoria": "Sem categoria",
+      "preco": 73,
+      "imagem": "https://http2.mlstatic.com/D_999006-MLB73942436977_012024-F.jpg",
+      "linkML": "https://www.mercadolivre.com.br/metricas/MLB3771495465/performance-item?channel=ml_tabs&start_period_evolutionary=lastSevenDays&callback_url=https%3A%2F%2Fvendedores.mercadolivre.com.br%2Fanuncios%3Fpage%3D4%26sort%3DDEFAULT",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 95,
+      "nome": "Caderno Andamento De Processos Masculino Personalizado",
+      "categoria": "Sem categoria",
+      "preco": 71,
+      "imagem": "https://http2.mlstatic.com/D_973019-MLB77652608599_072024-F.jpg",
+      "linkML": "https://www.mercadolivre.com.br/metricas/MLB3777025635/performance-item?channel=ml_tabs&start_period_evolutionary=lastSevenDays&callback_url=https%3A%2F%2Fvendedores.mercadolivre.com.br%2Fanuncios%3Fpage%3D4%26sort%3DDEFAULT",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 96,
+      "nome": "Diário De Leitura Professores Personalizado",
+      "categoria": "Sem categoria",
+      "preco": 77,
+      "imagem": "https://http2.mlstatic.com/D_944169-MLB81211508821_122024-F.jpg",
+      "linkML": "https://www.mercadolivre.com.br/anuncios/MLB3927034787/modificar/omni?callback_url=https%3A%2F%2Fvendedores.mercadolivre.com.br%2Fanuncios%3Fpage%3D4%26sort%3DDEFAULT",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 97,
+      "nome": "Devocional Diário Completo Masculino Personalizado",
+      "categoria": "Sem categoria",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_928959-MLB82348246101_022025-F.jpg",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-3971328431",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 98,
+      "nome": "Caderno De Fichas De Resumos Personalizado",
+      "categoria": "Sem categoria",
+      "preco": 74,
+      "imagem": "https://http2.mlstatic.com/D_715747-MLB89519374918_082025-F.jpg",
+      "linkML": "https://www.mercadolivre.com.br/anuncios/MLB4101642049/modificar/omni?callback_url=https%3A%2F%2Fvendedores.mercadolivre.com.br%2Fanuncios%3Fpage%3D4%26sort%3DDEFAULT",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 99,
+      "nome": "Caderno De Estudos De Versículos Bíblicos Masc Personalizado",
+      "categoria": "Sem categoria",
+      "preco": 70,
+      "imagem": "https://http2.mlstatic.com/D_792516-MLB86196152860_062025-F.jpg",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-4101693215",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 100,
+      "nome": "Caderno De Anotação Ministração Para Pregadora Personalizado",
+      "categoria": "Sem categoria",
+      "preco": 76,
+      "imagem": "https://http2.mlstatic.com/D_753982-MLB89651785218_082025-F.jpg",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-4102103421",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 101,
+      "nome": "Caderno De Anotações Para Professor Personalizado 120 Folhas",
+      "categoria": "Sem categoria",
+      "preco": 74,
+      "imagem": "https://http2.mlstatic.com/D_976366-MLB85964963461_062025-F.jpg",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-5428041298",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 102,
+      "nome": "Caderno De Anotação De Ministração Kids Personalizado",
+      "categoria": "Sem categoria",
+      "preco": 73,
+      "imagem": "https://http2.mlstatic.com/D_966188-MLB86614176115_062025-F.jpg",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-5452576094",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 103,
+      "nome": "Caderno De Estudos Bíblicos Devocional Teen Personalizado",
+      "categoria": "Sem categoria",
+      "preco": 73,
+      "imagem": "https://http2.mlstatic.com/D_708139-MLB86613072805_062025-F.jpg",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-5452738400",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 104,
+      "nome": "Agenda Escolar Roblox Permanente Personalizada",
+      "categoria": "Sem categoria",
+      "preco": 72,
+      "imagem": "https://http2.mlstatic.com/D_900485-MLB116829259003_082026-F.jpg",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-5147328465",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 105,
+      "nome": "Agenda Escolar Hello Kitty Permanente Personalizada",
+      "categoria": "Sem categoria",
+      "preco": 72,
+      "imagem": "https://http2.mlstatic.com/D_982208-MLB116813105755_082026-F.jpg",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-7531728046",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 106,
+      "nome": "Agenda Escolar Genshin Impact Permanente Personalizada Capa 1",
+      "categoria": "Sem categoria",
+      "preco": 72,
+      "imagem": "https://http2.mlstatic.com/D_797284-MLB116810543463_082026-F.jpg",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-7531249150",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 107,
+      "nome": "Planner Devocional Encontro Diário Com Jesus Personalizado",
+      "categoria": "Sem categoria",
+      "preco": 95,
+      "imagem": "https://http2.mlstatic.com/D_826791-MLB110312330283_042026-F.jpg",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-6604556234",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 108,
+      "nome": "Agenda Escolar Among Us Permanente Personalizada",
+      "categoria": "Sem categoria",
+      "preco": 72,
+      "imagem": "https://http2.mlstatic.com/D_930622-MLB116719504755_082026-F.jpg",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-7513121066",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 109,
+      "nome": "Agenda Da Psicóloga 2027 1dpp Personalizada Capa 1 2027",
+      "categoria": "Sem categoria",
+      "preco": 98,
+      "imagem": "https://http2.mlstatic.com/D_900170-MLB117669554306_102026-F.jpg",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-5343256739",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 110,
+      "nome": "Agenda Escolar Harry Potter Permanente Personalizada Capa 1",
+      "categoria": "Sem categoria",
+      "preco": 72,
+      "imagem": "https://http2.mlstatic.com/D_898147-MLB116812419377_082026-F.jpg",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-5144533885",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 111,
+      "nome": "Agenda Feminina 2027 1dpp Personalizada",
+      "categoria": "Sem categoria",
+      "preco": 105,
+      "imagem": "https://http2.mlstatic.com/D_793255-MLB117437164938_102026-F.jpg",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-5325884909",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 112,
+      "nome": "Agenda Escolar Stray Kids Permanente Personalizada",
+      "categoria": "Sem categoria",
+      "preco": 72,
+      "imagem": "https://http2.mlstatic.com/D_948277-MLB116830993207_082026-F.jpg",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-5147501473",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 113,
+      "nome": "Agenda Escolar Angry Birds Permanente Personalizada Capa 1",
+      "categoria": "Sem categoria",
+      "preco": 72,
+      "imagem": "https://http2.mlstatic.com/D_850718-MLB115310163340_082026-F.jpg",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-7513125338",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 114,
+      "nome": "Fichário A5 Haikyu Personalizado 160 Folhas E 8 Divisórias Capa 1",
+      "categoria": "Sem categoria",
+      "preco": 145,
+      "imagem": "https://http2.mlstatic.com/D_920027-MLB115597572852_092026-F.jpg",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-7550476250",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 115,
+      "nome": "Agenda Escolar Minions Permanente Personalizada Capa 1 Minions 1",
+      "categoria": "Sem categoria",
+      "preco": 72,
+      "imagem": "https://http2.mlstatic.com/D_705433-MLB115404903864_082026-F.jpg",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-7534956146",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 116,
+      "nome": "Diário Caderno De Leitura Almanaque Personalizado",
+      "categoria": "Sem categoria",
+      "preco": 78,
+      "imagem": "https://http2.mlstatic.com/D_817532-MLB118270318670_102026-F.jpg",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-5437450305",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 117,
+      "nome": "Agenda Creche Maternal Dinossauro Permanente Personalizada Capa 1 Capa 2027",
+      "categoria": "Sem categoria",
+      "preco": 72,
+      "imagem": "https://http2.mlstatic.com/D_927064-MLB119258128737_102026-F.jpg",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-5382866875",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 118,
+      "nome": "Agenda Escolar My Hero Academy Boku No Hero Personalizada",
+      "categoria": "Sem categoria",
+      "preco": 72,
+      "imagem": "https://http2.mlstatic.com/D_995611-MLB116827115497_082026-F.jpg",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-7535289508",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 119,
+      "nome": "Agenda Escolar Hotwheels Personalizada Wire-o A5",
+      "categoria": "Sem categoria",
+      "preco": 72,
+      "imagem": "https://http2.mlstatic.com/D_813529-MLB115397603686_082026-F.jpg",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-5145350939",
+      "destaque": false,
+      "novo": false
+    },
+    {
+      "id": 120,
+      "nome": "Caderno Anotações Pautado Yuta Okkotsu Jujutsu Kaisen 100fls Capa Principal",
+      "categoria": "Sem categoria",
+      "preco": 65,
+      "imagem": "https://http2.mlstatic.com/D_852665-MLB119341831007_102026-F.jpg",
+      "linkML": "https://produto.mercadolivre.com.br/MLB-7810062268",
+      "destaque": false,
+      "novo": false
     }
   ],
   "categorias": [
