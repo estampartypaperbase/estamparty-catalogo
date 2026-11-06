@@ -1,5 +1,10 @@
 // Aba "Categorias": criar, renomear, excluir categorias e mover produtos em massa.
 (function () {
+  if (typeof categoriasLista === "undefined" || typeof produtos === "undefined") {
+    const aviso = document.getElementById("statusCats");
+    if (aviso) { aviso.style.color = "#b3261e"; aviso.textContent = "⚠️ O arquivo dashboard.js está desatualizado neste navegador. Aperte Ctrl+Shift+R. Se continuar, suba o dashboard.js novamente no GitHub."; }
+    return;
+  }
   const $ = (id) => document.getElementById(id);
   const esc = (t) => String(t == null ? "" : t).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
   const SEM = "Sem categoria", TODOS = "__todos__";
