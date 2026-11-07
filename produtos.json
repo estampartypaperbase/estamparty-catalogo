@@ -1837,10 +1837,11 @@
       "nome": "Agenda Escolar Pk Xd Permanente Personalizada Capa 1",
       "categoria": "Agenda Escolar",
       "preco": 72,
+      "variacoes": 0,
       "imagem": "https://http2.mlstatic.com/D_807770-MLB115407789026_082026-F.jpg",
       "linkML": "https://www.mercadolivre.com.br/metricas/MLB5147206905/performance-item?channel=ml_tabs&start_period_evolutionary=lastSevenDays&callback_url=https%3A%2F%2Fvendedores.mercadolivre.com.br%2Fanuncios%3Fpage%3D7%26sort%3DDEFAULT",
-      "destaque": false,
-      "novo": false
+      "destaque": true,
+      "novo": true
     },
     {
       "id": 184,
