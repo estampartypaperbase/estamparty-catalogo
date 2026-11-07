@@ -2278,10 +2278,11 @@
       "nome": "Fichário A5 Garfield Personalizado 160 Folhas E 8 Divisórias Capa 1",
       "categoria": "Fichários",
       "preco": 145,
+      "variacoes": 0,
       "imagem": "https://http2.mlstatic.com/D_934095-MLB115481818432_082026-F.jpg",
       "linkML": "https://produto.mercadolivre.com.br/MLB-7550751488",
-      "destaque": false,
-      "novo": false
+      "destaque": true,
+      "novo": true
     },
     {
       "id": 229,
