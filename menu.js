@@ -13,7 +13,7 @@
     alvo.innerHTML = `
       <div class="menu-drop">
         <button type="button" class="menu-drop-btn" aria-haspopup="true" aria-expanded="false">Categorias <span aria-hidden="true">▾</span></button>
-        <div class="menu-drop-lista" role="menu">
+        <div class="menu-drop-lista ${cats.length > 20 ? "col3" : cats.length > 9 ? "col2" : ""}" role="menu">
           ${link("Todos", "Todos os produtos", "todos")}
           ${temNovos ? link("__novidades__", "🆕 Novidades", "novos") : ""}
           ${cats.map(c => link(c, esc(c))).join("")}

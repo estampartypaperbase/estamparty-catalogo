@@ -259,31 +259,31 @@ function renderizarFiltros(produtos) {
   if (filtrosMobile) {
     filtrosMobile.addEventListener("change", () => selecionarCategoria(filtrosMobile.value));
   }
-
-  // categorias em círculos
-  const soCategorias = categorias.slice(1);
-  const secaoCats = document.getElementById("categoriasSecao");
-  const circulos = document.getElementById("catCirculos");
-  if (secaoCats && circulos && soCategorias.length) {
-    circulos.style.setProperty("--cols", Math.min(Math.max(soCategorias.length, 3), 6));
-    circulos.innerHTML = soCategorias
-      .map(cat => `<button class="cat" type="button" data-cat="${cat}"><i>${emojiDaCategoria(cat)}</i>${cat}</button>`)
-      .join("");
-    secaoCats.hidden = false;
-    circulos.addEventListener("click", (e) => {
-      const b = e.target.closest(".cat");
-      if (b) selecionarCategoria(b.dataset.cat, true);
-    });
-  }
 }
 
 function configurarBusca() {
   const campo = document.getElementById("campoBusca");
   const ordenar = document.getElementById("campoOrdenar");
+  const campo2 = document.getElementById("buscaProdutos");
   if (campo) {
     campo.addEventListener("input", (e) => {
       buscaAtual = e.target.value;
+      if (campo2) campo2.value = buscaAtual;
       aplicarFiltros();
+    });
+  }
+  if (campo2) {
+    campo2.addEventListener("input", (e) => {
+      buscaAtual = e.target.value;
+      if (campo) campo.value = buscaAtual;
+      aplicarFiltros();
+    });
+    const formBP = document.getElementById("formBuscaProdutos");
+    if (formBP) formBP.addEventListener("submit", (e) => {
+      e.preventDefault();
+      campo2.blur();
+      const grid = document.getElementById("grid");
+      if (grid) grid.scrollIntoView({ behavior: "smooth", block: "start" });
     });
   }
   const formBusca = document.getElementById("formBusca");
@@ -444,6 +444,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     buscaAtual = buscaUrl;
     const campo = document.getElementById("campoBusca");
     if (campo) campo.value = buscaUrl;
+    const campo2 = document.getElementById("buscaProdutos");
+    if (campo2) campo2.value = buscaUrl;
   }
   aplicarFiltros();
   if (catUrl) selecionarCategoria(catUrl, true);
