@@ -46,9 +46,10 @@
       "nome": "Diário Das Emoções Guerreiras Do Kpop Personalizado Capa 1 2026",
       "categoria": "Diários de Emoções",
       "preco": 75.66,
+      "variacoes": 0,
       "imagem": "https://http2.mlstatic.com/D_702322-MLB97197095894_112025-F.jpg",
       "linkML": "https://www.mercadolivre.com.br/metricas/MLB5917365708/performance-item?channel=ml_tabs&start_period_evolutionary=lastSevenDays&callback_url=https%3A%2F%2Fvendedores.mercadolivre.com.br%2Fanuncios%3Fpage%3D1%26sort%3DDEFAULT",
-      "destaque": false,
+      "destaque": true,
       "novo": false
     },
     {
