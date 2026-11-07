@@ -237,10 +237,11 @@
       "nome": "Diário Das Emoções Bts Personalizado Capa Principal 2026",
       "categoria": "Diários de Emoções",
       "preco": 76.53,
+      "variacoes": 0,
       "imagem": "https://http2.mlstatic.com/D_763896-MLB110982990104_052026-F.jpg",
       "linkML": "https://produto.mercadolivre.com.br/MLB-4696256667",
-      "destaque": false,
-      "novo": false
+      "destaque": true,
+      "novo": true
     },
     {
       "id": 25,
