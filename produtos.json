@@ -793,10 +793,11 @@
       "nome": "Agenda Escolar Fini Permanente Personalizada Capa 1",
       "categoria": "Agenda Escolar",
       "preco": 72,
+      "variacoes": 0,
       "imagem": "https://http2.mlstatic.com/D_610507-MLB115361572098_082026-F.jpg",
       "linkML": "https://produto.mercadolivre.com.br/MLB-5140706353",
-      "destaque": false,
-      "novo": false
+      "destaque": true,
+      "novo": true
     },
     {
       "id": 80,
