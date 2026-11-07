@@ -1948,10 +1948,11 @@
       "nome": "Agenda Escolar Five Nights At Freddy Perman. Personalizada",
       "categoria": "Agenda Escolar",
       "preco": 72,
+      "variacoes": 0,
       "imagem": "https://http2.mlstatic.com/D_644609-MLB116776046491_082026-F.jpg",
       "linkML": "https://produto.mercadolivre.com.br/MLB-5140722079",
-      "destaque": false,
-      "novo": false
+      "destaque": true,
+      "novo": true
     },
     {
       "id": 195,
