@@ -225,9 +225,10 @@
       "nome": "Caderno Anotações Pautado Diario De Uma Apotecária A5 100fls Capa Principal",
       "categoria": "Cadernos Pautados",
       "preco": 63.05,
+      "variacoes": 0,
       "imagem": "https://http2.mlstatic.com/D_908112-MLB114827893578_082026-F.jpg",
       "linkML": "https://produto.mercadolivre.com.br/MLB-5065015653",
-      "destaque": false,
+      "destaque": true,
       "novo": false
     },
     {
