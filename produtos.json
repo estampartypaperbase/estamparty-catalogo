@@ -2230,10 +2230,11 @@
       "nome": "Agenda Escolar Sonic Permanente Personalizada",
       "categoria": "Agenda Escolar",
       "preco": 72,
+      "variacoes": 0,
       "imagem": "https://http2.mlstatic.com/D_949700-MLB116830085413_082026-F.jpg",
       "linkML": "https://produto.mercadolivre.com.br/MLB-5147336089",
-      "destaque": false,
-      "novo": false
+      "destaque": true,
+      "novo": true
     },
     {
       "id": 223,
