@@ -601,10 +601,11 @@
       "nome": "Agenda Escolar Frieren Permanente Personalizada",
       "categoria": "Agenda Escolar",
       "preco": 72,
+      "variacoes": 0,
       "imagem": "https://http2.mlstatic.com/D_751255-MLB116776559307_082026-F.jpg",
       "linkML": "https://produto.mercadolivre.com.br/MLB-7525402390",
-      "destaque": false,
-      "novo": false
+      "destaque": true,
+      "novo": true
     },
     {
       "id": 61,
