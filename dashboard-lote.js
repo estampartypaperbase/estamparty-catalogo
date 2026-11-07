@@ -28,6 +28,7 @@
     $("selTodos").checked = todos.length > 0 && todos.every(c => c.checked);
     $("btnAplicarCategoria").disabled = !n;
     $("btnExcluirMarcados").disabled = !n;
+    $("btnAplicarVariacoes").disabled = !n;
   }
 
   function preencherCategorias() {
@@ -70,6 +71,20 @@
     popularSelectProdutos();
     $("selCategoria").value = "";
     await publicarAutomatico(`Categoria "${cat}" aplicada a ${n} produto(s).`, "statusBarraLote");
+  });
+
+  $("btnAplicarVariacoes").addEventListener("click", async () => {
+    const status = $("statusBarraLote");
+    const v = parseInt($("selVariacoes").value, 10);
+    if (isNaN(v) || v < 0) { status.textContent = "Escreva o número de variações (0 remove)."; $("selVariacoes").focus(); return; }
+    const n = marcados.size;
+    produtos = produtos.map(p => marcados.has(String(p.id)) ? { ...p, variacoes: v } : p);
+    salvarProdutos(produtos);
+    marcados.clear();
+    renderizarLista();
+    popularSelectProdutos();
+    $("selVariacoes").value = "";
+    await publicarAutomatico(`${v ? v + " variações" : "Variações removidas"} aplicado(s) a ${n} produto(s).`, "statusBarraLote");
   });
 
   $("btnExcluirMarcados").addEventListener("click", async () => {

@@ -154,6 +154,7 @@ function preencherForm(produto) {
   document.getElementById("f_nome").value = produto.nome;
   document.getElementById("f_categoria").value = produto.categoria;
   document.getElementById("f_preco").value = produto.preco;
+  document.getElementById("f_variacoes").value = produto.variacoes || "";
   document.getElementById("f_imagem").value = produto.imagem || (produto.imagens && produto.imagens[0]) || "";
   document.getElementById("f_linkML").value = produto.linkML;
   document.getElementById("f_destaque").checked = !!produto.destaque;
@@ -181,7 +182,7 @@ function renderizarLista() {
       <img src="${p.imagem}" alt="">
       <div class="dash-item-info">
         <strong>${p.nome} ${p.destaque ? "⭐" : ""}</strong>
-        <span>${p.categoria} · R$ ${Number(p.preco).toFixed(2)}</span>
+        <span>${p.categoria} · R$ ${Number(p.preco).toFixed(2)}${p.variacoes ? " · " + p.variacoes + " var." : ""}</span>
       </div>
       <div class="dash-item-actions">
         <button class="btn-editar" data-id="${p.id}">Editar</button>
@@ -200,6 +201,7 @@ form.addEventListener("submit", (e) => {
     nome: document.getElementById("f_nome").value.trim(),
     categoria: document.getElementById("f_categoria").value.trim(),
     preco: parseFloat(document.getElementById("f_preco").value),
+    variacoes: parseInt(document.getElementById("f_variacoes").value, 10) || 0,
     imagem: document.getElementById("f_imagem").value.trim(),
     linkML: document.getElementById("f_linkML").value.trim(),
     destaque: document.getElementById("f_destaque").checked,
@@ -418,7 +420,7 @@ const SLIDERS = {
   pc: {
     storageKey: "estamparty_banners_pc",
     pastaGitHub: "banner-imagens-pc",
-    maxItens: 3,
+    maxItens: 5,
     itens: [],
     idArquivo: "b_arquivo_pc",
     idBotaoEnviar: "btnEnviarBannerPC",
@@ -429,13 +431,25 @@ const SLIDERS = {
   mobile: {
     storageKey: "estamparty_banners_mobile",
     pastaGitHub: "banner-imagens-mobile",
-    maxItens: 3,
+    maxItens: 5,
     itens: [],
     idArquivo: "b_arquivo_mobile",
     idBotaoEnviar: "btnEnviarBannerMobile",
     idStatusUpload: "statusUploadBannerMobile",
     idLista: "listaBannersMobile",
     idContador: "contadorBannersMobile"
+  },
+  comentarios: {
+    storageKey: "estamparty_comentarios",
+    pastaGitHub: "comentarios-imagens",
+    maxItens: 12,
+    semLink: true,
+    itens: [],
+    idArquivo: "c_arquivo",
+    idBotaoEnviar: "btnEnviarComentario",
+    idStatusUpload: "statusUploadComentario",
+    idLista: "listaComentarios",
+    idContador: "contadorComentarios"
   },
   depoimentos: {
     storageKey: "estamparty_depoimentos",
@@ -543,6 +557,18 @@ function configurarSlider(tipo) {
 configurarSlider("pc");
 configurarSlider("mobile");
 configurarSlider("depoimentos");
+configurarSlider("comentarios");
+
+document.getElementById("btnPublicarComentarios").addEventListener("click", async () => {
+  const status = document.getElementById("statusPublicarComentarios");
+  status.textContent = "Publicando no GitHub...";
+  try {
+    await publicarNoGitHub("comentarios.json", { comentarios: SLIDERS.comentarios.itens });
+    status.textContent = "✅ Publicado! O site atualiza em 1-2 minutos.";
+  } catch (erro) {
+    status.textContent = "❌ " + erro.message;
+  }
+});
 
 document.getElementById("btnPublicarDepoimentos").addEventListener("click", async () => {
   const status = document.getElementById("statusPublicarDepoimentos");

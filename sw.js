@@ -1,4 +1,5 @@
-const CACHE_NOME = "estamparty-v2";
+// v3: busca sempre a versão mais nova na internet e só usa a cópia guardada quando estiver sem conexão.
+const CACHE_NOME = "estamparty-v3";
 const ARQUIVOS_ESSENCIAIS = [
   "index.html",
   "style.css",
@@ -24,12 +25,17 @@ self.addEventListener("activate", (evento) => {
 });
 
 self.addEventListener("fetch", (evento) => {
+  if (evento.request.method !== "GET") return;
   // Dados (JSON) sempre buscados da rede, pra nunca mostrar catálogo desatualizado
   if (evento.request.url.endsWith(".json")) return;
 
   evento.respondWith(
-    caches.match(evento.request).then((respostaCache) => {
-      return respostaCache || fetch(evento.request).catch(() => respostaCache);
-    })
+    fetch(evento.request)
+      .then((resposta) => {
+        const copia = resposta.clone();
+        caches.open(CACHE_NOME).then((cache) => cache.put(evento.request, copia)).catch(() => {});
+        return resposta;
+      })
+      .catch(() => caches.match(evento.request))
   );
 });

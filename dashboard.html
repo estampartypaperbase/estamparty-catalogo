@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="dashboard.css?v=20261106b">
+<link rel="stylesheet" href="dashboard.css?v=20261107b">
 </head>
 <body class="dash-body">
 
@@ -21,6 +21,7 @@
     <button class="dash-menu-item" data-view="lote"><i>📥</i>Importar em lote</button>
     <button class="dash-menu-item" data-view="banners"><i>🖼️</i>Banners</button>
     <button class="dash-menu-item" data-view="depoimentos"><i>💬</i>Depoimentos</button>
+    <button class="dash-menu-item" data-view="comentarios"><i>📸</i>Comentários Instagram</button>
     <button class="dash-menu-item" data-view="recomendacao"><i>⭐</i>Recomendação</button>
     <button class="dash-menu-item" data-view="seo"><i>🔍</i>SEO</button>
     <button class="dash-menu-item" data-view="analytics"><i>📊</i>Analytics</button>
@@ -77,6 +78,10 @@
         <input type="number" id="f_preco" step="0.01" min="0" required placeholder="49.90">
       </label>
 
+      <label>Nº de variações (cores, modelos, temas)
+        <input type="number" id="f_variacoes" min="0" step="1" placeholder="Ex.: 12 (deixe vazio se não tiver)">
+      </label>
+
       <label>Link da foto (URL)
         <input type="url" id="f_imagem" required placeholder="https://...">
         <small class="dash-hint">Vem preenchido automaticamente pelo bookmarklet.</small>
@@ -109,12 +114,40 @@
         <label class="dash-check"><input type="checkbox" id="selTodos"> <span id="selContagem">Marcar produtos</span></label>
         <input type="text" id="selCategoria" list="listaCategorias" placeholder="Categoria para os marcados" autocomplete="off" aria-label="Categoria para os produtos marcados">
         <button type="button" class="dash-btn-primary" id="btnAplicarCategoria">Aplicar categoria</button>
+        <input type="number" id="selVariacoes" min="0" step="1" placeholder="Nº variações" aria-label="Número de variações para os marcados" style="max-width:130px">
+        <button type="button" class="dash-btn-primary" id="btnAplicarVariacoes" disabled>Aplicar variações</button>
         <button type="button" class="btn-excluir-lote" id="btnExcluirMarcados">Excluir marcados</button>
         <span class="dash-hint" id="statusBarraLote" role="status"></span>
       </div>
       <div class="dash-list" id="listaProdutos"></div>
   </section>
     </div>
+  </section>
+
+  <section class="dash-view" id="view-comentarios">
+    <h1 class="dash-titulo-pagina">Comentários do Instagram</h1>
+    <section class="dash-panel">
+    <h2>📸 Prints de comentários (até 12 imagens)</h2>
+    <p class="dash-config-desc">
+      Aparecem na página inicial, antes do "Receba novidades", em um carrossel no formato <b>9:16</b> (como stories).
+      Tire o print do comentário no Instagram do celular (em pé) e envie aqui. Imagens em pé ficam perfeitas.
+    </p>
+    <div class="dash-form">
+      <label>Enviar imagem
+        <input type="file" id="c_arquivo" accept="image/*">
+      </label>
+      <div class="dash-actions">
+        <button type="button" class="dash-btn-primary" id="btnEnviarComentario">⬆ Enviar e adicionar</button>
+        <span id="statusUploadComentario" class="dash-hint"></span>
+      </div>
+    </div>
+    <h3 class="dash-subtitulo">Comentários ativos (<span id="contadorComentarios">0</span>/12)</h3>
+    <div class="dash-list" id="listaComentarios"></div>
+    <div class="dash-actions" style="margin-top:14px;">
+      <button class="dash-btn-primary" id="btnPublicarComentarios">☁️ Publicar comentários no GitHub</button>
+    </div>
+    <small class="dash-hint" id="statusPublicarComentarios"></small>
+    </section>
   </section>
 
   <section class="dash-view" id="view-categorias">
@@ -180,7 +213,7 @@
     <h1 class="dash-titulo-pagina">Banners</h1>
     <div class="dash-duas-colunas">
       <section class="dash-panel" id="painelBanners">
-    <h2>🖼️ Slider PC — formato 16:9 (até 3 imagens)</h2>
+    <h2>🖼️ Slider PC — formato 16:9 (até 5 imagens)</h2>
     <p class="dash-config-desc">
       Aparece quando o site é acessado no computador. Envie imagens na proporção
       paisagem (largas), tipo 1600x900.
@@ -194,11 +227,11 @@
         <span id="statusUploadBannerPC" class="dash-hint"></span>
       </div>
     </div>
-    <h3 class="dash-subtitulo">Ativos no PC (<span id="contadorBannersPC">0</span>/3)</h3>
+    <h3 class="dash-subtitulo">Ativos no PC (<span id="contadorBannersPC">0</span>/5)</h3>
     <div class="dash-list" id="listaBannersPC"></div>
   </section>
       <section class="dash-panel" id="painelBannersMobile">
-    <h2>🖼️ Slider Celular — formato 3:4 (até 3 imagens)</h2>
+    <h2>🖼️ Slider Celular — formato 3:4 (até 5 imagens)</h2>
     <p class="dash-config-desc">
       Aparece quando o site é acessado no celular. Envie imagens na proporção
       retrato (mais altas que largas), tipo 900x1200.
@@ -212,7 +245,7 @@
         <span id="statusUploadBannerMobile" class="dash-hint"></span>
       </div>
     </div>
-    <h3 class="dash-subtitulo">Ativos no celular (<span id="contadorBannersMobile">0</span>/3)</h3>
+    <h3 class="dash-subtitulo">Ativos no celular (<span id="contadorBannersMobile">0</span>/5)</h3>
     <div class="dash-list" id="listaBannersMobile"></div>
 
     <div class="dash-actions" style="margin-top:14px;">
@@ -408,10 +441,10 @@
 
 </main>
 
-<script src="dashboard.js?v=20261106b"></script>
-<script src="dashboard-layout.js?v=20261106b"></script>
-<script src="dashboard-lote.js?v=20261106b"></script>
-<script src="dashboard-categorias.js?v=20261106b"></script>
+<script src="dashboard.js?v=20261107b"></script>
+<script src="dashboard-layout.js?v=20261107b"></script>
+<script src="dashboard-lote.js?v=20261107b"></script>
+<script src="dashboard-categorias.js?v=20261107b"></script>
 <script src="analytics.js"></script>
 </body>
 </html>

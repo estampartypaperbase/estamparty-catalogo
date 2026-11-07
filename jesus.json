@@ -1,0 +1,18 @@
+{
+  "projetos": [
+    {
+      "icone": "🕊️",
+      "nome": "O Bom Samaritano",
+      "descricao": "Projeto cristão de acolhimento e recuperação de pessoas com dependência química. Cuidado, fé e restauração para o dependente e sua família.",
+      "link": "",
+      "rotulo": "Conhecer o projeto"
+    },
+    {
+      "icone": "🏥",
+      "nome": "CAPS AD (SUS)",
+      "descricao": "Centro de Atenção Psicossocial Álcool e Drogas. Atendimento gratuito para quem quer se tratar. Procure o CAPS AD da sua cidade ou ligue 136.",
+      "link": "tel:136",
+      "rotulo": "Ligar 136"
+    }
+  ]
+}

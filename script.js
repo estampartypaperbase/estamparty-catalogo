@@ -12,6 +12,13 @@ function formatarPreco(valor) {
   return valor.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
 }
 
+function textoCategoriaCard(p) {
+  const cat = p.categoria && p.categoria !== "Sem categoria" ? p.categoria : "";
+  const n = Number(p.variacoes) || 0;
+  const v = n > 0 ? `<span class="card-var">${n} ${n === 1 ? "variação" : "variações"}</span>` : "";
+  return cat && v ? `${cat} <span class="card-sep">·</span> ${v}` : (cat || v);
+}
+
 function criarCard(produto) {
   const imagemPrincipal = produto.imagem || (produto.imagens && produto.imagens[0]) || "";
   const fav = ehFavorito(produto.id);
@@ -36,7 +43,7 @@ function criarCard(produto) {
         </div>
       </div>
       <div class="card-body">
-        <div class="card-cat">${produto.categoria}</div>
+        <div class="card-cat">${textoCategoriaCard(produto)}</div>
         <h3 class="card-title"><a href="${produto.linkML}" target="_blank" rel="noopener noreferrer nofollow sponsored" data-id="${produto.id}">${produto.nome}</a></h3>
         <div class="card-price-row">
           <span class="price-por">${formatarPreco(produto.preco)}</span>
@@ -223,7 +230,7 @@ function selecionarCategoria(cat, rolar) {
 }
 
 function renderizarFiltros(produtos) {
-  const categorias = ["Todos", ...new Set(produtos.map(p => p.categoria))];
+  const categorias = ["Todos", ...new Set(produtos.map(p => p.categoria).filter(c => c && c !== "Sem categoria"))];
   const filtros = document.getElementById("filtros");
   const filtrosMobile = document.getElementById("filtrosMobile");
   if (!filtros) return;
@@ -266,21 +273,6 @@ function renderizarFiltros(produtos) {
     circulos.addEventListener("click", (e) => {
       const b = e.target.closest(".cat");
       if (b) selecionarCategoria(b.dataset.cat, true);
-    });
-  }
-
-  // categorias no menu do topo
-  const menuCats = document.getElementById("menuCats");
-  if (menuCats) {
-    menuCats.innerHTML = soCategorias
-      .map(cat => `<a href="#produtos" data-cat="${cat}">${cat}</a>`)
-      .join("")
-      + (temNovidades ? `<a href="#produtos" class="menu-novidades" data-cat="__novidades__">Novidades</a>` : "");
-    menuCats.addEventListener("click", (e) => {
-      const a = e.target.closest("a[data-cat]");
-      if (!a) return;
-      e.preventDefault();
-      selecionarCategoria(a.dataset.cat, true);
     });
   }
 }
@@ -345,7 +337,7 @@ async function carregarBanners() {
     const dados = await resposta.json();
     const ehMobile = window.matchMedia("(max-width: 900px)").matches;
     const listaEscolhida = ehMobile ? dados.bannersMobile : dados.bannersDesktop;
-    const banners = (listaEscolhida || []).slice(0, 3);
+    const banners = (listaEscolhida || []).slice(0, 5);
     if (!banners.length) { slider.style.display = "none"; return; }
     const hero = document.getElementById("heroPrincipal");
     if (hero) hero.classList.add("com-banners");
