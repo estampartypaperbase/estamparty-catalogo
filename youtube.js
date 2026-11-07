@@ -30,11 +30,16 @@ async function buscarPlaylistDeUploads() {
 }
 
 async function buscarVideosDaPlaylist(playlistId) {
-  const url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${playlistId}&maxResults=${YT_MAX_VIDEOS}&key=${YT_API_KEY}`;
+  const url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet,contentDetails&playlistId=${playlistId}&maxResults=${YT_MAX_VIDEOS}&key=${YT_API_KEY}`;
   const resp = await fetch(url);
   const dados = await resp.json();
   if (dados.error) throw new Error(dados.error.message || "Erro ao buscar os vídeos.");
-  return (dados.items || []).map(item => ({
+  const lista = (dados.items || []).slice().sort((a, b) => {
+    const da = Date.parse((a.contentDetails && a.contentDetails.videoPublishedAt) || a.snippet.publishedAt) || 0;
+    const db = Date.parse((b.contentDetails && b.contentDetails.videoPublishedAt) || b.snippet.publishedAt) || 0;
+    return db - da; // mais recentes primeiro
+  });
+  return lista.map(item => ({
     id: item.snippet.resourceId.videoId,
     titulo: item.snippet.title,
     thumb: item.snippet.thumbnails?.high?.url || item.snippet.thumbnails?.medium?.url || ""
