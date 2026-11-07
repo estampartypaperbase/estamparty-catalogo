@@ -5,9 +5,10 @@
       "nome": "Caderno Assinatura Primeira Eucaristia Unissex Personalizado",
       "categoria": "Assinatura",
       "preco": 75,
+      "variacoes": 0,
       "imagem": "https://http2.mlstatic.com/D_625132-MLB118923871629_102026-F.jpg",
       "linkML": "https://produto.mercadolivre.com.br/MLB-7765364192",
-      "destaque": false,
+      "destaque": true,
       "novo": false
     },
     {
