@@ -1634,10 +1634,11 @@
       "nome": "Caderno Anotações Pautado Satoro Gojo Jujutsu Kaisen 100fls Capa Principal 1",
       "categoria": "Agenda Escolar",
       "preco": 65,
+      "variacoes": 0,
       "imagem": "https://http2.mlstatic.com/D_679114-MLB118350610110_102026-F.jpg",
       "linkML": "https://produto.mercadolivre.com.br/MLB-7867523052",
-      "destaque": false,
-      "novo": false
+      "destaque": true,
+      "novo": true
     },
     {
       "id": 164,
