@@ -2,10 +2,12 @@
   "projetos": [
     {
       "icone": "🕊️",
-      "nome": "O Bom Samaritano",
-      "descricao": "Projeto cristão de acolhimento e recuperação de pessoas com dependência química. Cuidado, fé e restauração para o dependente e sua família.",
-      "link": "",
-      "rotulo": "Conhecer o projeto"
+      "nome": "O Bom Samaritano (Desafio Jovem)",
+      "descricao": "Casa de Apoio Social baseada na fé e no amor cristãos. Acolhe homens e mulheres ex-usuários de drogas, pessoas em situação de rua e andarilhos, em chácaras mantidas por doações voluntárias, sem mensalidade.",
+      "link": "https://obomsamaritano.com.br/",
+      "rotulo": "Visitar o site",
+      "link2": "https://wa.me/5548991236789?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Estamparty%20e%20gostaria%20de%20saber%20mais%20sobre%20o%20projeto%20O%20Bom%20Samaritano.",
+      "rotulo2": "Falar no WhatsApp"
     },
     {
       "icone": "🏥",

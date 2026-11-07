@@ -102,22 +102,25 @@
   /* =====================  IMPORTAR EM LOTE  ===================== */
   let itensLote = [];
 
-  function ehDuplicado(it) {
+  function acharExistente(it) {
     const idIt = it.id;
-    return produtos.some(p =>
+    return produtos.find(p =>
       (idIt && idDoLink(p.linkML) === idIt) ||
       (it.link && p.linkML === it.link) ||
       norm(p.nome) === norm(it.nome));
   }
+  const ehDuplicado = (it) => !!acharExistente(it);
 
   function desenharLote() {
     const novos = itensLote.filter(i => i.situacao === "novo").length;
     const dup = itensLote.filter(i => i.situacao === "dup").length;
     const sem = itensLote.filter(i => i.situacao === "semlink").length;
+    const mudaram = itensLote.filter(i => i.mudou).length;
     $("loteResumo").textContent =
       `${itensLote.length} anúncio(s) lido(s): ${novos} novo(s)` +
       (dup ? `, ${dup} já cadastrado(s)` : "") +
-      (sem ? `, ${sem} sem link (não dá para importar sozinho)` : "") + ".";
+      (sem ? `, ${sem} sem link (não dá para importar sozinho)` : "") +
+      (mudaram ? `, ${mudaram} com preço diferente` : "") + ".";
 
     $("loteLista").innerHTML = itensLote.map((it, i) => {
       const rotulo = it.situacao === "dup" ? '<span class="lote-tag aviso">Já cadastrado</span>'
@@ -130,6 +133,7 @@
           <div class="lote-info">
             <strong>${esc(it.nome)}</strong>
             <span>${it.preco ? brl(it.preco) : "sem preço"} · ${rotulo}</span>
+            ${it.mudou ? `<span class="lote-preco"><input type="checkbox" class="lote-sel-preco" data-i="${i}" ${it.marcadoPreco ? "checked" : ""}> Atualizar preço: ${brl(it.precoAntigo)} → <b>${brl(it.preco)}</b></span>` : ""}
           </div>
         </label>`;
     }).join("");
@@ -140,6 +144,11 @@
     const n = itensLote.filter(i => i.marcado).length;
     $("btnAdicionarLote").textContent = n ? `Adicionar ${n} ao site` : "Adicionar ao site";
     $("btnAdicionarLote").disabled = !n;
+    const np = itensLote.filter(i => i.mudou && i.marcadoPreco).length;
+    const bp = $("btnAtualizarPrecos");
+    bp.hidden = !itensLote.some(i => i.mudou);
+    bp.textContent = np ? `Atualizar ${np} preço(s)` : "Atualizar preços";
+    bp.disabled = !np;
     $("lote_todos").checked = itensLote.filter(i => i.situacao !== "semlink").every(i => i.marcado) && n > 0;
   }
 
@@ -157,6 +166,10 @@
       const base = { id: String(it.id || ""), nome: String(it.nome || "").trim(), preco: Number(it.preco) || 0, imagem: it.imagem || "", link: it.link || "" };
       base.situacao = it.semLink || !base.link ? "semlink" : ehDuplicado(base) ? "dup" : "novo";
       base.marcado = base.situacao === "novo";
+      const ex = base.situacao === "dup" ? acharExistente(base) : null;
+      if (ex && base.preco > 0 && Math.abs(Number(ex.preco) - base.preco) > 0.005) {
+        base.existenteId = ex.id; base.precoAntigo = Number(ex.preco); base.mudou = true; base.marcadoPreco = true;
+      }
       return base;
     }).filter(i => i.nome);
     if (!itensLote.length) { status.textContent = "❌ Não encontrei anúncios nessa lista."; return; }
@@ -167,6 +180,8 @@
   });
 
   $("loteLista").addEventListener("change", (e) => {
+    const cp = e.target.closest(".lote-sel-preco");
+    if (cp) { itensLote[Number(cp.dataset.i)].marcadoPreco = cp.checked; atualizarBotaoLote(); return; }
     const c = e.target.closest(".lote-sel");
     if (!c) return;
     itensLote[Number(c.dataset.i)].marcado = c.checked;
@@ -176,6 +191,20 @@
   $("lote_todos").addEventListener("change", (e) => {
     itensLote.forEach(i => { if (i.situacao !== "semlink") i.marcado = e.target.checked; });
     desenharLote();
+  });
+
+  $("btnAtualizarPrecos").addEventListener("click", async () => {
+    const alvos = itensLote.filter(i => i.mudou && i.marcadoPreco);
+    if (!alvos.length) return;
+    const mapa = new Map(alvos.map(i => [String(i.existenteId), i.preco]));
+    produtos = produtos.map(p => mapa.has(String(p.id)) ? { ...p, preco: mapa.get(String(p.id)) } : p);
+    salvarProdutos(produtos);
+    renderizarLista();
+    popularSelectProdutos();
+    const n = alvos.length;
+    itensLote.forEach(i => { if (i.mudou && i.marcadoPreco) { i.mudou = false; i.precoAntigo = i.preco; } });
+    desenharLote();
+    await publicarAutomatico(`${n} preço(s) atualizado(s).`, "statusLote");
   });
 
   $("btnAdicionarLote").addEventListener("click", async () => {

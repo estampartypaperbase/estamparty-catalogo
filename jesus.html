@@ -232,7 +232,7 @@
 
   // projetos de recuperação (editáveis em jesus.json)
   const PADRAO = [
-    { icone: "🕊️", nome: "O Bom Samaritano", descricao: "Projeto cristão de acolhimento e recuperação de pessoas com dependência química. Cuidado, fé e restauração para o dependente e sua família.", link: "", rotulo: "Conhecer o projeto" },
+    { icone: "🕊️", nome: "O Bom Samaritano (Desafio Jovem)", descricao: "Casa de Apoio Social baseada na fé e no amor cristãos. Acolhe homens e mulheres ex-usuários de drogas, pessoas em situação de rua e andarilhos, em chácaras mantidas por doações voluntárias, sem mensalidade.", link: "https://obomsamaritano.com.br/", rotulo: "Visitar o site" },
     { icone: "🏥", nome: "CAPS AD (SUS)", descricao: "Centro de Atenção Psicossocial Álcool e Drogas. Atendimento gratuito, sem custo, para quem quer se tratar. Procure o CAPS AD da sua cidade ou ligue 136.", link: "tel:136", rotulo: "Ligar 136" }
   ];
   function desenharProjetos(lista) {
@@ -242,7 +242,7 @@
       const rotulo = temLink ? (p.rotulo || "Conhecer o projeto") : "Pedir informações";
       const ext = /^https?:/.test(href);
       return `<div class="j-card"><span class="j-ico">${esc(p.icone || "🤝")}</span><h3>${esc(p.nome)}</h3><p>${esc(p.descricao)}</p>
-        <a class="j-btn azul" href="${esc(href)}" ${ext ? 'target="_blank" rel="noopener noreferrer"' : ""}>${esc(rotulo)} →</a></div>`;
+        <div style="display:flex;gap:8px;flex-wrap:wrap"><a class="j-btn azul" href="${esc(href)}" ${ext ? 'target="_blank" rel="noopener noreferrer"' : ""}>${esc(rotulo)} →</a>${p.link2 ? `<a class="j-btn verde" href="${esc(p.link2)}" target="_blank" rel="noopener noreferrer">${esc(p.rotulo2 || "Saiba mais")} →</a>` : ""}</div></div>`;
     }).join("");
   }
   fetch("jesus.json", { cache: "no-store" }).then(r => r.json())

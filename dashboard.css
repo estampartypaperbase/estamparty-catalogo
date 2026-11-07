@@ -260,3 +260,6 @@
 .cat-prod small{color:#5c7a90}
 #catDestino{min-width:200px}
 @media(max-width:900px){.cats-layout{grid-template-columns:1fr}}
+
+.lote-preco{display:block;margin-top:4px;font-size:.82rem;color:#0b4c7c;font-weight:600}
+.lote-preco input{margin-right:6px}

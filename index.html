@@ -89,6 +89,12 @@
   <div class="vant"><i>💬</i><div><b>Atendimento no WhatsApp</b><small>Tire dúvidas antes de comprar</small></div></div>
 </div></section>
 
+<section class="secao" id="colecoesSecao" hidden><div class="wrap">
+  <div class="secao-cab"><h2>Coleções</h2></div>
+  <div class="colecoes-destaque" id="colecoesDestaque"></div>
+  <div class="colecoes-chips" id="colecoesChips"></div>
+</div></section>
+
 <div class="wrap"><section class="depoimentos-wrap secao" id="depoimentosWrap"></section></div>
 
 <div class="wrap"><section class="vistos-recentemente-wrap" id="vistosRecentementeWrap"></section></div>
@@ -97,10 +103,12 @@
   <div class="secao-cab">
     <h2 id="tituloProdutos">Nossos produtos</h2>
     <div class="ferramentas">
+      <select id="campoFaixa" class="sort-select" aria-label="Faixa de preço" hidden></select>
       <select id="campoOrdenar" class="sort-select" aria-label="Ordenar produtos">
         <option value="relevancia">Ordenar</option>
         <option value="menor-preco">Menor preço</option>
         <option value="maior-preco">Maior preço</option>
+        <option value="mais-novos">Mais novos</option>
       </select>
     </div>
   </div>

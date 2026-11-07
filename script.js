@@ -4,6 +4,8 @@ let TODOS_PRODUTOS = [];
 let categoriaAtual = "Todos";
 let buscaAtual = "";
 let ordemAtual = "relevancia";
+let colecaoAtual = null;
+let faixaAtual = null;
 let listaFiltradaAtual = [];
 let itensVisiveis = 12;
 const ITENS_POR_PAGINA = 12;
@@ -112,6 +114,9 @@ function aplicarFiltros() {
     lista = lista.filter(p => p.categoria === categoriaAtual);
   }
 
+  if (colecaoAtual) lista = lista.filter(p => produtoDaColecao(p, colecaoAtual));
+  if (faixaAtual) lista = lista.filter(p => p.preco > faixaAtual.min && p.preco <= faixaAtual.max);
+
   if (buscaAtual.trim()) {
     lista = lista.filter(p =>
       textoContemAproximado(p.nome, buscaAtual) ||
@@ -126,6 +131,9 @@ function aplicarFiltros() {
       break;
     case "maior-preco":
       lista.sort((a, b) => b.preco - a.preco);
+      break;
+    case "mais-novos":
+      lista.sort((a, b) => (Number(b.id) || 0) - (Number(a.id) || 0));
       break;
     default:
       lista.sort((a, b) => (b.destaque === true) - (a.destaque === true));
@@ -148,12 +156,18 @@ function atualizarDadosEstruturados(produtos) {
       "@type": "Product",
       "name": p.nome,
       "image": p.imagem || (p.imagens && p.imagens[0]) || "",
+      "description": p.descricao || `${p.nome} personalizado pela Estamparty. Compra segura pelo Mercado Livre e envio para todo o Brasil.`,
+      "sku": String(p.id),
+      "brand": { "@type": "Brand", "name": "Estamparty" },
       "category": p.categoria,
       "offers": {
         "@type": "Offer",
         "priceCurrency": "BRL",
-        "price": p.preco,
+        "price": Number(p.preco).toFixed(2),
+        "priceValidUntil": new Date(Date.now() + 365 * 864e5).toISOString().slice(0, 10),
+        "itemCondition": "https://schema.org/NewCondition",
         "availability": "https://schema.org/InStock",
+        "seller": { "@type": "Organization", "name": "Estamparty" },
         "url": p.linkML
       }
     }
@@ -216,6 +230,7 @@ function selecionarCategoria(cat, rolar) {
   if (filtros) filtros.querySelectorAll(".filter-btn").forEach(b => b.classList.toggle("active", b.dataset.cat === cat));
   if (filtrosMobile) filtrosMobile.value = cat;
   categoriaAtual = cat;
+  if (!selecionandoColecao) { colecaoAtual = null; marcarColecaoAtiva(null); }
   const titulo = document.getElementById("tituloProdutos");
   if (titulo) {
     titulo.textContent = cat === "Todos" ? "Nossos produtos"
@@ -223,10 +238,119 @@ function selecionarCategoria(cat, rolar) {
       : cat === "__favoritos__" ? "Seus favoritos" : cat;
   }
   aplicarFiltros();
+  if (!selecionandoColecao) atualizarSEOCategoria(cat);
   if (rolar) {
     const alvo = document.getElementById("produtos");
     if (alvo) alvo.scrollIntoView({ behavior: "smooth", block: "start" });
   }
+}
+
+// ---------- SEO por categoria (título, descrição, endereço canônico) ----------
+const SEO_BASE_URL = "https://estampartypaperbase.github.io/estamparty-catalogo/";
+const SEO_ORIGINAL = {
+  title: document.title,
+  desc: (document.querySelector('meta[name="description"]') || {}).content || ""
+};
+function atualizarSEOCategoria(cat) {
+  const ehReal = cat && cat !== "Todos" && !cat.startsWith("__");
+  let canon = document.querySelector('link[rel="canonical"]');
+  if (!canon) { canon = document.createElement("link"); canon.rel = "canonical"; document.head.appendChild(canon); }
+  const meta = document.querySelector('meta[name="description"]');
+  if (ehReal) {
+    const n = TODOS_PRODUTOS.filter(p => p.categoria === cat).length;
+    document.title = `${cat} | Papelaria personalizada Estamparty`;
+    if (meta) meta.content = `Veja ${n} modelo(s) de ${cat.toLowerCase()} na Estamparty, papelaria personalizada. Compra segura pelo Mercado Livre e envio para todo o Brasil.`;
+    canon.href = SEO_BASE_URL + "?cat=" + encodeURIComponent(cat);
+  } else {
+    document.title = SEO_ORIGINAL.title;
+    if (meta) meta.content = SEO_ORIGINAL.desc;
+    canon.href = SEO_BASE_URL;
+  }
+  try {
+    const url = new URL(location.href);
+    if (ehReal) url.searchParams.set("cat", cat); else url.searchParams.delete("cat");
+    history.replaceState(null, "", url.pathname + (url.search || "") + url.hash);
+  } catch (e) { /* sem problema */ }
+}
+
+// ---------- Coleções por tema ----------
+let selecionandoColecao = false;
+const COLECOES_DESTAQUE = [
+  { id: "escolar", titulo: "Agendas Escolares", sub: "Volta às aulas com a cara do seu filho(a)", termos: ["agenda escolar", "agendas escolares"], cls: "azul" },
+  { id: "creche", titulo: "Agenda Creche e Maternal", sub: "A rotina da escolinha, do jeito do pequeno", termos: ["creche", "maternal"], cls: "amarelo" }
+];
+const COLECOES_TEMAS = [
+  { id: "aulas", titulo: "🎒 Volta às aulas", termos: ["escolar", "creche", "maternal", "caderno", "estudo"] },
+  { id: "fe", titulo: "✝️ Igreja e fé", termos: ["devocional", "crisma", "igreja", "oracao", "biblia", "eucaristia", "batiz"] },
+  { id: "formatura", titulo: "🎓 Formatura", termos: ["formatura", "formando"] },
+  { id: "natal", titulo: "🎄 Natal", termos: ["natal"] },
+  { id: "planners", titulo: "📅 Planners", termos: ["planner"] },
+  { id: "diarios", titulo: "📔 Diários e memórias", termos: ["diario"] }
+];
+function produtoDaColecao(p, c) {
+  const t = normalizarTexto(`${p.nome} ${p.categoria || ""} ${p.descricao || ""}`);
+  return c.termos.some(x => t.includes(normalizarTexto(x)));
+}
+function marcarColecaoAtiva(id) {
+  document.querySelectorAll("[data-colecao]").forEach(el => el.classList.toggle("ativa", el.dataset.colecao === id));
+}
+function selecionarColecao(id) {
+  const c = [...COLECOES_DESTAQUE, ...COLECOES_TEMAS].find(x => x.id === id);
+  if (!c) return;
+  selecionandoColecao = true;
+  selecionarCategoria("Todos", false);
+  selecionandoColecao = false;
+  colecaoAtual = c;
+  marcarColecaoAtiva(id);
+  const titulo = document.getElementById("tituloProdutos");
+  if (titulo) titulo.textContent = c.titulo.replace(/^[^\wÀ-ú]+\s*/, "");
+  aplicarFiltros();
+  const alvo = document.getElementById("produtos");
+  if (alvo) alvo.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+function renderizarColecoes(produtos) {
+  const secao = document.getElementById("colecoesSecao");
+  const dest = document.getElementById("colecoesDestaque");
+  const chips = document.getElementById("colecoesChips");
+  if (!secao || !dest || !chips) return;
+  const achados = (c) => produtos.filter(p => produtoDaColecao(p, c));
+  const cards = COLECOES_DESTAQUE.map(c => ({ c, lista: achados(c) })).filter(x => x.lista.length);
+  const temas = COLECOES_TEMAS.map(c => ({ c, n: achados(c).length })).filter(x => x.n);
+  if (!cards.length && !temas.length) { secao.hidden = true; return; }
+  dest.innerHTML = cards.map(({ c, lista }) => {
+    const img = (lista.find(p => p.imagem) || {}).imagem || "";
+    return `<button type="button" class="colecao-card ${c.cls}" data-colecao="${c.id}">
+      <span class="colecao-txt"><small>Coleção em destaque</small><b>${c.titulo}</b><em>${c.sub}</em><span class="colecao-cta">Ver ${lista.length} modelo${lista.length > 1 ? "s" : ""} →</span></span>
+      ${img ? `<span class="colecao-img"><img src="${img}" alt="" loading="lazy"></span>` : ""}
+    </button>`;
+  }).join("");
+  chips.innerHTML = temas.map(({ c, n }) => `<button type="button" class="colecao-chip" data-colecao="${c.id}">${c.titulo} <span>${n}</span></button>`).join("");
+  secao.hidden = false;
+  secao.addEventListener("click", (e) => {
+    const b = e.target.closest("[data-colecao]");
+    if (b) selecionarColecao(b.dataset.colecao);
+  });
+}
+
+// ---------- Faixa de preço ----------
+function configurarFaixaPreco(produtos) {
+  const sel = document.getElementById("campoFaixa");
+  if (!sel) return;
+  const precos = produtos.map(p => Number(p.preco)).filter(n => n > 0).sort((a, b) => a - b);
+  if (new Set(precos).size < 4) { sel.hidden = true; return; }
+  const q = (f) => Math.round(precos[Math.floor((precos.length - 1) * f)] / 5) * 5;
+  const cortes = [...new Set([q(0.25), q(0.5), q(0.75)])].filter(v => v > 0 && v < precos[precos.length - 1]);
+  if (!cortes.length) { sel.hidden = true; return; }
+  const fmt = (v) => "R$ " + v;
+  const faixas = [{ min: 0, max: cortes[0], rot: "Até " + fmt(cortes[0]) }];
+  for (let i = 0; i < cortes.length - 1; i++) faixas.push({ min: cortes[i], max: cortes[i + 1], rot: fmt(cortes[i]) + " a " + fmt(cortes[i + 1]) });
+  faixas.push({ min: cortes[cortes.length - 1], max: Infinity, rot: "Acima de " + fmt(cortes[cortes.length - 1]) });
+  sel.innerHTML = '<option value="">Faixa de preço</option>' + faixas.map((f, i) => `<option value="${i}">${f.rot}</option>`).join("");
+  sel.hidden = false;
+  sel.addEventListener("change", () => {
+    faixaAtual = sel.value === "" ? null : faixas[Number(sel.value)];
+    aplicarFiltros();
+  });
 }
 
 function renderizarFiltros(produtos) {
@@ -435,6 +559,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     return; // erro já foi mostrado dentro de carregarProdutos()
   }
   renderizarFiltros(TODOS_PRODUTOS);
+  renderizarColecoes(TODOS_PRODUTOS);
+  configurarFaixaPreco(TODOS_PRODUTOS);
   configurarBusca();
 
   const params = new URLSearchParams(location.search);

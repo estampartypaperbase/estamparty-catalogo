@@ -48,7 +48,7 @@ async function publicarNoGitHub(caminhoArquivo, objetoConteudo) {
     throw new Error("Não consegui acessar o repositório. Confira o nome (usuario/repositorio) e o token.");
   }
 
-  const conteudo = JSON.stringify(objetoConteudo, null, 2);
+  const conteudo = typeof objetoConteudo === "string" ? objetoConteudo : JSON.stringify(objetoConteudo, null, 2);
   const corpo = {
     message: `Atualiza ${caminhoArquivo} via dashboard`,
     content: base64Utf8(conteudo)
@@ -108,6 +108,18 @@ async function carregarProdutos() {
 }
 
 // Publica a lista no GitHub logo depois de salvar ou excluir (se a conexão estiver configurada)
+function gerarSitemap(repo) {
+  const [dono, nome] = String(repo || "estampartypaperbase/estamparty-catalogo").split("/");
+  const base = `https://${dono}.github.io/${nome}/`;
+  const hoje = new Date().toISOString().slice(0, 10);
+  const paginas = ["", "sobre.html", "faq.html", "contato.html", "youtube.html", "jesus.html", "politica-trocas.html", "vendas-fora-ml.html", "privacidade.html"];
+  const cats = Array.from(new Set(produtos.map(p => (p.categoria || "").trim()))).filter(c => c && c !== "Sem categoria").sort((a, b) => a.localeCompare(b, "pt-BR"));
+  const urls = paginas.map(p => ({ loc: base + p, prio: p === "" ? "1.0" : "0.6" }))
+    .concat(cats.map(c => ({ loc: base + "?cat=" + encodeURIComponent(c), prio: "0.8" })));
+  return '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
+    urls.map(u => `  <url><loc>${u.loc}</loc><lastmod>${hoje}</lastmod><priority>${u.prio}</priority></url>`).join("\n") + "\n</urlset>\n";
+}
+
 async function publicarAutomatico(textoOk, idAlvo) {
   const alvo = document.getElementById(idAlvo || "statusSalvar");
   const config = carregarConfig();
@@ -118,6 +130,8 @@ async function publicarAutomatico(textoOk, idAlvo) {
   if (alvo) alvo.textContent = "Publicando no GitHub...";
   try {
     await publicarNoGitHub("produtos.json", { produtos, categorias: categoriasLista });
+    // sitemap com as páginas de categoria (ajuda o Google); se falhar, não atrapalha o resto
+    try { await publicarNoGitHub("sitemap.xml", gerarSitemap(config.repo)); } catch (e) { /* ignora */ }
     if (alvo) alvo.textContent = "✅ " + textoOk + " O site atualiza em 1 a 2 minutos.";
     return true;
   } catch (erro) {
