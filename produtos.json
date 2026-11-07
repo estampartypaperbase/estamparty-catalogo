@@ -338,10 +338,11 @@
       "nome": "Diário Das Emoções Stray Kids K-pop Personalizado Capa Principal 2026",
       "categoria": "Diários de Emoções",
       "preco": 78.9,
+      "variacoes": 0,
       "imagem": "https://http2.mlstatic.com/D_844532-MLB111954709519_052026-F.jpg",
       "linkML": "https://www.mercadolivre.com.br/metricas/MLB4696241443/performance-item?channel=ml_tabs&start_period_evolutionary=lastSevenDays&callback_url=https%3A%2F%2Fvendedores.mercadolivre.com.br%2Fanuncios%3Fpage%3D2%26sort%3DDEFAULT",
-      "destaque": false,
-      "novo": false
+      "destaque": true,
+      "novo": true
     },
     {
       "id": 35,
