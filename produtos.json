@@ -1783,10 +1783,11 @@
       "nome": "Almanaque Futebol Meu Time Em 2027 Personalizado",
       "categoria": "Cadernos Temáticos",
       "preco": 50,
+      "variacoes": 0,
       "imagem": "https://http2.mlstatic.com/D_769316-MLB117717280188_102026-F.jpg",
       "linkML": "https://produto.mercadolivre.com.br/MLB-7810634326",
-      "destaque": false,
-      "novo": false
+      "destaque": true,
+      "novo": true
     },
     {
       "id": 179,
