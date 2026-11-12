@@ -1,0 +1,211 @@
+rules_version = '2';
+
+// Regras de segurança do banco (Cloud Firestore) do sistema de agenda para barbearias.
+// Colar em: Firebase > Firestore Database > Regras > Publicar.
+//
+// Quem pode o quê:
+//  - Cliente (sem login): ver a barbearia, serviços, equipe e horários ocupados; criar o próprio agendamento.
+//    Nunca lê agendamentos nem a lista de clientes.
+//  - Barbeiro: só a própria barbearia, e só enquanto o prazo de uso estiver valendo.
+//  - Dono (você): tudo, em todas as barbearias.
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    /* ---------- quem está acessando ---------- */
+
+    function logado() {
+      return request.auth != null;
+    }
+    function temPerfil() {
+      return logado() && exists(/databases/$(database)/documents/usuarios/$(request.auth.uid));
+    }
+    function perfil() {
+      return get(/databases/$(database)/documents/usuarios/$(request.auth.uid)).data;
+    }
+    function ehDono() {
+      return temPerfil() && perfil().papel == 'dono';
+    }
+    function ehBarbeiro(slug) {
+      return temPerfil() && perfil().papel == 'barbeiro' && perfil().barbearia == slug;
+    }
+
+    /* ---------- barbearia ativa e dentro do prazo ---------- */
+
+    function lojaDe(slug) {
+      return get(/databases/$(database)/documents/barbearias/$(slug)).data;
+    }
+    function vigente(slug) {
+      let l = lojaDe(slug);
+      return l.get('ativa', true) != false
+        && (l.get('validoAte', null) == null || l.validoAte > request.time.toMillis());
+    }
+    function barbeiroAtivo(slug) {
+      return ehBarbeiro(slug) && vigente(slug);
+    }
+    // Quem administra a barbearia: o dono ou o barbeiro dela (com prazo valendo).
+    function equipe(slug) {
+      return ehDono() || barbeiroAtivo(slug);
+    }
+
+    /* ---------- usuários (liga o login à barbearia) ---------- */
+
+    match /usuarios/{uid} {
+      allow read: if logado() && (request.auth.uid == uid || ehDono());
+      allow write: if ehDono();
+    }
+
+    /* ---------- barbearias ---------- */
+
+    match /barbearias/{slug} {
+      // O cliente precisa ler a própria barbearia; só o dono lista todas.
+      allow get: if true;
+      allow list: if ehDono();
+      allow create, delete: if ehDono();
+      // O barbeiro altera só horários, WhatsApp, política e Pix. Nome, logo, cor, prazo e suspensão são do dono.
+      allow update: if ehDono()
+        || (barbeiroAtivo(slug)
+            && request.resource.data.diff(resource.data).affectedKeys()
+                 .hasOnly(['horario', 'funcionamento', 'whatsapp', 'politica', 'pix', 'fidelidade']));
+
+      match /servicos/{id} {
+        allow read: if true;
+        allow write: if equipe(slug);
+      }
+
+      match /profissionais/{id} {
+        allow read: if true;
+        allow write: if equipe(slug);
+      }
+
+      /* ---- horários ocupados (sem dados pessoais) ---- */
+
+      match /ocupados/{bloco} {
+        allow read: if true;
+        allow create: if equipe(slug) || blocoDoCliente(slug);
+        // Um bloco de Pix não pago e vencido pode ser tomado por outro cliente.
+        allow update: if equipe(slug)
+          || (blocoDoCliente(slug)
+              && resource.data.get('expiraEm', null) is int
+              && resource.data.expiraEm < request.time.toMillis());
+        allow delete: if equipe(slug);
+      }
+
+      /* ---- pacotes que a barbearia vende (catálogo) ---- */
+
+      match /pacotes/{id} {
+        allow read: if true;
+        allow write: if equipe(slug);
+      }
+
+      /* ---- bloqueios de horário (folga, almoço): só a equipe ---- */
+
+      match /bloqueios/{id} {
+        allow read, write: if equipe(slug);
+      }
+
+      /* ---- agendamentos (dados pessoais: só a equipe lê) ---- */
+
+      match /agendamentos/{id} {
+        allow read: if equipe(slug);
+        allow create: if equipe(slug) || agendamentoDoCliente(slug);
+        allow update: if equipe(slug) || expiracaoPeloCliente(slug);
+        allow delete: if ehDono();
+      }
+
+      /* ---- clientes (mailing): só a equipe lê ---- */
+
+      match /clientes/{whatsapp} {
+        allow read: if equipe(slug);
+        allow create: if equipe(slug) || clienteNovo(slug, whatsapp);
+        allow update: if equipe(slug) || clienteRecorrente(slug, whatsapp);
+        allow delete: if equipe(slug);
+
+        // Pacotes comprados pelo cliente (saldo): só a equipe.
+        match /pacotes/{pacoteId} {
+          allow read, write: if equipe(slug);
+        }
+      }
+
+      /* ---------- validações do que o cliente (sem login) pode gravar ---------- */
+
+      // Reserva de horário: só vale junto com um agendamento criado na mesma operação.
+      function blocoDoCliente(slug) {
+        let d = request.resource.data;
+        return vigente(slug)
+          && d.keys().hasOnly(['data', 'agendamentoId', 'expiraEm'])
+          && d.keys().hasAll(['data', 'agendamentoId'])
+          && d.data is string
+          && d.agendamentoId is string
+          && existsAfter(/databases/$(database)/documents/barbearias/$(slug)/agendamentos/$(d.agendamentoId));
+      }
+
+      // Agendamento feito pelo cliente: formato fixo e preço/duração iguais aos do serviço cadastrado.
+      function agendamentoDoCliente(slug) {
+        let d = request.resource.data;
+        let l = lojaDe(slug);
+        let s = get(/databases/$(database)/documents/barbearias/$(slug)/servicos/$(d.servicoId)).data;
+        return vigente(slug)
+          && d.keys().hasOnly(['profissionalId', 'profissionalNome', 'servicoId', 'servicoNome', 'minutos', 'preco',
+                               'data', 'inicio', 'cliente', 'status', 'valorPix', 'pagarAte', 'criadoEm'])
+          && d.keys().hasAll(['profissionalId', 'profissionalNome', 'servicoId', 'servicoNome', 'minutos', 'preco',
+                              'data', 'inicio', 'cliente', 'status', 'criadoEm'])
+          && d.profissionalId is string && d.profissionalNome is string && d.profissionalNome.size() <= 80
+          && d.servicoNome is string && d.servicoNome.size() <= 80
+          && d.data.matches('^[0-9]{4}-[0-9]{2}-[0-9]{2}$')
+          && d.inicio.matches('^[0-9]{2}:[0-9]{2}$')
+          && d.cliente.keys().hasOnly(['nome', 'whatsapp'])
+          && d.cliente.nome is string && d.cliente.nome.size() >= 2 && d.cliente.nome.size() <= 80
+          && d.cliente.whatsapp is string && d.cliente.whatsapp.matches('^[0-9]{10,11}$')
+          && s.get('ativo', true) != false
+          && d.preco == s.preco
+          && d.minutos == s.minutos
+          && (d.status == 'pendente'
+              || (d.status == 'aguardando_pagamento'
+                  && l.get('pix', {}).get('ativo', false) == true
+                  && d.pagarAte is int && d.pagarAte > request.time.toMillis()
+                  && d.valorPix is number));
+      }
+
+      // Quem pegou um horário de Pix vencido marca o agendamento antigo como "expirado" (e nada além disso).
+      function expiracaoPeloCliente(slug) {
+        return vigente(slug)
+          && resource.data.status in ['aguardando_pagamento', 'expirado']
+          && resource.data.pagarAte < request.time.toMillis()
+          && request.resource.data.status == 'expirado'
+          && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['status', 'atualizadoEm']);
+      }
+
+      // Ficha do cliente: só pode ser gravada junto com um agendamento do mesmo WhatsApp.
+      function fichaLigadaAoAgendamento(slug, wa) {
+        let d = request.resource.data;
+        return vigente(slug)
+          && wa.matches('^[0-9]{10,11}$')
+          && d.whatsapp == wa
+          && d.nome is string && d.nome.size() >= 2 && d.nome.size() <= 80
+          && d.ultimoAgendamentoId is string
+          && existsAfter(/databases/$(database)/documents/barbearias/$(slug)/agendamentos/$(d.ultimoAgendamentoId))
+          && getAfter(/databases/$(database)/documents/barbearias/$(slug)/agendamentos/$(d.ultimoAgendamentoId)).data.cliente.whatsapp == wa;
+      }
+
+      function clienteNovo(slug, wa) {
+        let d = request.resource.data;
+        return fichaLigadaAoAgendamento(slug, wa)
+          && d.keys().hasOnly(['nome', 'whatsapp', 'ultimoAgendamento', 'ultimoAgendamentoId', 'agendamentos',
+                               'atualizadoEm', 'marketing', 'marketingEm'])
+          && d.agendamentos == 1
+          && d.get('marketing', true) == true;
+      }
+
+      function clienteRecorrente(slug, wa) {
+        let d = request.resource.data;
+        let mudou = d.diff(resource.data).affectedKeys();
+        return fichaLigadaAoAgendamento(slug, wa)
+          && mudou.hasOnly(['nome', 'ultimoAgendamento', 'ultimoAgendamentoId', 'agendamentos', 'atualizadoEm',
+                            'marketing', 'marketingEm'])
+          && d.agendamentos == resource.data.get('agendamentos', 0) + 1
+          && (!mudou.hasAny(['marketing']) || d.marketing == true);
+      }
+    }
+  }
+}
