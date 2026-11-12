@@ -225,3 +225,6 @@
   .colecao-txt b { font-size: 1.35rem; }
 }
 .ferramentas { display: flex; gap: 10px; flex-wrap: wrap; }
+
+/* some na hora que clica numa categoria */
+.menu-drop.fechado .menu-drop-lista { display: none !important; }

@@ -23,8 +23,12 @@
     const drop = alvo.querySelector(".menu-drop");
     const btn = alvo.querySelector(".menu-drop-btn");
     const fechar = () => { drop.classList.remove("aberto"); btn.setAttribute("aria-expanded", "false"); };
+    const sumir = () => { fechar(); drop.classList.add("fechado"); if (document.activeElement && drop.contains(document.activeElement)) document.activeElement.blur(); };
+    drop.addEventListener("mouseleave", () => drop.classList.remove("fechado"));
+    window.addEventListener("pageshow", sumir);
     btn.addEventListener("click", (e) => {
       e.stopPropagation();
+      drop.classList.remove("fechado");
       const abrir = !drop.classList.contains("aberto");
       drop.classList.toggle("aberto", abrir);
       btn.setAttribute("aria-expanded", String(abrir));
@@ -35,7 +39,7 @@
     alvo.querySelector(".menu-drop-lista").addEventListener("click", (e) => {
       const a = e.target.closest("a[data-cat]");
       if (!a) return;
-      fechar();
+      sumir();
       if (typeof selecionarCategoria === "function" && document.getElementById("grid")) {
         e.preventDefault();
         selecionarCategoria(a.dataset.cat, true);
